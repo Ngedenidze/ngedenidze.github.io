@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&display=swap');
+*{
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+:root{
+  --item-color: #3e3e3e;
+  --text-color: #ebe4e4;
+}
+body{
+    display: inline;
+}
+input{
+    pointer-events: none;
+}
+
+@media screen and (max-width: 1138px) {
+    .main-container {
+        transform: scale(0.85);
+      }
+      .option-containter {
+        transform: scale(0.85);
+      }
+  }
+@media screen and (max-width: 935px) {
+    .main-container {
+        transform: scale(0.8);
+      }
+  }
+@media screen and (max-width: 800px) {
+    .main-container {
+        transform: scale(0.75);
+      }
+
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .main-container {
+        transform: scale(0.60);
+      }
+      
+  }
+  @media screen and (max-width: 582px) {
+    .option-containter{
+        transform: scale(0.85);
+      }
+      
+      
+  }
+  
+
+  
+
+  .w{
+    font-family: Lobster, sans-serif;
+    font-size: 60px;
+    color: rgb(8, 236, 76);
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+    border-radius: 5px;
+  }
+/*root*/
+.root {
+    position: absolute;
+    top: 0px;
+    background: #F9F6EE;
+    height: 100vh;
+    width: 100%;
+    padding: 10px;
+    display: inline;
+    transition: 0.3s;
+    z-index: -1;
+}
+.blured{
+    filter: blur(30px);
+}
+
+/* root end */
+
+/* main container*/
+.root .main-container{
+    position: absolute;
+    top: 80px;
+    height: calc(100% - 100px);
+    left: 50px;
+    width: calc(100% - 100px);
+    display: flex;
+    justify-content: center;
+    border: 1px solid white;
+    /* background-color: #47a286; */
+    padding: 20px;
+}
+.game-container {
+    /* background-color: rgb(62, 62, 62); */
+    width: calc(100% - 500px);
+    height: calc(100% - 40px);
+    position: relative;
+    top: 20px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: unset;
+    min-width: 520px;
+}
+.root .main-container .game-container .row {
+    flex: 25%;
+    padding: 0 10px;
+    min-width: 10%; 
+    margin: 20px;   
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+  }
+  
+  .root .main-container .game-container .row .letter {
+    margin-left: 20px;
+    vertical-align: middle;
+    width: 100%;
+    height: 90px;
+    /* border: 10px solid green; */
+    background-color: rgb(148, 126, 215);
+    border: 3px solid rgb(53, 38, 67);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5%;
+  }
+  .root .main-container .game-container .row .letter input{
+  width: 60px;
+  height: 60px;
+  font-size: 50px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.root .main-container button {
+    position: fixed;
+    top: 90%;
+    margin: 20px 0 20px 0;
+    height: 30px;
+    width: 200px;
+    background-color: rgb(183, 222, 169);
+}
+  /* main container end*/
+
+  /* modal*/
+.modal_container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 600px;
+    background-color: #faf6ee;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.modal_container.popup{
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+
+}
+.modal_container button{
+    background-color: #47a286;
+    border: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px;
+    margin: 20px;
+    width: 200px;
+    position: relative;
+    left: 25%;
+}
+.modal_popup {
+    padding: 30px;
+    border: 2px solid rgb(52, 45, 45);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+i{
+}
+
+/* Options */
+#option-containter{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 20px;
+    left: calc(100% - 210px);
+    padding: 5px;
+    width: 200px;
+}
+#open{
+    position: relative;
+    right: 60px;
+    background-color: #47a286;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(7, 6, 6, 0.2);
+    padding: 5px;
+    width: 100px;
+    height: 48px;
+    margin-right: 10px;
+}
+#restart{
+    position: relative;
+    right: 160%;
+    background-color: #47a286;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(7, 6, 6, 0.2);
+    padding: 5px;
+    width: 100px;
+    height: 48px;
+    margin-right: 10px;
+}
+label {
+	width: 55px;
+	height: 30px;
+	position: absolute;
+    top: 35px;
+    right: 60px;
+	display: block;
+	background: #ebebeb;
+	border-radius: 20px;
+	box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+	cursor: pointer;
+	transition: 0.3s;
+}
+label:after {
+	content: "";
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top:0px;
+	left:0px;
+	background: linear-gradient(180deg,#ffcc89,#d8860b);
+	border-radius: 180px;
+	box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+	transition: 0.3s;
+}
+#darkmode-toggle{
+	visibility: hidden;
+    width: 0;
+}
+input:checked + label{
+	background: #242424; 
+}
+input:checked + label:after {
+	left:54px;
+	transform: translateX(-100%);
+	background: linear-gradient(180deg,#777,#3a3a3a);
+}
+label:active:after{
+	width: 29px;
+}
+input:checked ~ label ~ .root {
+	background: #143e61;
+}
+
+/* input:checked ~ label ~ .main-container {
+	background: #34195e;
+} */
+/* Options end*/
+#position_guessed_correctly{
+    transition: 3ms;
+    background-color: rgb(8, 236, 76)!important;
+}
+
+#letter_guessed_correctly{
+    background-color: rgb(236, 224, 8);
+    
+}
+.inaccessible{
+    pointer-events: none;
+}
