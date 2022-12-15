@@ -17,6 +17,7 @@ body{
 }
 input{
     pointer-events: none;
+    cursor: none;
 }
 
 @media screen and (max-width: 1138px) {
@@ -232,6 +233,11 @@ i{
     height: 48px;
     margin-right: 10px;
 }
+#restart:active{
+ 
+        cursor: default;
+      
+}
 label {
 	width: 55px;
 	height: 30px;
@@ -286,7 +292,7 @@ input:checked ~ label ~ .root {
 }
 
 #letter_guessed_correctly{
-    background-color: rgb(236, 224, 8);
+    background-color: rgb(236, 224, 8)!important    ;
     
 }
 .inaccessible{

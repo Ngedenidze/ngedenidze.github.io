@@ -37,11 +37,11 @@
             <button id="open">
                 Rules
             </button>
-            <button onclick="window.location.reload()" 
+            <button onclick="restart_the_game()" onblur="this.blur()" 
             id="restart">
                 Restart
             </button>
-
+            
         </div>
         
         <!-- main container for game -->
@@ -142,7 +142,7 @@
     </div>
         <div class="modal_container popup" id="modal_container">
             <div class="modal_popup">
-                <h1>Wrodle not Wordle</h1>
+                <h1 class="modal_heading">Wrodle not Wordle</h1>
                 <p>
                     Rules are simple: 
                     <br>

@@ -9,28 +9,51 @@ const close = document.getElementById('close');
 const root = document.getElementById('root');
 const game_containter = document.getElementById('game_container');
 var WORD_TO_GUESS = "GUESS";
-const different_words = ["FIELD", "BEGIN","SOLVE","LANDS","STICK"];
+const different_words = ["FIELD", "BEGIN", "SOLVE", "LANDS", "STICK"];
 const words_level = 0;
 var correct_position = []
 var correct_letter = []
 var array_of_words;
-var in_level = 1;
-//5 Sessions
-for(var k in different_words)
-sessionStorage.setItem(different_words[k-1], k);
+var in_level = 0;
+//5 Sessions with different words
+// for(var k in different_words)
+//     sessionStorage.setItem(different_words[k-1], k);
+
+switch (sessionStorage.getItem('level')) {
+    case "FIELD":
+        {in_level=0;break;}
+        case "BEGIN":
+        {in_level=1;break;}
+        case "SOLVE":
+       {in_level=2;break;}
+        case "LANDS":
+       { in_level=3;break;}
+        case "STICK":
+       { in_level=4;break;}
+    default:
+       { in_level=0;break;}
+
+}
 
 
+
+
+var heading = $(".modal_heading");
+if (heading !== null) {
+    heading.innerHTML = "Word Number " + (in_level+1);
+}
 
 //Words
-// fetch('')
-try{jQuery.get('https://raw.githubusercontent.com/charlesreid1/five-letter-words/master/sgb-words.txt', function(data) {
-    array_of_words= JSON.stringify(data).replace(/"/g, '').replaceAll('\\n', ' ').split(/\s+/);
+// fetch https://raw.githubusercontent.com/charlesreid1/five-letter-words/master/sgb-words.txt
+try {
+    jQuery.get('https://raw.githubusercontent.com/charlesreid1/five-letter-words/master/sgb-words.txt', function (data) {
+        array_of_words = JSON.stringify(data).replace(/"/g, '').replaceAll('\\n', ' ').split(/\s+/);
     });
-  }
-catch(error){
+}
+catch (error) {
     console.log("there was an error!");
     console.error(error);
-  };
+};
 
 //MODALS
 if (open || close) {
@@ -47,7 +70,7 @@ if (open || close) {
         if (key == "Escape") {
             modal_container.classList.remove('popup');
             root.classList.remove('blured');
-            
+
         }
     });
 };
@@ -64,7 +87,7 @@ document.addEventListener('keyup', function (event) {
 
     var s = event.key;
     var key = event.keyCode || event.charCode;
-    
+
     //input from keyboards
     for (var i = 0; i < rows[0].children.length; i++) {
 
@@ -82,7 +105,7 @@ document.addEventListener('keyup', function (event) {
         for (var j = 4; j >= 0; j--)
             if (rows[in_row].children[j].firstElementChild.value != '') {
                 rows[in_row].children[j].firstElementChild.value = '';
-                mywords[in_row] = mywords[in_row].replace(mywords[in_row][j],'');
+                mywords[in_row] = mywords[in_row].replace(mywords[in_row][j], '');
                 break;
             }
     }
@@ -94,19 +117,19 @@ document.addEventListener('keyup', function (event) {
 // Enter click actions
 document.addEventListener(
     'keydown', (event) => {
-        
+
         // if not 'enter key' just exit here
         if (event.which == 13) {
-            
+
             if (rows[in_row].children[4].firstElementChild.value != '') {
-                var checkable_word = String(mywords[in_row]).substring(0,5);
-                if(array_of_words.includes(checkable_word)){
+                var checkable_word = String(mywords[in_row]).substring(0, 5);
+                if (array_of_words.includes(checkable_word)) {
                     for (var i = 0; i < rows[in_row].children.length; i++) {
                         words[in_row] += rows[in_row].children[i].firstElementChild.value;
                     }
                     checkTheWord();
                 }
-                else{
+                else {
                     mywords[in_row] = '';
                     swal({
                         title: "Wrong word!",
@@ -116,7 +139,7 @@ document.addEventListener(
                     });
                 }
 
-               
+
 
 
             }
@@ -135,41 +158,62 @@ document.addEventListener(
 
 // word checker function
 function checkTheWord() {
-
-
+    
     //save the word to overwrite on it
-    var copy_of_guess = [...different_words[0]];
+    var copy_of_guess = [...different_words[in_level]];
     var guessed_correctly = 0;
 
     //mark correct guesses and take the letter out of   
     for (var k in copy_of_guess)
         if (copy_of_guess[k] == words[in_row][k]) {
             correct_position[k] = 1;
-            different_words[0][k] = '';
+            different_words[in_level][k] = '';
             rows[in_row].children[k].setAttribute('id', 'position_guessed_correctly');
             guessed_correctly++;
 
             // if all letters are marked remove event listeners and show modal
 
-            setTimeout(() => {if (correct_position.filter(x => x == 1).length == 5) {
+            
+                if (correct_position.filter(x => x == 1).length == 5) {
+                    switch (sessionStorage.getItem('level')) {
+                        case "FIELD":
+                            {sessionStorage.setItem("level", "BEGIN"); break;}
+                            case "BEGIN":
+                          {  sessionStorage.setItem("level", "SOLVE");break;}
+                            case "SOLVE":
+                           { sessionStorage.setItem("level", "LANDS");break;}
+                            case "LANDS":
+                           { sessionStorage.setItem("level", "STICK");break;}
+                            case "STICK":
+                           { sessionStorage.setItem("level", "END");break;}
+                        default:
+                            {sessionStorage.setItem("level", "BEGIN");break;
+}
+                    }
+                    setTimeout(() => {
+                        
+                        sessionStorage.setItem("level", "BEGIN");
+                        swal({
+                        title: "You've Won!",
+                        text: "You have found the word!",
+                        icon: "success",
+                    });
+                     }, 300);
+                    document.removeEventListener('keydown',event);
+                    location.reload();
+                   
+                }
 
-                swal({
-                    title: "You've Won!",
-                    text: "You have found the word!",
-                    icon: "success",
-                });
-                document.removeEventListener('keyup');
-                document.removeEventListener('keydown');
-            }
-                
-            }, 300); 
+            
+
+
         }
 
     // Check if there are anymore letters guessed in wrong position 
-    for (var k in different_words[0])
+    for (var k in different_words[in_level])
         if (!correct_position[k]) {
-            if (different_words[0].includes(words[in_row][k])) {
-                rows[in_row].children[k].setAttribute('id', 'letter_guessed_correctly');
+            if (different_words[in_level].includes(words[in_row][k])) {
+                rows[in_row].children[k].setAttribute('id','letter_guessed_correctly');
             }
             else { console.log('letter is wrong!') }
         }
@@ -178,10 +222,10 @@ function checkTheWord() {
     if (in_row == 5) alert('game over');
     else in_row++;
 
-    different_words[0] = [...copy_of_guess];
+
 
 }
 // Restart the game
 function restart_the_game() {
-    game_containter.reset();
+    location.reload();
 }
