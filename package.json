@@ -1,0 +1,26 @@
+{
+  "name": "finalproject",
+  "version": "1.0.0",
+  "description": "Final project for Web Development",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ngedenidze/ngedenidze.github.io.git"
+  },
+  "keywords": [
+    "final",
+    "project",
+    "wordle",
+    "web",
+    "application"
+  ],
+  "author": "Nika Gedenidze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ngedenidze/ngedenidze.github.io/issues"
+  },
+  "homepage": "https://github.com/Ngedenidze/ngedenidze.github.io#readme"
+}
