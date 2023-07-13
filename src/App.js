@@ -4,7 +4,7 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Layout from './components/Layout'
 import Projects from './components/Projects'
-// import Dashboard from './components/Dashboard'
+ 
 import './App.scss'
 
 function App() {
