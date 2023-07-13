@@ -5,7 +5,7 @@ body {
   margin: 0;
   font: 300 11px/1.4 'Lobster Regular', 'sans-serif';
   color: #445;
-  background: radial-gradient(circle 800px at 75% 45%, #fca400 60%, #953c09) fixed;
+  background: radial-gradient(circle 800px at 75% 45%, #B68D7F 60%, #B3A19E) fixed;
   overflow: hidden;
   display: block;
   -webkit-font-smoothing: antialiased;
