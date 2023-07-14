@@ -4,7 +4,7 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Layout from './components/Layout'
 import Projects from './components/Projects'
-import WebgiViewer from './components/webgi/webgi.js'
+import WebgiViewer from './components/webgi/webgi'
  
 import './App.scss'
 
