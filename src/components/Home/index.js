@@ -4,7 +4,6 @@ import logo from "../../assets/logo.png";
 import pic2 from "../../assets/pic23.png";
 import { Link } from "react-router-dom";
 import AnimatedLetters from "../AnimatedLetters";
-import { SplineViewer } from '@splinetool/viewer';
 import Loader from 'react-loaders'
 import WebgiViewer from "../webgi/webgi";
 
