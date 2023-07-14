@@ -9,7 +9,7 @@ import {
     SSRPlugin,
     SSAOPlugin,
     BloomPlugin,
-} from "webgi";
+} from "webgi"
 import './index.scss';
 
 function WebgiViewer() {
