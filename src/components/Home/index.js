@@ -5,7 +5,6 @@ import pic2 from "../../assets/pic23.png";
 import { Link } from "react-router-dom";
 import AnimatedLetters from "../AnimatedLetters";
 import Loader from 'react-loaders'
-import WebgiViewer from "../webgi/webgi";
 
 function loadScript(src) {
   return new Promise((resolve, reject) => {
@@ -78,7 +77,7 @@ const Home = () => {
             </div>
             <div className="animation-container">
             {/* <spline-viewer loading-anim url="https://prod.spline.design/gd0yFiBUrhcBhMRu/scene.splinecode"></spline-viewer> */}
-                <WebgiViewer />
+               
             </div>
         </div>
         <Loader type="ball-grid-pulse" />
