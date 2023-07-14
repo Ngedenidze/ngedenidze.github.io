@@ -77,7 +77,7 @@ const Home = () => {
             </div>
             <div className="animation-container">
             {/* <spline-viewer loading-anim url="https://prod.spline.design/gd0yFiBUrhcBhMRu/scene.splinecode"></spline-viewer> */}
-               
+               <img src="./snapshot.png" alt="" className="home-page-pic"></img>
             </div>
         </div>
         <Loader type="ball-grid-pulse" />
