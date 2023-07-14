@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import AnimatedLetters from "../AnimatedLetters";
 import { SplineViewer } from '@splinetool/viewer';
 import Loader from 'react-loaders'
+import WebgiViewer from "../webgi/webgi";
 
 function loadScript(src) {
   return new Promise((resolve, reject) => {
@@ -77,9 +78,9 @@ const Home = () => {
                 <Link to="/projects" className="flat-button">PROJECTS</Link>
             </div>
             <div className="animation-container">
-            <spline-viewer loading-anim url="https://prod.spline.design/gd0yFiBUrhcBhMRu/scene.splinecode"></spline-viewer>
+            {/* <spline-viewer loading-anim url="https://prod.spline.design/gd0yFiBUrhcBhMRu/scene.splinecode"></spline-viewer> */}
+                <WebgiViewer />
             </div>
-           
         </div>
         <Loader type="ball-grid-pulse" />
         </>
