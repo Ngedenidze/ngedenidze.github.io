@@ -1,11 +1,12 @@
 import "./index.scss";
 import { useEffect, useState } from 'react'
 import logo from "../../assets/logo.png";
-import pic2 from "../../assets/pic23.png";
+import logo2 from "../../assets/logo-2.png";
 import { Link } from "react-router-dom";
 import AnimatedLetters from "../AnimatedLetters";
+import { SplineViewer } from '@splinetool/viewer';
 import Loader from 'react-loaders'
-import WebgiViewer from "../Animation/index";
+import WebgiViewer from "../Animation";
 
 function loadScript(src) {
   return new Promise((resolve, reject) => {
@@ -21,8 +22,8 @@ function loadScript(src) {
 const Home = () => {
 
     const [letterClass, setLetterClass] = useState('text-animate');
-    const nameArray = ['i', 'k', 'a', ' ','g', 'e', 'd', 'e', 'n', 'i', 'd', 'z', 'e'];
-    const jobArray = ['s', 'o', 'f', 't', 'w', 'a', 'r', 'e',' ', 'e', 'n', 'g', 'i', 'n', 'e', 'e', 'r'];
+    const nameArray = ['i', 'k', 'a', ' ','G', 'e', 'd', 'e', 'n', 'i', 'd', 'z', 'e'];
+    const jobArray = ['S', 'o', 'f', 't', 'w', 'a', 'r', 'e',' ', 'E', 'n', 'g', 'i', 'n', 'e', 'e', 'r'];
 
     useEffect(() => {
         const timerId = setTimeout(() => {
@@ -60,12 +61,12 @@ const Home = () => {
                 
                 <span className={`${letterClass} _13`}>I'</span>
                 <span className={`${letterClass} _14`}>m</span>
-                <img src={logo} alt=""></img>
+                <img src={logo2} alt=""></img>
                 <AnimatedLetters letterClass={letterClass}
                     strArray={nameArray}
                     idx={15}
                 />
-                <span> </span>
+                
                 <br/>
                 <AnimatedLetters letterClass={letterClass}
                     strArray={jobArray}

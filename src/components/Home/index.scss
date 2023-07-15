@@ -21,15 +21,19 @@
       transform: translateY(-50%);
       width: 40%;
       max-height: 90%;
+      span{
+        margin-top: 15px;
+      }
     }
   
     h1 {
       color: #0e123f;
-      font-size: 75px;
+      font-size: 72px;
       line-height: 53px;
       margin: 0;
       font-family: 'Lobster Regular';
       font-weight: 400;
+      letter-spacing: 2px;
   
       &:before {
         font-family: 'La Belle Aurore', cursive;
@@ -53,13 +57,13 @@
       }
   
       img {
-        margin-left: 20px;
+        margin-left: 10px;
         opacity: 0;
         width: 50px;
         height: auto;
         animation: rotateIn 1s linear both;
         animation-delay: 1.4s;
-        margin-right: 5px;
+        margin-right: 0px;
       }
     }
   

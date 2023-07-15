@@ -35,18 +35,23 @@ const About = () => {
                         />
                     </h1>
                     <p>
-                        I'm a very ambitious front-end developer looking for a role in an
-                        established IT company with the opportunity to work with the latest
-                        technologies on challenging and diverse projects.
+                    Welcome to my portfolio! I'm a Computer Science undergraduate from Caldwell University, passionate about using technology to create innovative solutions.
+                    I've honed a broad set of skills throughout my academic journey, with proficiency in programming languages such as Java, Python, C++, and JS.
                     </p>
                     <p align="LEFT">
-                        I'm quiet confident, naturally curious, and perpetually working on
-                        improving my chops one design problem at a time.
+                    During my tenure as a Student Researcher, I specialized in Artificial Intelligence, conducting extensive research on Convolutional Neural Networks (CNNs).
+                    This experience not only deepened my understanding of AI but also allowed me to contribute to the development of an optimized CNN technique, significantly reducing AI training times.
                     </p>
                     <p>
-                        If I need to define myself in one sentence that would be a family
-                        person, father of a beautiful daughter, a sports fanatic,
-                        photography enthusiast, and tech-obsessed!!!
+                    Translating my theoretical knowledge into practical applications, I've embarked on personal projects such as 'Wrodle not Wordle', a web-based game, and 'Employee Database Management', an interactive desktop application.
+                    These ventures underscore my ability to leverage various programming languages and tools to architect both front-end and back-end solutions.
+                    </p>
+                    <p>
+                    Beyond the world of coding, I have a vibrant life filled with music production, vinyl record collection, and skateboarding. Avid reading and movie watching are also on my list of favorite pastimes. 
+                    These hobbies not only provide a creative outlet but also stimulate fresh perspectives that I can bring into my professional endeavors. </p>
+                    <p>
+                    I look forward to leveraging my academic and professional skills, coupled with my creativity and passion, to make a meaningful impact in future roles. 
+                    I am excited to explore opportunities that allow me to combine my love for technology with my other interests.
                     </p>
                 </div>
 
