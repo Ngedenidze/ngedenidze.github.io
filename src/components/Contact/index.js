@@ -127,7 +127,7 @@ const Contact = () => {
 
 
       </div>
-      <Loader type="ball-grid-pulse" />
+      <Loader type="ball-grid-pulse"  color="#339ecc" />
     </>
   )
 }

@@ -4,8 +4,8 @@ html{
 body {
   margin: 0;
   font: 300 11px/1.4 'Lobster Regular', 'sans-serif';
-  color: #445;
-  background: radial-gradient(circle 800px at 75% 45%, #B68D7F 60%, #B3A19E) fixed;
+  color: #ffffff;
+  background-color:#181f2a;
   overflow: hidden;
   display: block;
   -webkit-font-smoothing: antialiased;

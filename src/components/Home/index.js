@@ -1,18 +1,18 @@
 import "./index.scss";
-import { useEffect, useState } from 'react'
-import logo from "../../assets/logo.png";
-import logo2 from "../../assets/logo-2.png";
-import { Link } from "react-router-dom";
-import AnimatedLetters from "../AnimatedLetters";
-import { SplineViewer } from '@splinetool/viewer';
-import Loader from 'react-loaders'
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Loader from "react-loaders";
 import WebgiViewer from "../Animation";
+import IconLogoAppleAr from "./IconLogoAppleAr";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import IconChevronRight from "./IconCehvronRight";
 
 function loadScript(src) {
   return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.src = src;
-    script.type = 'module';
+    script.type = "module";
     script.onload = resolve;
     script.onerror = reject;
     document.head.appendChild(script);
@@ -20,71 +20,118 @@ function loadScript(src) {
 }
 
 const Home = () => {
+  const navigation = useNavigate();
+  const [letterClass, setLetterClass] = useState("text-animate");
+  const handleClick = () => {
+    navigation("/projects");
+  };
+    const handleClickContact = () => {
+    navigation("/contact");
+    };
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setLetterClass("text-animate-hover");
+    }, 4000);
 
-    const [letterClass, setLetterClass] = useState('text-animate');
-    const nameArray = ['i', 'k', 'a', ' ','G', 'e', 'd', 'e', 'n', 'i', 'd', 'z', 'e'];
-    const jobArray = ['S', 'o', 'f', 't', 'w', 'a', 'r', 'e',' ', 'E', 'n', 'g', 'i', 'n', 'e', 'e', 'r'];
+    return () => clearTimeout(timerId);
+  }, []);
+  useEffect(() => {
+    if (!customElements.get("spline-viewer")) {
+      loadScript(
+        "https://unpkg.com/@splinetool/viewer@0.9.383/build/spline-viewer.js"
+      )
+        .then(() => {
+          console.log("Spline viewer script loaded");
+        })
+        .catch((error) => {
+          console.error("Error loading spline viewer script:", error);
+        });
+    } else {
+      console.log("Spline viewer script already loaded");
+    }
+  }, []);
 
-    useEffect(() => {
-        const timerId = setTimeout(() => {
-            setLetterClass('text-animate-hover');
-        }, 4000);
-    
-        return () => clearTimeout(timerId);
-    }, []);
-    // useEffect(() => {
-    //     if (!customElements.get('spline-viewer')) {
-    //         loadScript('https://unpkg.com/@splinetool/viewer@0.9.383/build/spline-viewer.js')
-    //             .then(() => {
-    //                 console.log('Spline viewer script loaded');
-    //             })
-    //             .catch((error) => {
-    //                 console.error('Error loading spline viewer script:', error);
-    //             });
-    //     } else {
-    //         console.log('Spline viewer script already loaded');
-    //     }
-    // }, []);
-
-    
-    
-    return (
-        <>
-        <div className="container home-page">
+  return (
+    <>
+      <div className="container home-page">
         {/* <img src={pic2} alt="" className="home-page-pic"></img> */}
-            <div className="text-zone">
+        <div className="text-zone">
+          <h1>
+            <span className={`${letterClass} _1`}>Hey, </span>
+            <span className={`${letterClass} _2`}>I'm </span>
+            {/* <img src={logo2} alt=""></img> */}
+            <span className={`${letterClass} _3`}>Nika </span>
+            <span className={`${letterClass} _4`}>Gedenidze </span>
+            <br />
+          </h1>
+          <h2>
+          <span className={`${letterClass} _5`}>Crafting Innovative Solutions with Full-Stack Development and AI
+          Expertise</span>
             
-                <h1>
-                <span className={letterClass}>H</span>
-                <span className={`${letterClass} _12`}>i</span>
-                <br/>
-                
-                <span className={`${letterClass} _13`}>I'</span>
-                <span className={`${letterClass} _14`}>m</span>
-                <img src={logo2} alt=""></img>
-                <AnimatedLetters letterClass={letterClass}
-                    strArray={nameArray}
-                    idx={15}
-                />
-                
-                <br/>
-                <AnimatedLetters letterClass={letterClass}
-                    strArray={jobArray}
-                    idx={28} 
-                />
-                </h1>
-                <h2>I'm upcoming machine learning engineer</h2>     
-                
-                <Link to="/projects" className="flat-button">PROJECTS</Link>
-            </div>
-            
-            {/* <spline-viewer loading-anim url="https://prod.spline.design/gd0yFiBUrhcBhMRu/scene.splinecode"></spline-viewer> */}
-                <WebgiViewer />
+          </h2>
+          <div className="buttonContainer">
+            <button class="btnProject" onClick={handleClick}>
+            <span class="text">PROJECTS</span>
+              <svg
+                height="24"
+                width="24"
+                fill="#FFFFFF"
+                viewBox="0 0 24 24"
+                data-name="Layer 1"
+                id="Layer_1"
+                class="sparkle"
+              >
+                <IconLogoAppleAr />
+              </svg>
+
+
+            </button>
+            <button class="btnContact" onClick={handleClickContact}>
+            <span class="text">Let's Talk</span>
+              <svg
+                height="24"
+                width="24"
+                fill="#FFFFFF"
+                viewBox="0 0 24 24"
+                data-name="Layer 1"
+                id="Layer_1"
+                class="sparkle"
+              >
+                <IconChevronRight />
+              </svg>
+              
+            </button>
+          </div>
+          <div className="social-links">
+            <ul>
+              <li>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.linkedin.com/in/ngedenidze/"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} color="white" />
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.github.com/Ngedenidze/"
+                >
+                  <FontAwesomeIcon icon={faGithub} color="white" />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <Loader type="ball-grid-pulse" />
-        </>
-    )
-}
 
+        {/* <spline-viewer loading-anim url="https://prod.spline.design/gd0yFiBUrhcBhMRu/scene.splinecode"></spline-viewer>  */}
+        <WebgiViewer />
+      </div>
+      <Loader type="ball-grid-pulse" color="#339ecc" />
+    </>
+  );
+};
 
-export default Home
+export default Home;

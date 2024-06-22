@@ -25,34 +25,23 @@ const About = () => {
 
     return (
         <>
-            <div className="container about-page">
+            <div className="about-page">
                 <div className="text-zone">
                     <h1>
-                        <AnimatedLetters
-                            letterClass={letterClass}
-                            strArray={['A', 'b', 'o', 'u', 't', ' ', 'm', 'e']}
-                            idx={15}
-                        />
+                     <span className={`${letterClass} _1`}>About Me</span>
                     </h1>
                     <p>
-                    Welcome to my portfolio! I'm a Computer Science undergraduate from Caldwell University, passionate about using technology to create innovative solutions.
-                    I've honed a broad set of skills throughout my academic journey, with proficiency in programming languages such as Java, Python, C++, and JS.
+                    &emsp;&emsp;Welcome to my portfolio! I am Nika Gedenidze, a Computer Science undergraduate from Caldwell University, with a strong passion for using technology to drive innovative solutions. Throughout my academic journey, I have cultivated a diverse skill set, excelling in programming languages such as Java, Python, C++, and JavaScript.
                     </p>
                     <p align="LEFT">
-                    During my tenure as a Student Researcher, I specialized in Artificial Intelligence, conducting extensive research on Convolutional Neural Networks (CNNs).
-                    This experience not only deepened my understanding of AI but also allowed me to contribute to the development of an optimized CNN technique, significantly reducing AI training times.
-                    </p>
+                    &emsp;&emsp;During my academic journey, I specialized in Artificial Intelligence, conducting extensive research on Convolutional Neural Networks (CNNs). This research experience enriched my understanding of AI and led to the development of an optimized CNN technique, significantly reducing AI training times.</p>
                     <p>
-                    Translating my theoretical knowledge into practical applications, I've embarked on personal projects such as 'Wrodle not Wordle', a web-based game, and 'Employee Database Management', an interactive desktop application.
-                    These ventures underscore my ability to leverage various programming languages and tools to architect both front-end and back-end solutions.
-                    </p>
+                    &emsp;&emsp;In the professional realm, I have completed impactful internships. At Redhawk Research, I constructed an admin portal with integrated core backend functionality using GraphQL, enhancing security and administrative efficiency by 30%. At AeroDefense, I engineered the Products Page for the main website, increasing user engagement by 40% and conversion rates by 25%. </p>
                     <p>
-                    Beyond the world of coding, I have a vibrant life filled with music production, vinyl record collection, and skateboarding. Avid reading and movie watching are also on my list of favorite pastimes. 
+                    &emsp;&emsp;Beyond the world of coding, I have a vibrant life filled with music production, vinyl record collection, and skateboarding. Avid reading and movie watching are also on my list of favorite pastimes. 
                     These hobbies not only provide a creative outlet but also stimulate fresh perspectives that I can bring into my professional endeavors. </p>
                     <p>
-                    I look forward to leveraging my academic and professional skills, coupled with my creativity and passion, to make a meaningful impact in future roles. 
-                    I am excited to explore opportunities that allow me to combine my love for technology with my other interests.
-                    </p>
+                    &emsp;&emsp;I look forward to leveraging my academic and professional skills, combined with my creativity and passion, to make a meaningful impact in future roles. I am excited to explore opportunities that allow me to merge my love for technology with my other interests.</p>
                 </div>
 
                 <div className="stage-cube-cont">
@@ -78,7 +67,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <Loader type="ball-grid-pulse" />
+            <Loader type="ball-grid-pulse"  color="#339ecc"  />
         </>
     )
 }

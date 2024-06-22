@@ -12,10 +12,10 @@
     min-width: 10px;
     display: inline-block;
     animation-fill-mode: both;
-  
+    margin: 5px;
     &:hover {
       animation: rubberBand 1s;
-      color: #822432;
+      color: #65e2d9;
     }
   }
   

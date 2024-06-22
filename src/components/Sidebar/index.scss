@@ -3,61 +3,62 @@
     width: 100%;
     height: 100px;
     position: absolute;
-    top: 0;
-    z-index: 3;
     display: flex;
-    box-shadow: 0 15px 15px -15px #4d4d4e;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    z-index: 100;
+    color: white;
+    width: 100vw;
+ a {
+    width: 6rem;
+    height: 6rem;
 
+ }
     .logo{
         display: block;
-        padding: 8px 0;
-        margin-left: 20px;
+        color:white;
+        padding: 0;
+        margin-left: 4rem;
         img {
-             display: block;
-             margin: 8px auto;
-             width: 66px;
-             height: 66px;
+             width: 6rem;
+             height: 6rem;
         }
     }
     nav{
         display: flex;
         text-align: center;
         position: relative;
-        left: calc(50% - 195px);
         padding-bottom: 40px;
-        top: 25%;
+        margin: 2rem;
+        padding: 2rem;
         height: 100px;
         align-items: center;
         align-content: center;
-        width: 100%;
             a{
-                font-size: 22px;
-                color: #3d4d4e;
-                display: block;
-                line-height: 51px;
-                height: 51px;
+                font-size: 3rem;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                line-height: 4rem;
+                height: 4rem;
                 position: relative;
                 text-decoration: none;
-                padding-left: 20px;
-                margin: 0px 20px 40px 0px;
+                padding-left: 0px;
+                margin: 0rem 1rem;
     
                 i{
                     transition: all 0.3s ease-out;
                 }
     
                 &:hover{
-                    color: #be4e04;
-    
-                    svg {
-                        opacity: 0;
-                    }
-    
-                    &:after{
-                        opacity: 1;
-                    }
+                transform: translateY(-2px);
+                 transition: all 0.3s ease-in-out;
+                 color: #65e2d9;
                 }
     
                 &:after{
+                    color: white;
                     content: '';
                     font-size: 9px;
                     letter-spacing: 2px;
@@ -74,26 +75,16 @@
                         content: 'HOME';
                     }
                 }
-            }
-            a.about-link {
-                &:after {
-                content: 'ABOUT';
-                }
-            }
-            a.contact-link {
-                &:after {
-                content: 'CONTACT';
-                }
-            }
-            a.projects-link {
-                &:after {
-                content: 'PROJECTS';
-                }
+
             }
             a.active{
                 svg {
-                    color: #be4e04;
+                    color: #65e2d9;
                 }
+            }
+            
+            span{
+                font-size: 1.2rem;
             }
         }
 
