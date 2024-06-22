@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { useEffect, useRef, useState } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
-const Model = ({ path }) => {
+const Model = ({ path, stopRotation }) => {
   const { scene } = useGLTF(path);
+  const [rotationStopped, setRotationStopped] = useState(false);
 
   useEffect(() => {
     scene.traverse((child) => {
@@ -15,11 +16,22 @@ const Model = ({ path }) => {
     });
   }, [scene]);
 
+  useFrame(() => {
+    if (!rotationStopped) {
+      scene.rotation.y += 0.01; // Adjust the speed of rotation as needed
+      if (scene.rotation.y >= THREE.MathUtils.degToRad(30)) {
+        setRotationStopped(true);
+        stopRotation();
+      }
+    }
+  });
+
   return <primitive object={scene} />;
 };
 
 const GLTFModel = ({ modelPath }) => {
   const canvasRef = useRef();
+  const [controlsEnabled, setControlsEnabled] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,12 +48,16 @@ const GLTFModel = ({ modelPath }) => {
     };
   }, []);
 
+  const handleStopRotation = () => {
+    setControlsEnabled(true);
+  };
+
   return (
     <Canvas
       ref={canvasRef}
       shadowMap
       style={{ width: '100%', height: '100%' }}
-      camera={{ position: [10, 10, 20], fov: 45 }}
+      camera={{ position: [-22, 3, -12], fov: 45 }}
     >
       <ambientLight intensity={0.9} />
       <directionalLight
@@ -53,8 +69,13 @@ const GLTFModel = ({ modelPath }) => {
         shadow-camera-near={0.5}
         shadow-camera-far={500}
       />
-      <Model path={modelPath} />
-      <OrbitControls />
+      <Model path={modelPath} stopRotation={handleStopRotation} />
+      <OrbitControls
+        enableZoom={true}
+        enablePan={false}
+        enableRotate={controlsEnabled}
+        target={[0, 0.5, 0]} // Adjust the target as needed
+      />
     </Canvas>
   );
 };

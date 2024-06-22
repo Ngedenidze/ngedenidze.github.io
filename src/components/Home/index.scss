@@ -5,18 +5,13 @@
   height: 100vh;
 
   .animation-zone {
-    border: 2px #339ecc  dotted;
-    width: 100%;
+    width: 50vw;
     height: 50vh;
     overflow: hidden;
     position: relative;
   }
   .home-page-pic{
-    position: relative;
-    left: 30%;
-    top: 1%;
-    margin-bottom: 0;
-    scale: 110%;
+
   }
     .text-zone {
       position: relative;
@@ -24,14 +19,17 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 50vw;
+      height: 50vh;
+ 
+
       span{
         margin: 1rem;
       }
       h2{
+        width: 60%;
+      margin: 3rem 0;
       font-size: 2rem;
       color: white;
-      margin: 30px 0;
       font-weight: 400;
       font-family: sans-serif;
       letter-spacing: 3px;
@@ -43,7 +41,7 @@
       color: white;
       font-size: 6rem;
       line-height: 3rem;
-      margin: 0;
+      margin: 5rem;
       font-family: 'Roboto';
       font-weight: 800;
       letter-spacing: 2px;
@@ -81,11 +79,12 @@
     }
     .buttonContainer{
       position: relative;
-      height: 10vh;
       display: flex;
       justify-content: space-around;
       align-content: space-around;
       align-items: center;
+      height: auto;
+      margin: 5rem;
     }
   
     .btnProject {
@@ -105,6 +104,7 @@
       
       svg{
         align-items: center;
+        
       }
       .text {
         font-size: 1.8em;
@@ -176,7 +176,7 @@
       transform: scale(1.2);
     } 
     .social-links{
-      height: 20vh;
+      margin: 2rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -196,8 +196,15 @@
             display: flex;
             font-size: 4rem;
             line-height: 20px;
+            color: #ffffff;
 
-            color: #4d4d4e;
+            svg{
+              &:hover {
+               color: #339ecc;
+                transform: translate(2px, -1px);
+                transition: all 0.3s ease;
+              }
+            }
           }
     
           &:hover {

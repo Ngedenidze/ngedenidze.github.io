@@ -126,7 +126,8 @@ const Home = () => {
           </div>
         </div>
         <div className="animation-zone">
-        {/* <GLTFModel modelPath="./public/office.glb" /> */}
+        {/* <img src={require("./back.png" )} alt="" className="home-page-pic"></img> */}
+        <GLTFModel modelPath={require('./office.glb')}/>
         </div>
 
        
