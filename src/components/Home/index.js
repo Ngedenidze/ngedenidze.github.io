@@ -2,12 +2,11 @@ import "./index.scss";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loader from "react-loaders";
-import WebgiViewer from "../Animation";
 import IconLogoAppleAr from "./IconLogoAppleAr";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import IconChevronRight from "./IconCehvronRight";
-import Laptop from "../Animated Laptop/Laptop";
+import GLTFModel from "../Animated Laptop/GLTFModel";
 
 function loadScript(src) {
   return new Promise((resolve, reject) => {
@@ -127,11 +126,9 @@ const Home = () => {
           </div>
         </div>
         <div className="animation-zone">
-          
-          <Laptop />
+        <GLTFModel modelPath="/public/office.glb" />
         </div>
 
-        {/* <spline-viewer loading-anim url="https://prod.spline.design/gd0yFiBUrhcBhMRu/scene.splinecode"></spline-viewer>  */}
        
       </div>
       <Loader type="ball-grid-pulse" color="#339ecc" />
