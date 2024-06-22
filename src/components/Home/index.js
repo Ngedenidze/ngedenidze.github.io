@@ -126,7 +126,7 @@ const Home = () => {
           </div>
         </div>
         <div className="animation-zone">
-        <GLTFModel modelPath="/public/office.glb" />
+        {/* <GLTFModel modelPath="./public/office.glb" /> */}
         </div>
 
        
