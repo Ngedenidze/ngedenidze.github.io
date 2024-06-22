@@ -1,5 +1,5 @@
 {
-  "homepage": "https://ngedenidze.github.io/portfolio-website",
+  "homepage": "https://ngedenidze.github.io/",
   "name": "personal-portfolio",
   "version": "0.1.0",
   "private": true,
@@ -39,6 +39,7 @@
   "devDependencies": {
     "@types/webgi": "https://storage.googleapis.com/dist.pixotronics.com/webgi/runtime/bundle-types-0.7.9.tgz",
     "customize-cra": "^1.0.0",
+    "gh-pages": "^6.1.1",
     "react-app-rewired": "^2.2.1",
     "vite": "^4.3.9",
     "vite-plugin-static-copy": "^0.16.0"
@@ -47,7 +48,9 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
