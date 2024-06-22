@@ -5,8 +5,6 @@ function IconChevronRight(props) {
     <svg
       fill="currentColor"
       viewBox="0 0 16 16"
-      height="auto"
-      width="auto"
       {...props}
     >
       <path

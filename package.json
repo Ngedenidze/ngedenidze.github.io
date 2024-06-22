@@ -9,6 +9,8 @@
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@react-three/drei": "^9.107.0",
+    "@react-three/fiber": "^8.16.8",
     "@splinetool/viewer": "^0.9.383",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

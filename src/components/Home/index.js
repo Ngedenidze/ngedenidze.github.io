@@ -7,6 +7,7 @@ import IconLogoAppleAr from "./IconLogoAppleAr";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import IconChevronRight from "./IconCehvronRight";
+import Laptop from "../Animated Laptop/Laptop";
 
 function loadScript(src) {
   return new Promise((resolve, reject) => {
@@ -125,9 +126,13 @@ const Home = () => {
             </ul>
           </div>
         </div>
+        <div className="animation-zone">
+          
+          <Laptop />
+        </div>
 
         {/* <spline-viewer loading-anim url="https://prod.spline.design/gd0yFiBUrhcBhMRu/scene.splinecode"></spline-viewer>  */}
-        <WebgiViewer />
+       
       </div>
       <Loader type="ball-grid-pulse" color="#339ecc" />
     </>

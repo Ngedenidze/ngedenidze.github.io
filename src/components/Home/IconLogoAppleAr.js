@@ -5,8 +5,6 @@ function IconLogoAppleAr(props) {
     <svg
       viewBox="0 0 512 512"
       fill="currentColor"
-      height="auto"
-      width="auto"
       {...props}
     >
       <path

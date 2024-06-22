@@ -4,12 +4,12 @@
   justify-content: center;
   height: 100vh;
 
-  .animation-container {
-    width: 800px;
-    height: 600px;
+  .animation-zone {
+    border: 2px #339ecc  dotted;
+    width: 50vw;
+    height: 50vh;
     overflow: hidden;
     position: relative;
-    left: 50%;
   }
   .home-page-pic{
     position: relative;
@@ -24,8 +24,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 70vw;
-      max-height: 90%;
+      width: 50vw;
       span{
         margin: 1rem;
       }
