@@ -34,22 +34,6 @@ const Home = () => {
     return () => clearTimeout(timerId);
   }, []);
 
-  useEffect(() => {
-    if (!customElements.get("spline-viewer")) {
-      loadScript(
-        "https://unpkg.com/@splinetool/viewer@0.9.383/build/spline-viewer.js"
-      )
-        .then(() => {
-          console.log("Spline viewer script loaded");
-        })
-        .catch((error) => {
-          console.error("Error loading spline viewer script:", error);
-        });
-    } else {
-      console.log("Spline viewer script already loaded");
-    }
-  }, []);
-
   return (
     <>
       <div className="container home-page">

@@ -18,7 +18,7 @@ const Model = ({ path, stopRotation }) => {
 
   useFrame(() => {
     if (!rotationStopped) {
-      scene.rotation.y += 0.01; // Adjust the speed of rotation as needed
+      scene.rotation.y += 0.005; // Adjust the speed of rotation as needed
       if (scene.rotation.y >= THREE.MathUtils.degToRad(30)) {
         setRotationStopped(true);
         stopRotation();
@@ -53,11 +53,12 @@ const GLTFModel = ({ modelPath }) => {
   };
 
   return (
+    
     <Canvas
       ref={canvasRef}
       shadowMap
-      style={{ width: '100%', height: '100%' }}
-      camera={{ position: [-22, 3, -12], fov: 45 }}
+      style={{ width: '60vw', height: '80%' }}
+      camera={{ position: [-1, 1.5, 1.2], fov: 45 }}
     >
       <ambientLight intensity={0.9} />
       <directionalLight
@@ -74,7 +75,7 @@ const GLTFModel = ({ modelPath }) => {
         enableZoom={true}
         enablePan={false}
         enableRotate={controlsEnabled}
-        target={[0, 0.5, 0]} // Adjust the target as needed
+        target={[0, 1, 0]} // Adjust the target as needed
       />
     </Canvas>
   );

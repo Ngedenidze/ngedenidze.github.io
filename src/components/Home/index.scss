@@ -178,14 +178,24 @@ $base-button-height: 5em;
   
   
   @media screen and (max-width: 1200px) {
+    .home-page-pic
+    {
+      height: 0;
+      width: 0;
+      display: none;
+    }
+    .text-zone{
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+    }
   
     .home-page .text-zone {
       position: relative;
-      scale: 0.4;
-      padding: 10px;
-      width: 50vw;
-      height: 50vh;
+      width: 100vw;
+      height: 100vh;
       box-sizing: border-box;
+      margin: 0;
       
       h1{
         font-size: 60px;
@@ -195,31 +205,5 @@ $base-button-height: 5em;
       }
     }
     
-    .home-page .flat-button {
-      scale: 0.7;
-      float: middle;
-      display: block;
-      margin: 20px auto 0 auto;
-      width: 124px;
-    }
   
-    .logo-container {
-      position: relative;
-      width: 100px;
-      height: auto;
-      top: 50px;
-      right: 0;
-      box-sizing: border-box;
-      margin: auto;
-      left: 0;
-    }
-  
-    .logo-container svg {
-      position: absolute;
-      top: auto;
-      right: auto;
-      bottom: auto;
-      left: 0;
-      margin: auto;
-    }
   }
