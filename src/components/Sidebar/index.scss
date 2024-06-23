@@ -1,6 +1,6 @@
 .nav-bar{
     background: transparent;
-    width: 100%;
+    width: 100vw;
     height: 100px;
     position: absolute;
     display: flex;
@@ -10,16 +10,55 @@
     z-index: 100;
     color: white;
     width: 100vw;
- a {
-    width: 6rem;
-    height: 6rem;
 
- }
+ .social-links{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    padding-right: 50px;
+
+    ul {
+      position: relative;
+      display: flex;
+      list-style: none;
+      text-align: center;
+      margin: 0;
+  
+      li {
+        padding: 0 1rem;
+        a {
+          padding: 7px 0rem;
+          display: flex;
+          font-size: 4rem;
+          line-height: 20px;
+          color: #ffffff;
+
+          svg{
+            &:hover {
+             color: #339ecc;
+              transform: translate(2px, -1px);
+              transition: all 0.3s ease;
+            }
+          }
+        }
+  
+        &:hover {
+          .anchor-icon {
+            color: #be4e04;
+          }
+        }
+      }
+    }
+  }
     .logo{
         display: block;
         color:white;
         padding: 0;
         margin-left: 4rem;
+        width: 100px;
         img {
              width: 6rem;
              height: 6rem;
@@ -29,9 +68,7 @@
         display: flex;
         text-align: center;
         position: relative;
-        padding-bottom: 40px;
-        margin: 2rem;
-        padding: 2rem;
+        margin: 1rem;
         height: 100px;
         align-items: center;
         align-content: center;
@@ -44,7 +81,7 @@
                 height: 4rem;
                 position: relative;
                 text-decoration: none;
-                padding-left: 0px;
+                padding: 0px;
                 margin: 0rem 1rem;
     
                 i{
@@ -89,11 +126,7 @@
         }
 
         ul {
-            position: absolute;
-            bottom: 2%;
-            left: calc( 95% - 20px) ;
             display: flex;
-            padding: 20px;
             list-style: none;
             text-align: center;
             margin: 0;
@@ -101,7 +134,6 @@
             li {
               a {
                 padding: 7px 0;
-                margin-right: 20px;
                 display: flex;
                 font-size: 25px;
                 line-height: 20px;
@@ -116,6 +148,10 @@
               }
             }
           }
+          a {
+            width: 5rem;
+            height: 5rem;
+         }
 }
 
 

@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loader from "react-loaders";
 import IconLogoAppleAr from "./IconLogoAppleAr";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import IconChevronRight from "./IconCehvronRight";
 import GLTFModel from "../Animated Laptop/GLTFModel";
 
@@ -55,6 +53,8 @@ const Home = () => {
     <>
       <div className="container home-page">
         {/* <img src={pic2} alt="" className="home-page-pic"></img> */}
+
+        <div className="animation-zone">
         <div className="text-zone">
           <h1>
             <span className={`${letterClass} _1`}>Hey, </span>
@@ -102,33 +102,15 @@ const Home = () => {
               
             </button>
           </div>
-          <div className="social-links">
-            <ul>
-              <li>
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://www.linkedin.com/in/ngedenidze/"
-                >
-                  <FontAwesomeIcon icon={faLinkedin} color="white" />
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://www.github.com/Ngedenidze/"
-                >
-                  <FontAwesomeIcon icon={faGithub} color="white" />
-                </a>
-              </li>
-            </ul>
-          </div>
+          
+         
         </div>
-        <div className="animation-zone">
-        {/* <img src={require("./back.png" )} alt="" className="home-page-pic"></img> */}
-        <GLTFModel modelPath={require('./office.glb')}/>
+        
+        <img src={require("./back.png" )} alt="" className="home-page-pic"></img>
+        {/* <GLTFModel modelPath={require('./office.glb')}/> */}
         </div>
+        
+         
 
        
       </div>

@@ -35,3 +35,8 @@ textarea {
   animation: fadeOut 1s 1s;
   animation-fill-mode: forwards;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

@@ -2,8 +2,9 @@ import './index.scss';
 import { Link, NavLink } from 'react-router-dom'
 import LogoS from '../../assets/logo-2.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faHome, faUser, faRocket} from '@fortawesome/free-solid-svg-icons'
-
+import { faEnvelope, faHome, faUser, faRocket} from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import 'normalize.css'
 
 // Side Bar component
 const Sidebar = () => {
@@ -32,6 +33,28 @@ const Sidebar = () => {
             </NavLink>
             
         </nav>
+        <div className="social-links">
+            <ul>
+              <li>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.linkedin.com/in/ngedenidze/"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} color="white" />
+                </a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.github.com/Ngedenidze/"
+                >
+                  <FontAwesomeIcon icon={faGithub} color="white" />
+                </a>
+              </li>
+            </ul>
+        </div>
         
     </div>
 }
