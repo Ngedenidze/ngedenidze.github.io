@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.5aa7823b.css",
-    "main.js": "/static/js/main.4e4c5fe3.js",
+    "main.css": "/static/css/main.081a549b.css",
+    "main.js": "/static/js/main.6bff7136.js",
     "static/js/787.fb771931.chunk.js": "/static/js/787.fb771931.chunk.js",
     "static/media/research.png": "/static/media/research.07fe8bfa768d71a5c5a6.png",
+    "static/media/back.png": "/static/media/back.0c5028d50877f4552ff7.png",
     "static/media/adminpg.png": "/static/media/adminpg.aa64495f935daadde96c.png",
     "static/media/products.png": "/static/media/products.4ef677bc48b303259e05.png",
     "static/media/Lobster-Regular.ttf": "/static/media/Lobster-Regular.03c38496322925fec242.ttf",
-    "static/media/back.png": "/static/media/back.736476f99af64bf06e9a.png",
-    "static/media/logo.png": "/static/media/logo.f0b965c66a666e2acf14.png",
+    "static/media/gastro.png": "/static/media/gastro.0d9ddb9ef3900f770c0c.png",
     "static/media/logo-2.png": "/static/media/logo-2.927395ff8ac04a30ea7c.png",
     "static/media/CoolveticaRg-Regular.woff2": "/static/media/CoolveticaRg-Regular.df20e5b94c05ff3bb5dd.woff2",
     "static/media/LaBelleAurore.woff2": "/static/media/LaBelleAurore.78a23968c6009fe9ea6b.woff2",
     "index.html": "/index.html",
-    "main.5aa7823b.css.map": "/static/css/main.5aa7823b.css.map",
-    "main.4e4c5fe3.js.map": "/static/js/main.4e4c5fe3.js.map",
+    "main.081a549b.css.map": "/static/css/main.081a549b.css.map",
+    "main.6bff7136.js.map": "/static/js/main.6bff7136.js.map",
     "787.fb771931.chunk.js.map": "/static/js/787.fb771931.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5aa7823b.css",
-    "static/js/main.4e4c5fe3.js"
+    "static/css/main.081a549b.css",
+    "static/js/main.6bff7136.js"
   ]
 }
