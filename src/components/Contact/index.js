@@ -1,22 +1,30 @@
-import { useEffect, useState, useRef } from 'react'
-import emailjs from '@emailjs/browser'
-import AnimatedLetters from '../AnimatedLetters'
-import './index.scss'
-import Loader from 'react-loaders'
+import { useEffect, useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import AnimatedLetters from '../AnimatedLetters';
+import './index.scss';
+import Loader from 'react-loaders';
+
 const Contact = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
-  const form = useRef()
+  const [letterClass, setLetterClass] = useState('text-animate');
+  const [isLoading, setIsLoading] = useState(true);
+  const form = useRef();
 
   useEffect(() => {
-    const timerId = setTimeout(() => {
+    const letterTimerId = setTimeout(() => {
       setLetterClass('text-animate-hover');
     }, 4000);
 
-    return () => clearTimeout(timerId);
+    const loaderTimerId = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+
+    return () => {
+      clearTimeout(letterTimerId);
+      clearTimeout(loaderTimerId);
+    };
   }, []);
 
   useEffect(() => {
-    // Check if 'spline-viewer' is already defined.
     if (!customElements.get('spline-viewer')) {
       const script = document.createElement('script');
       script.src = 'https://unpkg.com/@splinetool/viewer@0.9.383/build/spline-viewer.js';
@@ -29,23 +37,23 @@ const Contact = () => {
     }
   }, []);
 
-
-
-
   const sendEmail = (e) => {
-    e.preventDefault()
-
+    e.preventDefault();
     emailjs
       .sendForm('gmail', 'template_YeJhZkgb', form.current, 'your-token')
       .then(
         () => {
-          alert('Message successfully sent!')
-          window.location.reload(false)
+          alert('Message successfully sent!');
+          window.location.reload(false);
         },
         () => {
-          alert('Failed to send the message, please try again')
+          alert('Failed to send the message, please try again');
         }
-      )
+      );
+  }
+
+  if (isLoading) {
+    return <Loader type="ball-grid-pulse" color="#339ecc" />;
   }
 
   return (
@@ -56,21 +64,21 @@ const Contact = () => {
             <h1>
               <AnimatedLetters
                 letterClass={letterClass}
-                strArray={['F', 'o', 'r', 'm']}
+                strArray={['C', 'o', 'n', 't', 'a', 'c', 't', ' ', 'M', 'e']}
                 idx={15}
               />
             </h1>
             <form ref={form} onSubmit={sendEmail}>
               <ul>
                 <li className="half">
-                  <input placeholder="Name" type="text" name="name" autocomplete="off" required />
+                  <input placeholder="Name" type="text" name="name" autoComplete="off" required />
                 </li>
                 <li className="half">
                   <input
                     placeholder="Email"
                     type="email"
                     name="email"
-                    autocomplete="off"
+                    autoComplete="off"
                     required
                   />
                 </li>
@@ -79,7 +87,7 @@ const Contact = () => {
                     placeholder="Subject"
                     type="text"
                     name="subject"
-                    autocomplete="off"
+                    autoComplete="off"
                     required
                   />
                 </li>
@@ -87,49 +95,38 @@ const Contact = () => {
                   <textarea
                     placeholder="Message"
                     name="message"
-                    autocomplete="off"
+                    autoComplete="off"
                     required
                   ></textarea>
                 </li>
-
-                <input type="submit" className="flat-button" value="SEND" />
+                <li>
+                  <input type="submit" className="flat-button" value="SEND" />
+                </li>
               </ul>
             </form>
           </div>
         </div>
 
         <div className="info-map">
-          <div class="card">
-            <div class="card-photo"></div>
-            <div class="card-title">Nika Gedenidze <br />
+          <div className="card">
+            <div className="card-photo"><img src={require('./../../assets/logo-2.png')} alt="Nika Gedenidze Icon"></img></div>
+            <div className="card-title">Nika Gedenidze <br />
               <span>Software Engineer</span>
             </div>
-            <div class="card-socials">
-              <span>
-              Caldwell, NJ
-              </span>
+            <div className="card-socials">
+              <span>Caldwell, NJ</span>
               <br/>
-              <span>
-              07006
-              </span>
+              <span>07006</span>
               <br/>
-              <span>
-              +1 (717) 775 - 0711
-              </span>
+              <span>+1 (717) 775 - 0711</span>
               <br/>
-              <span>
-               Ngedenidze@outlook.com
-              </span>
+              <span>Ngedenidze@outlook.com</span>
             </div>
           </div>
-          {/* <spline-viewer loading-anim url="https://prod.spline.design/IYIxP9mUUv8oXxlY/scene.splinecode"></spline-viewer> */}
         </div>
-
-
       </div>
-      <Loader type="ball-grid-pulse"  color="#339ecc" />
     </>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

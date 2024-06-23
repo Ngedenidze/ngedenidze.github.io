@@ -1,425 +1,156 @@
-.contact-form {
+/* index.scss */
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   width: 100%;
-  margin-top: 20px;
-  height: 48rem;
-  background: #fff;
-  background-image: linear-gradient(
-    43deg,
-    #4158d0 0%,
-    #c850c0 46%,
-    #ffcc70 100%
-  );
-  border-radius: 2rem;
-  padding: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 50px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  transition: 0.5s ease-in-out;
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 2vh;
+  color: #fff;
+  border-radius: 1em;
+  box-shadow: 0 0.4em 0.8em rgba(0, 0, 0, 0.1);
+}
+
+.text-zone {
+  width: 100%;
+  max-width: 40vw;
+  margin: 2vh;
+}
+
+.contact-form {
+  background: #222;
+  padding: 2vh;
+  border-radius: 1em;
+  box-shadow: 0 0.4em 0.8em rgba(0, 0, 0, 0.1);
 
   h1 {
     text-align: center;
-    font-weight: 600;
-    padding-top: 1rem;
-    font-size: large;
+    font-size: 2em;
+    margin-bottom: 2vh;
   }
-  ul {
-    padding: 0;
-    margin: 0;
 
-    li {
+  form {
+    ul {
       padding: 0;
-      margin: 0;
       list-style: none;
-      margin-bottom: 10px;
-      border-radius: 2rem;
-      opacity: 0;
-      background-color: transparent;
-      border-bottom: 2px solid rgb(12, 11, 11);
-      outline: none;
-      overflow: hidden;
-      display: block;
-      clear: both;
-      position: relative;
-      animation: fadeInUp 2s 2s;
-      animation-fill-mode: forwards;
-      transition: 0.5s ease-in-out;
-    }
 
-    li.half {
-      width: 49%;
-      margin-left: 2%;
-      float: left;
-      clear: none;
-      background-color: transparent;
+      li {
+        margin-bottom: 2vh;
 
-      &:first-child {
-        margin-left: 0;
+        &.half {
+          width: 48%;
+          float: left;
+          clear: none;
+          margin-right: 4%;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+
+      input, textarea {
+        width: 100%;
+        padding: 1vh;
+        border: 0.1em solid #444;
+        border-radius: 0.5em;
+        background: #333;
+        color: #fff;
+        font-size: 1em;
+        outline: none;
+      }
+
+      textarea {
+        resize: none;
+        height: 20vh;
+      }
+
+      .flat-button {
+        background: #339ecc;
+        color: #fff;
+        border: none;
+        padding: 1vh 2vh;
+        font-size: 1em;
+        border-radius: 0.5em;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+          background: #287a99;
+        }
       }
     }
   }
+}
 
-  input[type='text'],
-  input[type='email'] {
-    width: 100%;
-    border: 0;
-    background-color: transparent;
-    border-bottom: 1px solid rgb(12, 11, 11);
-    height: 50px;
-    font-size: 16px;
-    color: #0e123f;
-    padding: 0 20px;
-    box-sizing: border-box;
-  }
+.info-map {
+  margin-top: 4vh;
+  display: flex;
+  justify-content: center;
 
-  input[type='text']::placeholder,
-  input[type='email']::placeholder {
-    color: #0e123f;
-  }
-
-  textarea {
-    width: 100%;
-    border: 0;
-    background-color: transparent;
-    height: 50px;
-    font-size: 16px;
-    color: #0e123f;
-    padding: 20px;
-    box-sizing: border-box;
-    min-height: 150px;
-    max-height: 150px;
-    min-width: 100%;
-  }
-  textarea::placeholder {
-    color: #0e123f;
-  }
-
-  .flat-button {
-    color: #0e123f;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-decoration: none;
-    padding: 8px 10px;
-    border: 1px solid #0e123f;
-    float: left;
-    border-radius: 4px;
-    background: 0 0;
-    text-transform: uppercase;
-    float: right;
+  .card {
+    background: #222;
+    border-radius: 1em;
+    padding: 2vh;
     text-align: center;
-    margin: 20px 2px 20px 0px;
-    animation: fadeInUp 2s 2s;
-    animation-fill-mode: forwards;
-    // transition: 1s ease-in-out;
-    transition: transform 0.5s;
+    color: #fff;
+    width: 30vw;
+    box-shadow: 0 0.4em 0.8em rgba(0, 0, 0, 0.1);
 
-    &:hover {
-      background-color: #0e123f;
-      color: #fff;
+    .card-photo {
+      width: 10vw;
+      height: 10vw;
+      border-radius: 50%;
+      background: center/cover no-repeat;
+      margin: 0 auto 2vh;
+      img{
+        width: 10vw;
+      height: 10vw;
+      }
+    }
+
+    .card-title {
+      font-size: 2em;
+      margin-bottom: 1vh;
+
+      span {
+        display: block;
+        font-size: 1.2em;
+        color: #ccc;
+      }
+    }
+
+    .card-socials {
+      font-size: 1.2em;
+      color: #ccc;
+
+      span {
+        display: block;
+        margin-bottom: 0vh;
+      }
     }
   }
 }
 
-.map-wrap {
-  background: rgba(8, 253, 216, 0.1);
-  float: right;
-  width: 53%;
-  height: 115%;
-  margin-top: -3%;
-}
-
-.leaflet-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  animation: backInRight 1s 1.2s;
-  animation-fill-mode: forwards;
-}
-
-.info-map {
-  position: absolute;
-  background: transparent;
-  right: 0%;
-  top: 5%;
-  width: 800px;
-  height: 800px;
-  padding: 0px;
-  font-family: 'Helvetica';
-  font-size: 17px;
-  font-weight: 300;
-  opacity: 0;
-  animation: fadeIn 1s 1.5s;
-  animation-fill-mode: forwards;
-  overflow: hidden;
-  /* before adding the photo to the div with the "card-photo" class, in the css clear the styles for .card-photo and remove .card-photo::before and .card-photo::after, then set the desired styles for .card- photo. */
-
-  .card {
-    --font-color: #323232;
-    --font-color-sub: #666;
-    --main-color: #323232;
-    width: 400px;
-    height: 400px;
-    background-image: linear-gradient(
-      43deg,
-      #4158d0 0%,
-      #c850c0 46%,
-      #ffcc70 100%
-    );
-    border-radius: 2rem;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 50px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    top: 25%;
-    left: 25%;
-    translate: transform(-50%, -50%);
+@media screen and (max-width: 768px) {
+  .contact-page {
+    padding: 2vh;
   }
 
-  .card-photo {
-    /* clear and add new css */
-    transform: scale(0.3) translate(220px, 230px);
-    width: 250px;
-    height: 250px;
-    margin-left: -125px;
-    margin-top: -125px;
-    background: radial-gradient(
-          circle,
-          rgba(0, 0, 0, 0.15) 50%,
-          rgba(0, 0, 0, 0) 50.8%
-        )
-        14% 30%/11% 11%,
-      radial-gradient(circle, #ffdab9 50%, rgba(255, 218, 185, 0) 50.8%) 10% 30%/16%
-        16%,
-      radial-gradient(circle, #0d0d0c 50%, rgba(139, 69, 19, 0) 50.8%) 7.5% 29%/20%
-        20%,
-      radial-gradient(circle, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0) 50.8%)
-        86% 30%/11% 11%,
-      radial-gradient(circle, #ffdab9 50%, rgba(255, 218, 185, 0) 50.8%) 90% 30%/16%
-        16%,
-      radial-gradient(circle, #0d0d0c 50%, rgba(139, 69, 19, 0) 50.8%) 92.5% 29%/20%
-        20%,
-      radial-gradient(
-          circle at 50% 0,
-          #ffd1b9 29.5%,
-          #0d0d0c 30%,
-          #0d0d0c 35%,
-          rgba(8, 5, 3, 0) 35.5%
-        )
-        50% 95%/40% 20%,
-      radial-gradient(
-          ellipse at 50% 100%,
-          rgba(139, 69, 19, 0) 49%,
-          #070707 49.5%,
-          #575739 52%,
-          rgba(139, 69, 19, 0) 52.5%
-        )
-        50% 110%/120% 40%,
-      radial-gradient(
-          circle at 50% 0,
-          rgba(255, 255, 255, 0) 35%,
-          white 35%,
-          white 45%,
-          rgba(255, 255, 255, 0) 45.5%
-        )
-        50% 89%/40% 13%,
-      linear-gradient(#0d0d0c, #0d0d0c) 37% 100%/0.25em 22%,
-      linear-gradient(#0d0d0c, #0d0d0c) 63% 100%/0.25em 22%,
-      linear-gradient(80deg, rgba(0, 0, 0, 0) 50%, #070606 50.5%) 24% 100%/1em 18%,
-      linear-gradient(-80deg, rgba(0, 0, 0, 0) 50%, #333 50.5%) 76% 100%/1em 18%,
-      linear-gradient(162deg, rgba(0, 0, 0, 0) 10%, #333 10%) 30% 100%/1.5em 21%,
-      linear-gradient(-162deg, rgba(0, 0, 0, 0) 10%, #333 10%) 70% 100%/1.5em
-        21%,
-      radial-gradient(
-          ellipse at 100% 100%,
-          #556b2f 50%,
-          rgba(85, 107, 47, 0) 50.5%
-        )
-        0 100%/37% 29%,
-      radial-gradient(
-          ellipse at 0 100%,
-          #556b2f 50%,
-          rgba(85, 107, 47, 0) 50.5%
-        )
-        100% 100%/37% 29%,
-      radial-gradient(ellipse at 50% 100%, #222 51%, rgba(0, 0, 0, 0) 51.5%) 50%
-        110%/120% 40%,
-      radial-gradient(
-          circle at 50% 0,
-          rgba(0, 0, 0, 0.15) 40%,
-          rgba(0, 0, 0, 0) 40.5%
-        )
-        50% 82%/20% 20%,
-      linear-gradient(to right, #0d0d0c 4px, rgba(139, 69, 19, 0) 4px) 50% 80%/20%
-        20%,
-      linear-gradient(to left, #0d0d0c 4px, rgba(139, 69, 19, 0) 4px) 50% 80%/20%
-        20%,
-      linear-gradient(#ffdab9, #ffdab9) 50% 80%/20% 20%,
-      radial-gradient(circle, white 30%, rgba(255, 255, 255, 0) 62%) 50% 50%/100%
-        100%;
-    background-color: #ccc;
-    background-repeat: no-repeat;
-    border-radius: 30%;
+  .text-zone {
+    padding: 2vh;
   }
 
-  /* delete */
-  .card-photo::before {
-    display: block;
-    content: '';
-    position: absolute;
-    box-sizing: border-box;
-    width: 160px;
-    height: 200px;
-    left: 50%;
-    top: -10%;
-    margin-left: -80px;
-    background: radial-gradient(
-          circle at 50% 0,
-          #ffdab9 30%,
-          #0d0d0c 30.5%,
-          #0d0d0c 41%,
-          rgba(139, 69, 19, 0) 41.5%
-        )
-        50% 76%/2em 2em,
-      radial-gradient(
-          ellipse,
-          rgba(139, 69, 19, 0) 25%,
-          #cfb8a8 25.5%,
-          #12100f 40%,
-          rgba(139, 69, 19, 0) 40.5%
-        )
-        50% 100%/100% 40%,
-      radial-gradient(
-          ellipse at 50% 0,
-          #0d0d0c 40%,
-          #ffdab9 40.5%,
-          #ffdab9 58%,
-          rgba(255, 218, 185, 0) 59%
-        )
-        50% 83%/3em 1em,
-      linear-gradient(#010101, #0d0c0b) 50% 86%/1em 1em,
-      radial-gradient(circle, #0c0906 40%, rgba(139, 69, 19, 0) 40.5%) 26% 56%/1em
-        1em,
-      radial-gradient(circle, #0d0907 40%, rgba(139, 69, 19, 0) 40.5%) 74% 56%/1em
-        1em,
-      radial-gradient(
-          ellipse,
-          rgba(139, 69, 19, 0) 52%,
-          #0d0d0c 52.5%,
-          #0d0d0c 55%,
-          rgba(139, 69, 19, 0) 55.5%
-        )
-        50% 100%/150% 80%,
-      radial-gradient(
-          ellipse,
-          rgba(0, 0, 0, 0) 46%,
-          rgba(0, 0, 0, 0.15) 46.5%,
-          rgba(0, 0, 0, 0.15) 53%,
-          rgba(0, 0, 0, 0) 53%
-        )
-        50% 100%/150% 80%,
-      radial-gradient(ellipse, #ffdab9 53%, rgba(255, 218, 185, 0) 53.5%) 50%
-        100%/150% 80%,
-      radial-gradient(
-          ellipse at 50% 100%,
-          rgba(139, 69, 19, 0) 35.5%,
-          #0d0d0c 36%,
-          #0d0d0c 38%,
-          white 38.5%
-        )
-        50% -45%/110% 60%,
-      radial-gradient(circle, #444 23%, rgba(0, 0, 0, 0) 24%) 30% 26%/1em 1em,
-      radial-gradient(circle, #444 23%, rgba(0, 0, 0, 0) 24%) 40% 25%/1em 1em,
-      radial-gradient(circle, #444 23%, rgba(0, 0, 0, 0) 24%) 50% 24.5%/1em 1em,
-      radial-gradient(circle, #444 23%, rgba(0, 0, 0, 0) 24%) 60% 25%/1em 1em,
-      radial-gradient(circle, #444 23%, rgba(0, 0, 0, 0) 24%) 70% 26%/1em 1em,
-      radial-gradient(
-          ellipse,
-          #666 63%,
-          #0d0d0c 63.5%,
-          #0d0d0c 66%,
-          rgba(139, 69, 19, 0) 66.5%
-        )
-        50% 100%/150% 80%,
-      radial-gradient(ellipse, rgba(139, 69, 19, 0) 40%, #0e0d0c 40.5%) 50% 0/150%
-        80%,
-      linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)) 50% 50%/100%
-        100%;
-    background-repeat: no-repeat;
-    background-color: #ffdab9;
-    border-radius: 50% 50% 50% 50%/60% 60% 40% 40%;
-    border: 4px solid #0d0d0c;
-    box-shadow: inset 0 -0.2em 0 0.5em rgba(0, 0, 0, 0.15),
-      inset 0 -1.6em 0 #0d0b0a;
-  }
-
-  /* delete */
-  .card-photo::after {
-    display: block;
-    content: '';
-    position: absolute;
-    width: 2.5em;
-    height: 0.8em;
-    left: 28.5%;
-    top: 26%;
-    background-color: #0e0c0a;
-    border-radius: 0.3em;
-    box-shadow: 4.2em 0 0 #151413;
-  }
-
-  .card-title {
-    text-align: center;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 400;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-      sans-serif;
-  }
-
-  .card-title span {
-    font-size: 15px;
-    color: #c7c6c6;
-  }
-
-  .card-socials {
-    display: block;
-    color: #c7c6c6;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-    height: 0;
-    opacity: 0;
-    margin-top: 20px;
-    gap: 20px;
-    transition: 0.5s;
-  }
-  .card:hover > .card-socials {
-    opacity: 1;
-    height: 35px;
-  }
-
-  .card-socials-btn:hover {
-    transform: translateY(-5px);
-    transition: all 0.15s;
-  }
-
-  .card-photo:hover {
-    transition: 0.3s;
-    transform: scale(0.4) translate(160px, 150px);
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .map-wrap {
-    float: none;
-    margin: 0;
-    width: 100%;
-    height: 400px;
-  }
-
-  .info-map {
-    display: none;
+  .info-map .card {
+    width: 80vw;
   }
 }

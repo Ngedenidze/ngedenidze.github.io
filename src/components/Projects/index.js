@@ -26,7 +26,7 @@ const projectData = [
   {
     title: "Main Website Development",
     description: "Designed and developed the main website for AeroDefense, focusing on creating an intuitive user experience and optimizing site performance. This project included front-end development, UI/UX design, and ensuring the website's compatibility across various devices and browsers.",
-    image: require('../../assets/logo.png')
+    image: require('../../assets/gastro.png')
   },
 ];
 
@@ -68,10 +68,11 @@ const Projects = () => {
     <div className={`projects-page ${fadeClass}`}>
       <div className="projects-grid">
         {projectData.map((project, index) => (
-          <div className="project-card" key={index} onClick={() => handleCardClick(project)}>
+          <div className="project-card" key={index} >
             <img src={project.image} alt={project.title} className="project-image" />
             <div className="project-overlay">
               <h3>{project.title}</h3>
+              <button className="project-button" onClick={() => handleCardClick(project)}>View Details</button>
             </div>
           </div>
         ))}
