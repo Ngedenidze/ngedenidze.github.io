@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loader from "react-loaders";
 import IconLogoAppleAr from "./IconLogoAppleAr";
-import IconChevronRight from "./IconCehvronRight";
+import IconChevronRight from "./IconChevronRight";
 import GLTFModel from "../Animated Laptop/GLTFModel";
+import TypingEffect from "../Typing/TypingEffect"; // Import the TypingEffect component
 
 function loadScript(src) {
   return new Promise((resolve, reject) => {
@@ -20,12 +21,11 @@ function loadScript(src) {
 const Home = () => {
   const navigation = useNavigate();
   const [letterClass, setLetterClass] = useState("text-animate");
+
   const handleClick = () => {
     navigation("/projects");
   };
-    const handleClickContact = () => {
-    navigation("/contact");
-    };
+
   useEffect(() => {
     const timerId = setTimeout(() => {
       setLetterClass("text-animate-hover");
@@ -33,6 +33,7 @@ const Home = () => {
 
     return () => clearTimeout(timerId);
   }, []);
+
   useEffect(() => {
     if (!customElements.get("spline-viewer")) {
       loadScript(
@@ -52,67 +53,69 @@ const Home = () => {
   return (
     <>
       <div className="container home-page">
-        {/* <img src={pic2} alt="" className="home-page-pic"></img> */}
-
         <div className="animation-zone">
-        <div className="text-zone">
-          <h1>
-            <span className={`${letterClass} _1`}>Hey, </span>
-            <span className={`${letterClass} _2`}>I'm </span>
-            {/* <img src={logo2} alt=""></img> */}
-            <span className={`${letterClass} _3`}>Nika </span>
-            <span className={`${letterClass} _4`}>Gedenidze </span>
-            <br />
-          </h1>
-          <h2>
-          <span className={`${letterClass} _5`}>Crafting Innovative Solutions with Full-Stack Development and AI
-          Expertise</span>
-            
-          </h2>
-          <div className="buttonContainer">
-            <button class="btnProject" onClick={handleClick}>
-            <span class="text">PROJECTS</span>
-              <svg
-                height="24"
-                width="24"
-                fill="#FFFFFF"
-                viewBox="0 0 24 24"
-                data-name="Layer 1"
-                id="Layer_1"
-                class="sparkle"
-              >
-                <IconLogoAppleAr />
-              </svg>
-
-
-            </button>
-            <button class="btnContact" onClick={handleClickContact}>
-            <span class="text">Let's Talk</span>
-              <svg
-                height="24"
-                width="24"
-                fill="#FFFFFF"
-                viewBox="0 0 24 24"
-                data-name="Layer 1"
-                id="Layer_1"
-                class="sparkle"
-              >
-                <IconChevronRight />
-              </svg>
-              
-            </button>
+          <div className="text-zone">
+            <h1>
+              <span className={`${letterClass} _1`}>Hey, </span>
+              <span className={`${letterClass} _2`}>I am </span>
+              <span className={`${letterClass} _3`}>Nika</span>
+              <span className={`${letterClass} _4`}></span>
+              <br />
+            </h1>
+            <h1 className="title">
+              <TypingEffect
+                textArray={[
+                  "Full-Stack Developer",
+                  "AI Researcher",
+                  "Software Developer",
+                ]}
+                typingSpeed={100}
+                deletingSpeed={50}
+                delay={2000}
+              />
+            </h1>
+            <h2>
+              <span className={`${letterClass} _5`}>
+                Crafting Innovative Solutions with Full-Stack Development and AI
+                Expertise
+              </span>
+            </h2>
+            <div className="buttonContainer">
+              <button className="btnProject" onClick={handleClick}>
+                <span className="text">PROJECTS</span>
+                <svg
+                  height="24"
+                  width="24"
+                  fill="#FFFFFF"
+                  viewBox="0 0 24 24"
+                  data-name="Layer 1"
+                  id="Layer_1"
+                  className="sparkle"
+                >
+                  <IconLogoAppleAr />
+                </svg>
+              </button>
+              <a href="/resume.pdf" download className="btnContact">
+                <span className="text">RESUME</span>
+                <svg
+                  height="24"
+                  width="24"
+                  fill="#FFFFFF"
+                  viewBox="0 0 24 24"
+                  data-name="Layer 1"
+                  id="Layer_1"
+                  className="sparkle"
+                >
+                  <IconChevronRight />
+                </svg>
+              </a>
+            </div>
           </div>
-          
+          <div>
+          <img src={require("./back.png")} alt="" className="home-page-pic" />
+          </div>
          
         </div>
-        
-        <img src={require("./back.png" )} alt="" className="home-page-pic"></img>
-        {/* <GLTFModel modelPath={require('./office.glb')}/> */}
-        </div>
-        
-         
-
-       
       </div>
       <Loader type="ball-grid-pulse" color="#339ecc" />
     </>

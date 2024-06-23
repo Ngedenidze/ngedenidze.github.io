@@ -1,3 +1,9 @@
+$transition-duration: 450ms;
+$hover-shadow-color: rgba(255, 255, 255, 0.2);
+$hover-box-shadow: 0px 0px 180px 0px #9917ff;
+$base-button-width: 15em;
+$base-button-height: 5em;
+
 .home-page {
   display: flex;
   flex-direction: column;
@@ -12,32 +18,39 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    height: 80vh;
+    height: 100vh;
   }
   .home-page-pic{
-    height: 80%;
+    height: 50vh;
+    width: 40vw;
     object-fit:contain;
     position: relative;
     z-index: -1;
+
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }
     .text-zone {
       position: relative;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 40vh;
-      margin-top: 10rem;
+      height: 50vh;
+      width: 50vw;
+      margin: 10rem 0rem;
  
 
       span{
         margin: 1rem;
       }
       h2{
-      width: 80%;
-      margin: 3rem 0;
-      font-size: 2rem;
-      text-align: center;
+      width: 50%;
+      margin: 0 5rem;
+      font-size: 1vw;
+      text-align: left;
       color: white;
       font-weight: 400;
       font-family: sans-serif;
@@ -45,17 +58,25 @@
       animation: fadeIn 1s 1.8s backwards;
       }
     }
-  
+    .title{
+      // font-size: 7rem;
+      color: #339ecc;
+      font-weight: 800;
+      font-family: sans-serif;
+      font-weight: 900;
+      letter-spacing: 2px;
+      animation: fadeIn 1s 1.8s backwards;
+    }
+    
     h1 {
       color: white;
-      font-size: 9rem;
+      font-size: 3.5vw;
       line-height: 8rem;
-      margin: 5rem;
+      margin: 0 5rem;
       font-family: 'Roboto';
       font-weight: 800;
       letter-spacing: 2px;
-      margin-bottom: 2rem;
-      text-align: center;
+      text-align: left;
   
       &:before {
         font-family: 'La Belle Aurore', cursive;
@@ -88,104 +109,70 @@
         margin-right: 0px;
       }
     }
-    .buttonContainer{
-      position: relative;
+    .buttonContainer {
+      display: flex;
+      align-items: center;
+      margin: 2rem 5rem;
+    }
+    
+    .btnBase {
+      border: none;
+      width: $base-button-width;
+      height: $base-button-height;
+      border-radius: 1.5em;
       display: flex;
       justify-content: center;
-      align-content: center;
       align-items: center;
-      height: 10vh;
-      margin: 5rem 0;
+      gap: 12px;
+      cursor: pointer;
+      transition: all $transition-duration ease-in-out;
+      margin: 1rem;
+      text-decoration: none; // Ensure the text is not underlined
+    
+      .text {
+        font-size: 1.5em;
+        font-weight: 600;
+        margin: 0;
+      }
+    
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+                    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+                    0px 0px 0px 4px $hover-shadow-color,
+                    $hover-box-shadow;
+      }
+    
+      .sparkle {
+        fill: #AAAAAA;
+        transition: all 800ms ease;
+      }
+    
+      &:hover .sparkle {
+        fill: white;
+        transform: scale(1.2);
+      }
     }
-  
+    
     .btnProject {
-      border: none;
-      width: 15em;
-      height: 5em;
-      border-radius: 3em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
+      @extend .btnBase;
       background: linear-gradient(to right, #65e2d9, #339ecc);
-      cursor: pointer;
-      transition: all 450ms ease-in-out;
-      margin: 1rem;
       color: #ffffff;
-      
-      svg{
-        align-items: center;
-        
-      }
+    
       .text {
-        font-size: 1.8em;
-        font-weight: 600;
         color: #ffffff;
-        font-size: medium;
-        margin: 0;
-      }
-      &:hover {
-    
-        background: #65e2d9;
-        box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
-        inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-        0px 0px 0px 4px rgba(255, 255, 255, 0.2),
-        0px 0px 180px 0px #9917FF;
-        transform: translateY(-2px);
       }
     }
-      
-    .btnContact{
-      border: none;
-      width: 15em;
-      height: 5em;
-      border-radius: 3em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
+    
+    .btnContact {
+      @extend .btnBase;
       background: linear-gradient(to right, #ffffff, #ffffff);
-      cursor: pointer;
-      transition: all 450ms ease-in-out;
-      margin: 1rem;
       color: #339ecc;
-      
-      svg{
-        align-items: center;
-      }
+    
       .text {
-        font-size: 1.8em;
-        font-weight: 600;
         color: #339ecc;
-        font-size: medium;
-        margin: 0;
-      }
-      &:hover {
-        background: #ffffff;
-        box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
-        inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-        0px 0px 0px 4px rgba(255, 255, 255, 0.2),
-        0px 0px 180px 0px #9917FF;
-        transform: translateY(-2px);
       }
     }
-    
-    .btn
-    .sparkle {
-      fill: #AAAAAA;
-      transition: all 800ms ease;
-    }
-    
-    
-    
-    .btn:hover .text {
-      color: white;
-    }
-    
-    .btn:hover .sparkle {
-      fill: white;
-      transform: scale(1.2);
-    } 
   }
   
   
