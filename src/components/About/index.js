@@ -55,7 +55,7 @@ const About = () => {
   }, []);
 
   if (isLoading) {
-    return <Loader type="ball-grid-pulse" />;
+    return <Loader type="ball-grid-pulse" color="#339ecc"/>;
   }
 
   return (
@@ -67,7 +67,7 @@ const About = () => {
           </h1>
           <p>
             Welcome to my portfolio! I am Nika Gedenidze, a Computer Science
-            undergraduate from Caldwell University, with a passion for
+            alumni from Caldwell University, with a passion for
             technology and innovation. Throughout my academic journey, I have
             excelled in programming languages such as Java, Python, C++, and
             JavaScript.

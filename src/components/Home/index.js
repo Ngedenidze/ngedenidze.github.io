@@ -37,7 +37,6 @@ const Home = () => {
   return (
     <>
       <div className="container home-page">
-        <div className="animation-zone">
           <div className="text-zone">
             <h1>
               <span className={`${letterClass} _1`}>Hey, </span>
@@ -98,8 +97,6 @@ const Home = () => {
           <div>
           <img src={require("./back.png")} alt="" className="home-page-pic" />
           </div>
-         
-        </div>
       </div>
       <Loader type="ball-grid-pulse" color="#339ecc" />
     </>
