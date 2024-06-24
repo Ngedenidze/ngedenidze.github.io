@@ -1,28 +1,16 @@
 import { useEffect, useState } from "react";
 import {
-  faJava,
-  faCss3,
-  faPython,
-  faHtml5,
-  faJsSquare,
-  faReact,
-} from "@fortawesome/free-brands-svg-icons";
-import Loader from "react-loaders";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  SiC,
-  SiTypescript,
+  SiPython,
   SiExpress,
   SiNodedotjs,
-  SiPostman,
-  SiDart,
-  SiFlutter,
+  SiPrisma,
+  SiGooglecloud,
+  SiMongoose,
   SiReact,
   SiHtml5,
   SiCss3,
-  SiBootstrap,
-  SiRedux,
-  SiSass,
+  SiVisualstudiocode,
+  SiGithub,
   SiJavascript,
   SiTailwindcss,
   SiMongodb,
@@ -30,7 +18,18 @@ import {
   SiGit,
   SiFirebase,
   SiMysql,
+  SiPostgresql,
+  SiGraphql,
+  SiDocker,
+  SiTensorflow,
+  SiKeras,
+  SiJupyter,
+  SiVirtualbox,
+  SiUnity,
 } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
+
+import Loader from "react-loaders";
 import "./index.scss";
 
 const About = () => {
@@ -101,7 +100,6 @@ const About = () => {
             opportunities that allow me to merge my love for technology with my
             other interests.
           </p>
-          
         </div>
 
         <div className="stage-cube-cont">
@@ -109,38 +107,17 @@ const About = () => {
             <span className={`${letterClass} _1`}>Technologies and Tools</span>
           </h1>
           <div className="tech-grid">
-            
             <div className="tech-item">
-              <SiC size={50} />
-              <span>C Language</span>
+              <SiJavascript size={50} />
+              <span>JavaScript</span>
             </div>
             <div className="tech-item">
-              <SiTypescript size={50} />
-              <span>TypeScript</span>
+              <SiPython size={50} />
+              <span>Python</span>
             </div>
             <div className="tech-item">
-              <SiExpress size={50} />
-              <span>Express</span>
-            </div>
-            <div className="tech-item">
-              <SiNodedotjs size={50} />
-              <span>NodeJS</span>
-            </div>
-            <div className="tech-item">
-              <SiPostman size={50} />
-              <span>Postman</span>
-            </div>
-            <div className="tech-item">
-              <SiDart size={50} />
-              <span>Dart</span>
-            </div>
-            <div className="tech-item">
-              <SiFlutter size={50} />
-              <span>Flutter</span>
-            </div>
-            <div className="tech-item">
-              <SiReact size={50} />
-              <span>React Native</span>
+              <FaJava size={50} />
+              <span>Java</span>
             </div>
             <div className="tech-item">
               <SiHtml5 size={50} />
@@ -151,48 +128,88 @@ const About = () => {
               <span>CSS</span>
             </div>
             <div className="tech-item">
-              <SiBootstrap size={50} />
-              <span>Bootstrap</span>
+              <SiNodedotjs size={50} />
+              <span>Node.js</span>
             </div>
             <div className="tech-item">
-              <SiRedux size={50} />
-              <span>Redux</span>
-            </div>
-            <div className="tech-item">
-              <SiSass size={50} />
-              <span>Sass</span>
-            </div>
-            <div className="tech-item">
-              <SiJavascript size={50} />
-              <span>JavaScript</span>
-            </div>
-            <div className="tech-item">
-              <SiTailwindcss size={50} />
-              <span>Tailwind CSS</span>
+              <SiExpress size={50} />
+              <span>Express.js</span>
             </div>
             <div className="tech-item">
               <SiReact size={50} />
               <span>React</span>
             </div>
             <div className="tech-item">
-              <SiMysql size={50} />
-              <span>MySQL</span>
+              <SiReact size={50} />
+              <span>React Native</span>
+            </div>
+            <div className="tech-item">
+              <SiKeras size={50} />
+              <span>Keras</span>
+            </div>
+            <div className="tech-item">
+              <SiTensorflow size={50} />
+              <span>TensorFlow</span>
+            </div>
+            <div className="tech-item">
+              <SiPostgresql size={50} />
+              <span>PostgreSQL</span>
+            </div>
+            <div className="tech-item">
+              <SiPrisma size={50} />
+              <span>Prisma</span>
+            </div>
+            <div className="tech-item">
+              <SiGraphql size={50} />
+              <span>GraphQL</span>
             </div>
             <div className="tech-item">
               <SiMongodb size={50} />
               <span>MongoDB</span>
             </div>
             <div className="tech-item">
-              <SiHeroku size={50} />
-              <span>Heroku</span>
+              <SiGooglecloud size={50} />
+              <span>Google Cloud SQL</span>
             </div>
             <div className="tech-item">
-              <SiGit size={50} />
-              <span>Git</span>
+              <SiMongoose size={50} />
+              <span>Mongoose</span>
             </div>
             <div className="tech-item">
               <SiFirebase size={50} />
-              <span>Firebase</span>
+              <span>Firebase Hosting</span>
+            </div>
+            <div className="tech-item">
+              <SiFirebase size={50} />
+              <span>Firebase Functions</span>
+            </div>
+            <div className="tech-item">
+              <SiGooglecloud size={50} />
+              <span>Google Cloud Run</span>
+            </div>
+            <div className="tech-item">
+              <SiDocker size={50} />
+              <span>Docker</span>
+            </div>
+            <div className="tech-item">
+              <SiVisualstudiocode size={50} />
+              <span>VS Code</span>
+            </div>
+            <div className="tech-item">
+              <SiGithub size={50} />
+              <span>GitHub</span>
+            </div>
+            <div className="tech-item">
+              <SiJupyter size={50} />
+              <span>Jupyter Notebook</span>
+            </div>
+            <div className="tech-item">
+              <SiVirtualbox size={50} />
+              <span>Oracle VM VirtualBox</span>
+            </div>
+            <div className="tech-item">
+              <SiUnity size={50} />
+              <span>Unity</span>
             </div>
           </div>
         </div>
