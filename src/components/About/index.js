@@ -71,12 +71,14 @@ const About = () => {
             excelled in programming languages such as Java, Python, C++, and
             JavaScript.
           </p>
+          <br/>
           <p align="LEFT">
             I specialized in Artificial Intelligence, conducting extensive
             research on Convolutional Neural Networks (CNNs). This research
             enriched my understanding of AI and led to the development of
             optimized CNN techniques.
           </p>
+          <br/>
           <p>
             In my professional experiences, I've completed impactful
             internships. At Redhawk Research, I constructed an admin portal
@@ -85,6 +87,7 @@ const About = () => {
             website, boosting user engagement by 40% and conversion rates by
             25%.
           </p>
+          <br/>
           <h1>
             <span className={`${letterClass} _1`}>Hobbies</span>
           </h1>
@@ -94,6 +97,7 @@ const About = () => {
             provide fresh perspectives that I bring into my professional
             endeavors.
           </p>
+          <br/>
           <p>
             I look forward to leveraging my skills and creativity to make a
             meaningful impact in future roles. I am excited to explore

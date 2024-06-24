@@ -38,7 +38,7 @@
 
           svg{
             &:hover {
-             color: #339ecc;
+             color: #02c8ff;
               transform: translateY(-2px);
               transition: all 0.3s ease;
             }
@@ -62,6 +62,11 @@
         img {
              width: 6rem;
              height: 6rem;
+        }
+
+        &:hover{
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
         }
     }
     nav{
@@ -91,7 +96,7 @@
                 &:hover{
                 transform: translateY(-2px);
                  transition: all 0.3s ease-in-out;
-                 color: #65e2d9;
+                 color: #02c8ff;
                 }
     
                 &:after{
@@ -116,7 +121,7 @@
             }
             a.active{
                 svg {
-                    color: #65e2d9;
+                    color: #02c8ff;
                 }
             }
             
