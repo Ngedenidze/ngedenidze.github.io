@@ -38,6 +38,7 @@ const Home = () => {
     <>
       <div className="container home-page">
           <div className="text-zone">
+            <div className="headings">
             <h1>
               <span className={`${letterClass} _1`}>Hey, </span>
               <span className={`${letterClass} _2`}>I am </span>
@@ -57,6 +58,7 @@ const Home = () => {
                 delay={2000}
               />
             </h1>
+            </div>
             <h2>
               <span className={`${letterClass} _5`}>
                 Crafting Innovative Solutions with Full-Stack Development and AI

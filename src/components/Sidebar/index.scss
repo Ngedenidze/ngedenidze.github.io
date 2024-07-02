@@ -156,3 +156,30 @@
     height: 5rem;
   }
 }
+@media screen and (max-width: 768px){
+
+  .nav-bar{
+    .social-links{
+      padding-right: 0;
+    }
+
+    .social-links ul li{
+      padding: 0;
+  
+      a{
+        font-size: 3rem;
+      }
+  
+    } 
+
+    .logo img {
+      width: 4rem;
+      height: 4rem;
+    }
+    nav a {
+      font-size: 2rem;
+      line-height: 3rem;
+    }
+  }
+  
+}
