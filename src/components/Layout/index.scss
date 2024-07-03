@@ -2,7 +2,10 @@
     width: 100vw;
     height: 100vh;
     margin: 0;
+    margin-top: 10rem;
     padding: 0;
+    overflow: auto;
+    scrollbar-width: none;
   }
   
   .top-tags {
@@ -43,6 +46,7 @@
     position: relative;
     opacity: 0;
     margin: 0 auto;
+    padding: auto;
     z-index: 1;
     transform-style: preserve-3d;
     animation: fadeIn 1s forwards;
@@ -156,6 +160,5 @@
       position: initial;
       width: 100%;
       height: 0%;
-      overflow: visible;
     }
   }

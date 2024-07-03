@@ -4,12 +4,18 @@ $hover-box-shadow: 0px 0px 180px 0px #9917ff;
 $base-button-width: 15em;
 $base-button-height: 5em;
 
+.container{
+  padding-bottom: 10rem;
+}
+
 .home-page {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
+  padding-bottom: 10rem;
 
   .animation-zone {
     overflow: hidden;
@@ -187,6 +193,8 @@ $base-button-height: 5em;
   .home-page{
     width: 100vw;
     height: 100vh;
+    position: relative;
+    padding-bottom: 10rem;
   }
 
   .home-page .text-zone {
@@ -215,6 +223,7 @@ $base-button-height: 5em;
     
     h1 {
       font-size: 60px;
+      line-height: 6vh;
       height: 10%;
       width: 100%;
     }
@@ -228,13 +237,23 @@ $base-button-height: 5em;
 }
 
 @media screen and (max-width: 768px) {
+  .page, .container{
+    overflow: hidden;
+  }
+
 .home-page {
     flex-direction: column;
+    overflow: hidden;
+  }
+  .home-page-pic{
+  display: none;
+  height: 0;
+  width: 0;
   }
 
 .home-page .text-zone {
-    width: 480px;
-    height: 100vh;
+    width: 100%;
+    height: 80vh;
     display: flex;
     align-items: center;
 
@@ -242,7 +261,7 @@ $base-button-height: 5em;
       padding: 0;
       width: 70vw;
       height: auto;
-      margin: 50px 0px 50px 40px;
+      margin: 0px 0px 50px 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -273,15 +292,30 @@ $base-button-height: 5em;
     flex-direction: column;
     margin: 1rem 2rem;
     justify-content: center;
+    font-size: 1.2rem;
+
+    span{
+      font-size: 1rem;
+      padding: 2px;
+    }
+    .text {
+      font-size: 1.1em;
+    }
   }
+  
 
   .btnBase {
     width: 100%;
     height: 4em;
   }
 
-  .text {
-    font-size: 1.2em;
+  .home-page .btnBase .text, .home-page .btnContact .text, .home-page .btnProject .text
+  {
+    margin: 8px;
+    font-size: 12px;
+  }
+  .home-page .btnBase svg{
+    margin-right: 8px;
   }
 }
 
@@ -296,14 +330,7 @@ $base-button-height: 5em;
 height: 0;
 width: 0;
 }
-.page {
-    width: 100vw;
-    height: 100vh;
-  display: flex;
-    flex-direction: column;
-   justify-content  : flex-start;
-   align-items: flex-start;
-}
+
 .page .text-zone {
   width: 100%;
   padding: 0;

@@ -1,6 +1,13 @@
 html{
   font-size: 62.5%;
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
 body {
   margin: 0;
   font: 300 11px/1.4 'Lobster Regular', 'sans-serif';
