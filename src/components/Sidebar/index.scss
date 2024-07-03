@@ -10,6 +10,10 @@
   z-index: 100;
   color: white;
   width: 100vw;
+
+   .burger {
+    margin-right: 4rem;
+  }
   .social-links {
     position: relative;
     display: flex;
@@ -155,11 +159,104 @@
     width: 5rem;
     height: 5rem;
   }
+  .burger {
+    display: none;
+    margin-right: 4rem;
+
+    .line1, .line2, .line3 {
+      width: 30px;
+      height: 3px;
+      background-color: white;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+  }
+  .drawer {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: #328096;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+    
+    &.open {
+      display: flex;
+      transform: translateX(0);
+    }
+
+    .close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+
+      &:hover {
+        color: #02c8ff;
+      }
+    }
+
+    a {
+      color: white;
+      font-size: 2rem;
+      margin: 1rem 0;
+      text-decoration: none;
+      border-bottom: 0.5px solid rgba(128, 128, 128, 0.468);
+      width: 80%;
+      align-content: center;
+      text-align: center;
+
+      &:hover {
+        color: #02c8ff;
+      }
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: auto;
+      margin-bottom: 2rem;
+
+      ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin: 0 2rem;
+
+          a {
+            color: white;
+            font-size: 4rem;
+
+            &:hover {
+              color: #02c8ff;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 @media screen and (max-width: 768px){
 
   .nav-bar{
+    nav{
+      display: none;
+    }
     .social-links{
+      display: none;
       padding-right: 0;
     }
 
@@ -171,7 +268,9 @@
       }
   
     } 
-
+    .burger {
+      display: block;
+    }
     .logo img {
       width: 4rem;
       height: 4rem;
