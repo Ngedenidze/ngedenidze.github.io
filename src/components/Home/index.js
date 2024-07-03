@@ -42,8 +42,7 @@ const Home = () => {
             <h1>
               <span className={`${letterClass} _1`}>Hey, </span>
               <span className={`${letterClass} _2`}>I am </span>
-              <span className={`${letterClass} _3`}>Nika</span>
-              <span className={`${letterClass} _4`}></span>
+              <span className={`${letterClass} _3`}>Nika!</span>
               <br />
             </h1>
             <h1 className="title">
