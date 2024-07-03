@@ -39,7 +39,7 @@ textarea {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scrollbar-width: 0;
+  scrollbar-width: none;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow: visible;
 }
