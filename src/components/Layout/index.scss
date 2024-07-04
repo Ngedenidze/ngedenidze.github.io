@@ -135,7 +135,6 @@
           transform: none;
           width: 100%;
           display: block;
-          padding: 20px;
           box-sizing: border-box;
         }
       }
@@ -149,11 +148,7 @@
           margin-left: 20px;
           margin-top: 20px;
         }
-  
-        .image-box {
-          height: 200px;
-          max-width: calc(50% - 10px);
-        }
+
       }
     }
   

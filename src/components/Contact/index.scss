@@ -172,29 +172,48 @@
 @media screen and (max-width: 768px) {
   .contact-page {
     flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+  .container{
+    min-height: 140vh;
   }
   .container.contact-page h1{
       font-size: 1.5rem;
     }
 
     .text-zone{
-      min-width: 300px;
-      margin: 0;
+      min-width: 350px;
       display: flex;
       align-items: center;
       justify-content: center;
-
-     
+      padding: 0;
+      
     }
-  .contact-form{
-    min-width: 250px; 
-    margin: 0;
+ 
+.contact-form {
+  max-width: 630px;
+  min-width: 350px;
+  margin-top: 10px;
+  padding: 0 2vh 2vh 2vh;
+
+
+  form {
+    ul {
+      input, textarea {
+        font-size: 1rem;
+      }
+
+      textarea {
+        resize: none;
+        height: 8vh;
+      }
+    }
   }
+}
   .info-map{
     margin-top: 2vh;
-    min-width: 250px;
     .card{
-      min-width: 250px;
+      min-width: 350px;
       .card-title{
         font-size: 2.4rem;
       }
