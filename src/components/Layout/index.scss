@@ -59,7 +59,7 @@
   .container.portfolio-page {
     
       h1 {
-        font-size: 53px;
+        font-size: 3rem;
         font-family: 'Lobster Regular';
         color: #fff;
         font-weight: 400;
@@ -125,7 +125,7 @@
     .container {
       position: initial;
       height: auto;
-      min-height: auto;
+      min-height: 100vh;
   
       &.contact-page,
       &.about-page,

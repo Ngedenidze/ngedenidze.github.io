@@ -61,13 +61,12 @@ const Contact = () => {
       <div className="container contact-page">
         <div className="text-zone">
           <div className="contact-form">
-            <h1>
-              <AnimatedLetters
-                letterClass={letterClass}
-                strArray={['C', 'o', 'n', 't', 'a', 'c', 't', ' ', 'M', 'e']}
-                idx={15}
-              />
-            </h1>
+     
+            <div className="header">
+            <span className={`${letterClass} _1`}>Contact </span>
+            <span className={`${letterClass} _2`}>me </span>
+              </div>
+          
             <form ref={form} onSubmit={sendEmail}>
               <ul>
                 <li className="half">
@@ -114,9 +113,7 @@ const Contact = () => {
               <span>Software Engineer</span>
             </div>
             <div className="card-socials">
-              <span>Caldwell, NJ</span>
-              <br/>
-              <span>07006</span>
+              <span>Caldwell, NJ, 07006</span>
               <br/>
               <span>+1 (717) 775 - 0711</span>
               <br/>
