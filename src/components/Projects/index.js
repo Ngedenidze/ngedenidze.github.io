@@ -37,28 +37,68 @@ import {
 } from "react-icons/si";
 import Loader from "react-loaders";
 import { m } from "framer-motion";
-
 const projectData = [
   {
     title: "Admin Portal for Redhawk Research",
     description:
       "Developed an admin portal with integrated core backend functionality using GraphQL. This project significantly enhanced security and administrative efficiency by 30%. The portal's design focused on user-friendly interfaces and secure data handling, streamlining administrative tasks and improving overall operational workflow.",
     image: require("../../assets/adminpg.png"),
-    moreInfo: "",
+    projectOverview: "The admin portal for Redhawk Research was developed to enhance security and administrative efficiency. It features a user-friendly interface and robust data handling capabilities.",
+    keyFeatures: [
+      "Integrated Core Backend Functionality",
+      "Enhanced Security Measures",
+      "Streamlined Administrative Tasks",
+      "User-Friendly Interface",
+      "Staff User Authentication and Permission Inspection",
+      "30+ Custom GraphQL Queries and Mutations",
+      "Control of 25+ Tables in PostgreSQL"
+    ],
+    techStack: {
+      Frontend: ["React", "TypeScript", "SCSS"],
+      Backend: ["Node.js", "Express", "GraphQL", "PostgreSQL"]
+    }
   },
   {
     title: "Products Page for AeroDefense",
     description:
       "Engineered the Products Page for AeroDefense's main website, which resulted in a 40% increase in user engagement and a 25% boost in conversion rates. The project involved designing a responsive and visually appealing layout, optimizing page performance, and ensuring seamless integration with the existing website infrastructure.",
     image: require("../../assets/products.png"),
+    projectOverview: "The Products Page for AeroDefense was designed to increase user engagement and boost conversion rates with a responsive and visually appealing layout.",
+    keyFeatures: [
+      "Responsive Design",
+      "Increased User Engagement",
+      "Optimized Page Performance",
+      "Seamless Integration",
+      "Embedded Customer Reviews",
+      "Testimonial Subpages",
+      "Enhanced Product Listing Accuracy",
+      "SEO Optimization"
+    ],
+    techStack: {
+      Frontend: ["React", "TypeScript", "SCSS"],
+      Backend: ["Node.js", "Express"]
+    }
   },
   {
     title: "Optimized Convolutional Neural Networks (CNNs)",
     description:
       "Conducted extensive research on Convolutional Neural Networks (CNNs) and developed optimized techniques to reduce AI training times significantly. This project involved deep learning, data analysis, and algorithm optimization, contributing to advancements in AI efficiency and performance.",
     image: require("../../assets/research.png"),
+    projectOverview: "This project focused on optimizing Convolutional Neural Networks to reduce AI training times, involving deep learning, data analysis, and algorithm optimization.",
+    keyFeatures: [
+      "Reduced AI Training Times",
+      "Deep Learning Techniques",
+      "Data Analysis",
+      "Algorithm Optimization",
+      "Layer Freezing Schedules",
+      "Transfer Learning with Frozen Backpropagation",
+      "Improved Model Interpretability"
+    ],
+    techStack: {
+      Frontend: [],
+      Backend: ["Python", "TensorFlow", "Keras"]
+    }
   },
-
   {
     title: "React Native Mobile Application",
     description:
@@ -70,25 +110,37 @@ const projectData = [
       "User Authentication: Secure login and registration system using JWT for authentication.",
       "User Profiles: Personalized user profiles with customizable settings.",
       "Media Uploads: Easy and fast media upload capabilities integrated with Amazon S3 for storage.",
-      "Real-time Chat: Instant messaging feature for real-time communication.",
       "Inventory Updates & Low Stock Alerts: Real-time tracking of inventory levels with automated low stock notifications.",
-      "Barcode Scanning: Integrated barcode scanning for efficient inventory management.",
-      "Supplier Management: Comprehensive supplier management system for streamlined operations.",
       "Mobile Notifications: Push notifications to keep users informed and engaged.",
-      "Analytics: Detailed analytics for monitoring application usage and performance.",
+      "Analytics: Detailed analytics for monitoring application usage and performance."
     ],
     techStack: {
       Frontend: ["React Native", "TypeScript", "SCSS", "Material-UI"],
       Backend: ["Node.js", "Express", "PostgreSQL", "Redis", "JWT", "Amazon S3", "GraphQL"]
-    },
+    }
   },
   {
     title: "GraphQL Backend Integration",
     description:
       "Constructed a backend system using GraphQL, enhancing the data query efficiency and security. This project included setting up robust authentication mechanisms, implementing secure data transactions, and creating scalable APIs for efficient data management.",
     image: require("../../assets/adminpg.png"),
-  },
+    projectOverview: "The GraphQL Backend Integration project aimed to enhance data query efficiency and security through robust authentication mechanisms and scalable APIs.",
+    keyFeatures: [
+      "Enhanced Data Query Efficiency",
+      "Robust Authentication Mechanisms",
+      "Secure Data Transactions",
+      "Scalable APIs",
+      "Improved System Interoperability",
+      "Control of Multiple Data Tables"
+    ],
+    techStack: {
+      Frontend: [],
+      Backend: ["Node.js", "GraphQL", "PostgreSQL", "JWT"]
+    }
+  }
 ];
+
+
 
 const Projects = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -161,16 +213,11 @@ const Projects = () => {
       {modalData && (
         <div className="modal" onClick={handleCloseModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <h3>{modalData.title}</h3>
               <span className="close" onClick={handleCloseModal}>
                 &times;
               </span>
-            </div>
             <div className="modal-main-content">
               <div className="modal-text-zone">
-                  <h1>Project Overview:</h1>
-                  <p>{modalData.projectOverview}</p>
                   <h1>Key Features:</h1>
                   <ul>
                     {modalData.keyFeatures.map((feature, index) => (
@@ -181,7 +228,7 @@ const Projects = () => {
               <div className="stage-cube-cont">
                 <h1>
                   <span className={`${letterClass} _1`}>
-                    Technologies and Tools
+                    Technologies and Tools:
                   </span>
                 </h1>
                 <div className="stage-cube">

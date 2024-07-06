@@ -63,15 +63,16 @@ $transition-slow-transform: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
       justify-content: flex-start;
       align-items: center;
       min-width: 50%;
-      padding: 5vw 2vw;
+      padding: 2vh 2vw;
 
       h1 {
         text-align: center;
         color: #339ecc;
+        font-size: 4rem;
       }
       p {
         margin: 0;
-        font-size: 2.5rem;
+        font-size: 2rem;
         color: #65e2d9;
       }
       .project-button {
@@ -152,34 +153,26 @@ $transition-slow-transform: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 
     .modal-content {
       background: #333;
-      padding: 20px;
+      padding: 5rem 5rem;
       border-radius: 10px;
       position: relative;
-      max-width: 50vw;
-      max-height: 50vh;
+      max-width: 80vw;
+      max-height: 90vh;
+      height: auto;
       width: 100%;
       text-align: center;
-
-      .modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 2rem;
-        width: 100%;
-
-        h3 {
-          width: 95%;
-          font-size: 3rem;
-          color: #02c8ff;
-        }
+      display: flex;
+      flex-direction: column;
 
         .close {
-          position: relative;
+          position: absolute;
+          top: 8%;
+          left: 92%;
           font-size: 24px;
           cursor: pointer;
           width: 5%;
         }
-      }
+      
       .modal-main-content {
         display: flex;
         flex-direction: row;
@@ -192,15 +185,22 @@ $transition-slow-transform: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
           text-align: left;
           color: #02c8ff;
           max-width: 50%;
+          width: 50%;
           padding: 0 2rem;
           height: 100%;
 
           h1 {
             color: #02c8ff;
+            font-size: 3rem;
           }
-
           p {
-            color: #02c8ff;
+            font-size: 2.2vh;
+            color: #fff;
+            
+          }
+          li{
+            font-size: 2vh;
+            color: #fff;
           }
         }
 
@@ -212,8 +212,10 @@ $transition-slow-transform: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
           max-width: 50%;
           width: 50%;
           max-height: 100%;
+          height: 100%;
           h1 {
             color: #02c8ff;
+            font-size: 3rem;
           }
           .stage-cube{
             display: flex;
@@ -226,7 +228,7 @@ $transition-slow-transform: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
               flex-direction: column;
               margin: 0 2rem;
               width: 50%;
-              max-height: 40%;
+              text-align: left;
 
               h2{
                 color: #02c8ff;
@@ -244,7 +246,7 @@ $transition-slow-transform: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
       display: flex;
       width: 100%;
       flex-direction: row;
-      padding: 1rem;
+      padding: 0rem;
       justify-content: flex-start;
       align-items: center;
       flex-wrap: wrap;
@@ -260,8 +262,10 @@ $transition-slow-transform: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         padding: 0.3vw;
         margin: 0.8rem;
         border-radius: 2em;
-        height: 2.5vw;
-        width: 2.5vw;
+        min-height: 60px;
+        height: 6vh;
+        width: 6vh;
+        min-width: 60px;
         box-shadow: 5px 10px 6px rgba(123, 123, 123, 0.05);
         text-align: center;
         transition: transform 0.3s ease-in-out;
