@@ -64,7 +64,7 @@ const Contact = () => {
      
             <div className="header">
             <span className={`${letterClass} _1`}>Contact </span>
-            <span className={`${letterClass} _2`}>me </span>
+            <span className={`${letterClass} _2`}>Me</span>
               </div>
           
             <form ref={form} onSubmit={sendEmail}>

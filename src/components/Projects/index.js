@@ -35,6 +35,8 @@ const Projects = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [fadeClass, setFadeClass] = useState("");
   const [modalData, setModalData] = useState(null);
+  const [isBlurred, setIsBlurred] = useState(false);
+
 
   useEffect(() => {
     const letterTimerId = setTimeout(() => {
@@ -54,10 +56,12 @@ const Projects = () => {
 
   const handleCardClick = (project) => {
     setModalData(project);
+    setIsBlurred(true); 
   };
-
+  
   const handleCloseModal = () => {
     setModalData(null);
+    setIsBlurred(false); 
   };
 
   if (isLoading) {
@@ -65,19 +69,23 @@ const Projects = () => {
   }
 
   return (
-    <div className={`projects-page ${fadeClass}`}>
+    <div className={`projects-page ${fadeClass} ${isBlurred ? 'blur' : ''}`}>
+      <h1>
+        <span className={`${letterClass} _1`}>On going/Finished Projects</span>
+      </h1>
       <div className="projects-grid">
         {projectData.map((project, index) => (
-          <div className="project-card" key={index} >
-            <img src={project.image} alt={project.title} className="project-image" />
-            <div className="project-overlay">
-              <h3>{project.title}</h3>
+          <div className="project-card" key={index} onClick={() => handleCardClick(project)}>
+            <div className="text-area">
+              <h1>{project.title}</h1>
+              <p>{project.description}</p>
               <button className="project-button" onClick={() => handleCardClick(project)}>View Details</button>
             </div>
+            <img src={project.image} alt={project.title} className="project-image" />
           </div>
         ))}
       </div>
-
+  
       {modalData && (
         <div className="modal" onClick={handleCloseModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -90,6 +98,7 @@ const Projects = () => {
       )}
     </div>
   );
+  
 }
 
 export default Projects;
