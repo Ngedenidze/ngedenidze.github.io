@@ -3,8 +3,9 @@ $hover-shadow-color: rgba(255, 255, 255, 0.2);
 $hover-box-shadow: 0px 0px 180px 0px #9917ff;
 $base-button-width: 15em;
 $base-button-height: 5em;
+$transition-slow-transform: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 
-.projects-page{
+.projects-page {
   min-height: 100vh;
   width: 100vw;
   display: flex;
@@ -13,19 +14,17 @@ $base-button-height: 5em;
   align-items: center;
 
   .blur {
-    filter: blur(5px); 
+    filter: blur(5px);
     transition: filter 0.3s ease;
   }
-  
 
-  h1{
+  h1 {
     font-size: 6rem;
     margin: 2rem 0 2rem;
-    color: #339ecc;
+    color: #fff;
   }
 
   a {
-  
     &:active {
       top: 1px;
     }
@@ -55,9 +54,10 @@ $base-button-height: 5em;
     border-radius: 1.5em;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background-color: rgba(245, 245, 245, 0.07);
+    box-shadow: 0 0.4em 0.8em rgba(0, 0, 0, 0.1);
     border: 0.2px solid #00000054;
-    
-    .text-area{
+
+    .text-area {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -74,7 +74,7 @@ $base-button-height: 5em;
         font-size: 2.5rem;
         color: #65e2d9;
       }
-      .project-button{
+      .project-button {
         position: absolute;
         left: 5%;
         top: 80%;
@@ -93,39 +93,33 @@ $base-button-height: 5em;
         background: linear-gradient(to right, #65e2d9, #339ecc);
         color: #ffffff;
 
-    
         .text {
           font-size: 1.5em;
           font-weight: 600;
           margin: 0;
         }
-    
+
         &:hover {
           transform: translateY(-2px);
           box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
-                      inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
-                      0px 0px 0px 4px $hover-shadow-color,
-                      $hover-box-shadow;
-        }    
+            inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+            0px 0px 0px 4px $hover-shadow-color, $hover-box-shadow;
+        }
       }
-    
     }
 
     &:hover {
       transform: translateY(-10px);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
-    h1 {
-      margin: 0 0 15px;
-      font-size: 2vw;
-      text-align: center;
-      color: #020202;
-    }
 
     .project-image {
-      min-width: 50%; 
+      min-width: 50%;
+      max-width: 50%;
       object-fit: contain;
       padding: 5vw 2vw;
+      border-radius: 10%;
+      overflow: hidden;
     }
 
     .project-overlay {
@@ -141,7 +135,6 @@ $base-button-height: 5em;
       display: flex;
       justify-content: center;
       align-items: center;
-      
     }
   }
 
@@ -155,47 +148,144 @@ $base-button-height: 5em;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll;
 
     .modal-content {
-      background: #fff;
+      background: #333;
       padding: 20px;
       border-radius: 10px;
       position: relative;
       max-width: 50vw;
+      max-height: 50vh;
       width: 100%;
       text-align: center;
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        width: 100%;
+
+        h3 {
+          width: 95%;
+          font-size: 3rem;
+          color: #02c8ff;
+        }
+
+        .close {
+          position: relative;
+          font-size: 24px;
+          cursor: pointer;
+          width: 5%;
+        }
+      }
+      .modal-main-content {
+        display: flex;
+        flex-direction: row;
+       
+        .modal-text-zone {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: left;
+          color: #02c8ff;
+          max-width: 50%;
+          padding: 0 2rem;
+          height: 100%;
+
+          h1 {
+            color: #02c8ff;
+          }
+
+          p {
+            color: #02c8ff;
+          }
+        }
+
+        .stage-cube-cont {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          max-width: 50%;
+          width: 50%;
+          max-height: 100%;
+          h1 {
+            color: #02c8ff;
+          }
+          .stage-cube{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            max-height: 100%;
+
+            .cube-column{
+              display: flex;
+              flex-direction: column;
+              margin: 0 2rem;
+              width: 50%;
+              max-height: 40%;
+
+              h2{
+                color: #02c8ff;
+                font-size: 3rem;
+              }
+            }
+
+          } 
+          
+        }
+      }
     }
 
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 24px;
-      cursor: pointer;
-    }
+    .tech-grid {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      padding: 1rem;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
 
-    .modal-image {
-      width: 90%;
-      height: auto;
-      margin-bottom: 15px;
-      max-height: 40vh;
-      object-fit: contain;
-    }
+      .tech-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: space-evenly;
+        background-color: #161616af;
+        color: #02c8ff;
+        padding: 0.3vw;
+        margin: 0.8rem;
+        border-radius: 2em;
+        height: 2.5vw;
+        width: 2.5vw;
+        box-shadow: 5px 10px 6px rgba(123, 123, 123, 0.05);
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+        .bf {
+          display: none;
+        }
+        svg {
+          height: 3rem;
+          margin-bottom: 1vh;
+        }
 
-    h3 {
-      margin: 0 0 15px;
-      font-size: 2rem;
-    }
+        span {
+          font-size: 0.3vw;
+          font-weight: bold;
+          color: #fff;
+        }
 
-    p {
-      margin: 0;
-      font-size: 1.5em;
-      color: #020202;
+        &:hover {
+          transform: scale(1.4) translateY(-5px) ;
+          transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+          color: #fff;
+          background-color: #02c8ff;
+        }
+      }
     }
   }
-
-
-  
 }
-
-  
