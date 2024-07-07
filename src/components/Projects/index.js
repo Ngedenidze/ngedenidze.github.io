@@ -140,7 +140,7 @@ const projectData = [
   }
 ];
 
-
+ 
 
 const Projects = () => {
   const [letterClass, setLetterClass] = useState("text-animate");

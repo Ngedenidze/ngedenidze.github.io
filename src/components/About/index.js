@@ -61,7 +61,8 @@ const About = () => {
     <>
       <div className={`about-page ${fadeClass}`}>
         <div className="text-zone">
-          <h1>
+          <div className="info-card">
+          <h1> 
             <span className={`${letterClass} _1`}>A Bit About Me</span>
           </h1>
           <p>
@@ -88,6 +89,8 @@ const About = () => {
             25%.
           </p>
           <br/>
+          </div>
+          <div className="info-card">
           <h1>
             <span className={`${letterClass} _1`}>Hobbies</span>
           </h1>
@@ -104,9 +107,11 @@ const About = () => {
             opportunities that allow me to merge my love for technology with my
             other interests.
           </p>
+          </div>
         </div>
 
         <div className="stage-cube-cont">
+        <div className="info-card">
           <h1>
             <span className={`${letterClass} _1`}>Technologies and Tools</span>
           </h1>
@@ -214,6 +219,7 @@ const About = () => {
             <div className="tech-item">
               <SiUnity size={50} />
               <span>Unity</span>
+            </div>
             </div>
           </div>
         </div>

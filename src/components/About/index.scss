@@ -28,8 +28,29 @@
 
   h1{
     color:#02c8ff;
-    font-size: 2.2vw;
-    margin: 4rem 0;
+    font-size: 45px;
+    margin: 0;
+  }
+  .info-card{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 4rem;
+    margin: 2rem 0 2rem;
+    border-radius: 1.5em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #1011135f;
+    box-shadow: 0 0.4em 0.8em rgba(0, 0, 0, 0.1);
+    border: 0.2px solid #02c8ff15;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
   }
   
 
@@ -43,7 +64,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-
+    
    
     p{
       color:white;
