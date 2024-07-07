@@ -25,6 +25,7 @@
   transition: all 0.5s ease-in-out;
   overflow: scroll;
   scrollbar-width: none;
+  
 
   h1{
     color:#02c8ff;
@@ -43,8 +44,13 @@
     margin: 2rem 0 2rem;
     border-radius: 1.5em;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #1011135f;
+    background-color: #101113df;
     box-shadow: 0 0.4em 0.8em rgba(0, 0, 0, 0.1);
+    background-image: url('../../star.svg');
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    background-position: 90% 0%;
+
     border: 0.2px solid #02c8ff15;
 
     &:hover {

@@ -178,6 +178,7 @@ const Projects = () => {
   if (isLoading) {
     return <Loader type="ball-grid-pulse" color="#339ecc" />;
   }
+  <script src="http://localhost:8097"></script>
 
   return (
     <div className={`projects-page ${fadeClass} ${isBlurred ? "blur" : ""}`}>
