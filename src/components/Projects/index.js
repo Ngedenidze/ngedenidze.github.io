@@ -148,7 +148,7 @@ const Projects = () => {
   const [fadeClass, setFadeClass] = useState("");
   const [modalData, setModalData] = useState(null);
   
-
+ 
   useEffect(() => {
     const letterTimerId = setTimeout(() => {
       setLetterClass("text-animate-hover");
