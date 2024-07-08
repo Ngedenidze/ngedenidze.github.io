@@ -7,9 +7,20 @@
     opacity: 1;
   }
 }
+@keyframes blur {
+  from {
+    filter: blur(0px);
+  }
+  to {
+    filter: blur(10px);
+  }
+}
 
 .fade-in {
-  animation: fadeIn 2s ease-in;
+  animation: fadeIn 1s ease-in;
+}
+.blur{
+  animation: blur 1s ease-in-out;
 }
 .about-page{
   display: flex;
@@ -17,9 +28,8 @@
   align-items: flex-start;
   padding: 0 10px;
   margin: 0 10px;
-  min-height: fit-content;
-  max-height: fit-content;
-  width: 100vw;
+  margin-bottom: 20px;
+  min-height: 110vh;
   color: #fff;
   font-family: 'Roboto', sans-serif;
   transition: all 0.5s ease-in-out;
@@ -50,7 +60,6 @@
     background-repeat: no-repeat;
     background-size: 100px 100px;
     background-position: 90% 0%;
-
     border: 0.2px solid #02c8ff15;
 
     &:hover {
@@ -64,17 +73,16 @@
     position: relative;
     height: 100%;
     width: 50%;
-    padding: 10rem 10rem;
-    margin: 0px;
+    padding: 4rem;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     
-   
     p{
       color:white;
-      font-size: 2.6rem;
+      font-size: 1.2vw;
       line-height: 3vh;
     }
     li{
@@ -82,9 +90,9 @@
     }
   }
   .stage-cube-cont{
-    height: 90vh;
+    height: 100%;
     width: 50%;
-    padding: 10rem;
+    padding: 4rem;
     h1{
       text-align: center;
     }
@@ -96,8 +104,8 @@
     padding: 5rem;
     justify-items: center;
     align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 0.4vw;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 2.5vw;
   
     .tech-item {
       display: flex;
@@ -108,10 +116,10 @@
       background-color: #161616af;
       color: #02c8ff;
       padding: 0.3vw;
-      border-radius: 2em;
+      border-radius: 2px;
       height: 4.5vw;
       width: 4.5vw;
-      box-shadow: 5px 10px 6px rgba(98, 97, 97, 0.05);
+      box-shadow: 2px 2px 6px rgba(241, 217, 217, 0.05);
       text-align: center;
       transition: transform 0.3s ease-in-out;
       .bf{
@@ -119,6 +127,8 @@
       }
       svg {
         margin-bottom: 1vh;
+        height: 3vw;
+        width: 3vw;
       }
   
       span {
@@ -168,9 +178,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    overflow: scroll;
-    min-height: 100vh;
-    height: auto;
+    min-height: 80vh;
+    margin-bottom: 50px;
     width: 100%;
     font-family: 'Roboto', sans-serif;
     padding: 0rem;
@@ -194,10 +203,12 @@
 
 
     .stage-cube-cont{
+    
       min-height: 30vh;
       padding: 5rem 2rem;
       display: flex;
       flex-direction: column;
+      height: 100%;
       width: 90%;
       margin: 0;
       h1{
@@ -207,18 +218,19 @@
         width: 100%;
         padding: 2rem 5px;
         justify-items: start;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 0.3vw;
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        gap: 50px;
         margin-bottom: 2rem;
         
 
         .tech-item{
           height: 8rem;
           width: 8rem;
+          border-radius: 10%;
 
           svg{
-            width: 4rem;
-            height: 4rem;
+            width: 3.5rem;
+            height: 3.5rem;
           }
 
         }
@@ -239,24 +251,27 @@
     font-size: 3rem;
      }
     }
+    .info-card{
+    }
     .stage-cube-cont{
-      margin: 0rem;
-      min-height: 140vh;
+      margin-bottom: 100px;
+      padding-top: 0;
+      height: 100%;
       h1{
         font-size: 3rem;
         margin-bottom: 2rem;
       }
       .tech-grid{
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 1.5vw;
+        gap: 20px;
 
       .tech-item{
-        height: 7rem;
-        width: 7rem;
+        height: 8rem;
+        width: 8rem;
 
         svg{
-          width: 3rem;
-          height: 3rem;
+          width: 4rem;
+          height: 4rem;
         }
         span {
           font-size: 1rem;
@@ -269,12 +284,55 @@
 
 @media screen and (max-width: 480px){
   .about-page{
-    .stage-cube-cont{
-      margin-bottom: 0rem;
-      min-height: 140vh;
-      .tech-grid{
-        margin-bottom: 2rem;
+    .text-zone{
+      p{
+        font-size: 1.5rem;
+        line-height: 1.8rem;
       }
+     h1{
+    font-size: 3rem;
+     }
+     margin-bottom: 0;
+    }
+    min-height: 100vh;
+    .stage-cube-cont{
+      margin-bottom: 100px;
+      padding-top: 0;
+      .tech-grid{
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        margin-bottom: 2rem;
+        justify-content: center;
+        align-content: center;
+        gap: 20px;
+        .tech-item{
+          height: 4rem;
+          width: 4rem;
+          border-radius: 2px;
+          svg{
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+          span {
+            display: none;
+
+           }
+           &:hover{
+            transform: scale(1.2) translateY(-5px);
+            height: 5rem;
+            width: 5rem;
+            span{
+              font-size: 8px;
+              display: block;
+            }
+            svg{
+              width: 2rem;
+              height: 2rem;
+            }
+            
+          }
+          
+      }
+    }
     }
   }
 }

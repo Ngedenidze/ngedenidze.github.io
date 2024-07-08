@@ -82,9 +82,9 @@ const About = () => {
           <br/>
           <p>
             In my professional experiences, I've completed impactful
-            internships. At Redhawk Research, I constructed an admin portal
+            internships. At Redhawk Research, I work as an Software Engineering intern, constructing an admin portal
             using GraphQL, enhancing security and administrative efficiency by
-            30%. At AeroDefense, I engineered the Products Page for the main
+            30%. At AeroDefense, I  work as a front-end web developer, engineering the Products Page for the main
             website, boosting user engagement by 40% and conversion rates by
             25%.
           </p>

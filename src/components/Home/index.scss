@@ -187,13 +187,8 @@ $base-button-height: 5em;
 }
 
 @media screen and (max-width: 1200px) {
-  .home-page-pic {
-
-  }
-
   .home-page{
-    width: 100vw;
-    height: 100vh;
+    width: 0;
     position: relative;
     padding-bottom: 10rem;
   }

@@ -10,9 +10,11 @@ import './index.scss'; // make sure you import your SCSS
 
 const Sidebar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isBlurred, setIsBlurred] = useState(false);
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
+    setIsBlurred(true);
   };
 
   const handlers = useSwipeable({
@@ -22,7 +24,7 @@ const Sidebar = () => {
   });
 
   return (
-    <div className="nav-bar" {...handlers}>
+    <div className="nav-bar" {...handlers} >
       <Link className="logo" to="/">
         <img src={LogoS} alt="logo" />
       </Link>
@@ -63,7 +65,7 @@ const Sidebar = () => {
         <div className="line2"></div>
         <div className="line3"></div>
       </div>
-      <div className={`drawer ${drawerOpen ? 'open' : ''}`}>
+      <div className={`drawer ${drawerOpen ? 'open' : ''} `}>
        
         <button className="close-button" onClick={toggleDrawer}>
           <FontAwesomeIcon icon={faTimes} />

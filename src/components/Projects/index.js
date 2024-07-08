@@ -147,7 +147,7 @@ const Projects = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [fadeClass, setFadeClass] = useState("");
   const [modalData, setModalData] = useState(null);
-  const [isBlurred, setIsBlurred] = useState(false);
+  
 
   useEffect(() => {
     const letterTimerId = setTimeout(() => {
@@ -167,12 +167,11 @@ const Projects = () => {
 
   const handleCardClick = (project) => {
     setModalData(project);
-    setIsBlurred(true);
+
   };
 
   const handleCloseModal = () => {
     setModalData(null);
-    setIsBlurred(false);
   };
 
   if (isLoading) {
@@ -181,7 +180,7 @@ const Projects = () => {
   <script src="http://localhost:8097"></script>
 
   return (
-    <div className={`projects-page ${fadeClass} ${isBlurred ? "blur" : ""}`}>
+    <div className={`projects-page ${fadeClass} `}>
       <h1>
         <span className={`${letterClass} _1`}>On going/Finished Projects</span>
       </h1>

@@ -178,26 +178,34 @@
     right: 0;
     width: 250px;
     height: 100%;
-    background: #24505c;
+  
+    background-image: url("../../pattern.svg");
+    background-repeat: no-repeat;
+    background-color: #181f2a;
+    background-position: 0px 40vh;
+    background-size: 300px 300px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 200;
     transition: transform 1s ease-in-out;
     transform: translateX(100%);
-    
+    border-left: 1px solid #02c8ff6b;
+
     &.open {
       display: flex;
       transform: translateX(0);
     }
 
     .close-button {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+      width: 100%;
+      padding: 5px;
       background: none;
       border: none;
-      color: white;
+      color: #02c8ff;
       font-size: 2rem;
       cursor: pointer;
 
@@ -207,12 +215,13 @@
     }
 
     a {
-      color: white;
-      font-size: 2rem;
-      margin: 1rem 0;
+      color: #02c8ff;;
+      font-size: 2.5rem;
+      font-weight: 200;
+      margin: 10px 0;
       text-decoration: none;
       border-bottom: 0.5px solid rgba(128, 128, 128, 0.468);
-      width: 80%;
+      width: 100%;
       align-content: center;
       text-align: center;
 
@@ -235,10 +244,13 @@
 
         li {
           margin: 0 2rem;
-
+          svg{
+            color: #02c8ff;
+          }
           a {
-            color: white;
-            font-size: 4rem;
+            color: #02c8ff;
+            font-size: 5rem;
+            border-bottom: 0;
 
             &:hover {
               color: #02c8ff;
