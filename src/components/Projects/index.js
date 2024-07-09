@@ -31,7 +31,6 @@ import {
   SiTypescript,
   SiSass,
   SiApplearcade,
-  SiRedis,
   SiAmazonaws,
   SiJsonwebtokens,
 } from "react-icons/si";
@@ -107,16 +106,16 @@ const projectData = [
     projectOverview:
       "I developed a comprehensive mobile application using React Native, SCSS, and TypeScript. This application was designed to provide a seamless and efficient user experience with a variety of features tailored to modern needs.",
     keyFeatures: [
-      "User Authentication: Secure login and registration system using JWT for authentication.",
-      "User Profiles: Personalized user profiles with customizable settings.",
-      "Media Uploads: Easy and fast media upload capabilities integrated with Amazon S3 for storage.",
+      "Secure login and registration system using JWT for authentication.",
+      "Personalized user profiles with customizable settings.",
+      "Easy and fast media upload capabilities integrated with Amazon S3 for storage.",
       "Inventory Updates & Low Stock Alerts: Real-time tracking of inventory levels with automated low stock notifications.",
-      "Mobile Notifications: Push notifications to keep users informed and engaged.",
-      "Analytics: Detailed analytics for monitoring application usage and performance."
+      "Push notifications to keep users informed and engaged.",
+      "Detailed analytics for monitoring application usage and performance."
     ],
     techStack: {
       Frontend: ["React Native", "TypeScript", "SCSS", "Material-UI"],
-      Backend: ["Node.js", "Express", "PostgreSQL", "Redis", "JWT", "Amazon S3", "GraphQL"]
+      Backend: ["Node.js", "Express", "PostgreSQL", "JWT", "Amazon S3", "GraphQL"]
     }
   },
   {
@@ -140,15 +139,15 @@ const projectData = [
   }
 ];
 
- 
+
 
 const Projects = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
   const [isLoading, setIsLoading] = useState(true);
   const [fadeClass, setFadeClass] = useState("");
   const [modalData, setModalData] = useState(null);
-  
- 
+
+
   useEffect(() => {
     const letterTimerId = setTimeout(() => {
       setLetterClass("text-animate-hover");
@@ -194,12 +193,14 @@ const Projects = () => {
             <div className="text-area">
               <h1>{project.title}</h1>
               <p>{project.description}</p>
-              <button
-                className="project-button"
-                onClick={() => handleCardClick(project)}
-              >
-                View Details
-              </button>
+              <div className="button-container">
+                <button
+                  className="project-button"
+                  onClick={() => handleCardClick(project)}
+                >
+                  View Details
+                </button>
+              </div>
             </div>
             <img
               src={project.image}
@@ -213,17 +214,17 @@ const Projects = () => {
       {modalData && (
         <div className="modal" onClick={handleCloseModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <span className="close" onClick={handleCloseModal}>
-                &times;
-              </span>
+            <span className="close" onClick={handleCloseModal}>
+              &times;
+            </span>
             <div className="modal-main-content">
               <div className="modal-text-zone">
-                  <h1>Key Features:</h1>
-                  <ul>
-                    {modalData.keyFeatures.map((feature, index) => (
-                      <li key={index}>{feature}</li>
-                    ))}
-                  </ul>
+                <h1>Key Features:</h1>
+                <ul>
+                  {modalData.keyFeatures.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
               </div>
               <div className="stage-cube-cont">
                 <h1>
@@ -232,95 +233,90 @@ const Projects = () => {
                   </span>
                 </h1>
                 <div className="stage-cube">
-                {Object.keys(modalData.techStack).map((category, index) => (
-                  <div key={index} className="cube-column">
-                    <h2>{category}</h2>
-                    <div className="tech-grid">
-                      {modalData.techStack[category].map((tech, index) => {
-                        switch (tech) {
-                          case "React Native":
-                            return (
-                              <div className="tech-item" key={index}>
-                                <SiReact size={50} />
-                                <span>React Native</span>
-                              </div>
-                            );
-                          case "TypeScript":
-                            return (
-                              <div className="tech-item" key={index}>
-                                <SiTypescript size={50} />
-                                <span>TypeScript</span>
-                              </div>
-                            );
-                          case "SCSS":
-                            return (
-                              <div className="tech-item" key={index}>
-                                <SiSass size={50} />
-                                <span>SCSS</span>
-                              </div>
-                            );
-                          case "Node.js":
-                            return (
-                              <div className="tech-item" key={index}>
-                                <SiNodedotjs size={50} />
-                                <span>Node.js</span>
-                              </div>
-                            );
-                          case "Express":
-                            return (
-                              <div className="tech-item" key={index}>
-                                <SiExpress size={50} />
-                                <span>Express.js</span>
-                              </div>
-                            );
-                          case "GraphQL":
-                            return (
-                              <div className="tech-item" key={index}>
-                                <SiGraphql size={50} />
-                                <span>GraphQL</span>
-                              </div>
-                            );
-                          case "PostgreSQL":
-                            return (
-                              <div className="tech-item" key={index}>
-                                <SiPostgresql size={50} />
-                                <span>PostgreSQL</span>
-                              </div>
-                            );
-                          case "Redis":
-                            return (
-                              <div className="tech-item" key={index}>
-                                <SiRedis size={50} />
-                                <span>Redis</span>
-                              </div>
-                            );
-                          case "JWT":
-                            return (
-                              <div className="tech-item" key={index}>
-                                <SiJsonwebtokens size={50} />
-                                <span>JWT</span>
-                              </div>
-                            );
-                          case "Amazon S3":
-                            return (
-                              <div className="tech-item" key={index}>
-                                <SiAmazonaws size={50} />
-                                <span>Amazon S3</span>
-                              </div>
-                            );
+                  {Object.keys(modalData.techStack).map((category, index) => (
+                    <div className="main-column">
+                      <h2>{category}</h2>
+                      <div key={index} className="cube-column">
+                        <div className="tech-grid">
+                          {modalData.techStack[category].map((tech, index) => {
+                            switch (tech) {
+                              case "React Native":
+                                return (
+                                  <div className="tech-item" key={index}>
+                                    <SiReact size={50} />
+                                    <span>React Native</span>
+                                  </div>
+                                );
+                              case "TypeScript":
+                                return (
+                                  <div className="tech-item" key={index}>
+                                    <SiTypescript size={50} />
+                                    <span>TypeScript</span>
+                                  </div>
+                                );
+                              case "SCSS":
+                                return (
+                                  <div className="tech-item" key={index}>
+                                    <SiSass size={50} />
+                                    <span>SCSS</span>
+                                  </div>
+                                );
+                              case "Node.js":
+                                return (
+                                  <div className="tech-item" key={index}>
+                                    <SiNodedotjs size={50} />
+                                    <span>Node.js</span>
+                                  </div>
+                                );
+                              case "Express":
+                                return (
+                                  <div className="tech-item" key={index}>
+                                    <SiExpress size={50} />
+                                    <span>Express.js</span>
+                                  </div>
+                                );
+                              case "GraphQL":
+                                return (
+                                  <div className="tech-item" key={index}>
+                                    <SiGraphql size={50} />
+                                    <span>GraphQL</span>
+                                  </div>
+                                );
+                              case "PostgreSQL":
+                                return (
+                                  <div className="tech-item" key={index}>
+                                    <SiPostgresql size={50} />
+                                    <span>PostgreSQL</span>
+                                  </div>
+                                );
+                              case "JWT":
+                                return (
+                                  <div className="tech-item" key={index}>
+                                    <SiJsonwebtokens size={50} />
+                                    <span>JWT</span>
+                                  </div>
+                                );
+                              case "Amazon S3":
+                                return (
+                                  <div className="tech-item" key={index}>
+                                    <SiAmazonaws size={50} />
+                                    <span>Amazon S3</span>
+                                  </div>
+                                );
 
-                          default:
-                            return (
-                              <div className="tech-item" key={index}>
-                                <SiApplearcade size={50} />
-                                <span>{tech}</span>
-                              </div>
-                            );
-                        }
-                      })}
+                              default:
+                                return (
+                                  <div className="tech-item" key={index}>
+                                    <SiApplearcade size={50} />
+                                    <span>{tech}</span>
+                                  </div>
+                                );
+                            }
+                          })}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
                 </div>
               </div>
             </div>
