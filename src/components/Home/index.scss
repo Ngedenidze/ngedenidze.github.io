@@ -7,6 +7,13 @@ $base-button-height: 5em;
 .container{
   padding-bottom: 10rem;
 }
+.fly-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
 
 .home-page {
   display: flex;
@@ -16,6 +23,8 @@ $base-button-height: 5em;
   height: 100vh;
   width: 100vw;
   padding-bottom: 10rem;
+  
+
   
 
   .animation-zone {
@@ -34,7 +43,7 @@ $base-button-height: 5em;
     width: 40vw;
     object-fit: contain;
     position: relative;
-    z-index: -1;
+    z-index: 1;
 
     img {
       height: 100%;
