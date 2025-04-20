@@ -20,7 +20,7 @@ export default function AnimatedTitles() {
   }, []);
 
   return (
-    <div className="relative h-[2.5rem] md:h-[3rem] overflow-hidden">
+    <div className="relative mt-0 mb-0 h-[2.5rem] md:h-[3rem] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={titles[index]}
@@ -28,7 +28,7 @@ export default function AnimatedTitles() {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="absolute text-cyan-300 font-semibold text-xl md:text-3xl"
+          className="absolute text-cyan-300 font-semibold text-3xl md:text-4xl"
         >
           {titles[index]}
         </motion.div>

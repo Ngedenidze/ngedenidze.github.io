@@ -1,103 +1,84 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import LogoS from '../../assets/logo-2.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faHome, faUser, faRocket, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useSwipeable } from 'react-swipeable';
-import 'normalize.css';
-import './index.scss'; // make sure you import your SCSS
+import LogoS from '../../assets/logo-2.png';
 
 const Sidebar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [isBlurred, setIsBlurred] = useState(false);
 
-  const toggleDrawer = () => {
-    setDrawerOpen(!drawerOpen);
-    setIsBlurred(true);
-  };
+  const toggleDrawer = () => setDrawerOpen(!drawerOpen);
 
   const handlers = useSwipeable({
     onSwipedLeft: () => setDrawerOpen(false),
     preventDefaultTouchmoveEvent: true,
-    trackMouse: true
+    trackMouse: true,
   });
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      setDrawerOpen(false);
+    }
+  };
+
   return (
-    <div className="nav-bar" {...handlers} >
-      <Link className="logo" to="/">
-        <img src={LogoS} alt="logo" />
-      </Link>
-      <nav>
-        <NavLink exact="true" activeclassname="active" to="/">
-          <FontAwesomeIcon icon={faHome} />
-          <span>Home</span>
-        </NavLink>
-        <NavLink exact="true" activeclassname="active" className="about-link" to="/about">
-          <FontAwesomeIcon icon={faUser} />
-          <span>About</span>
-        </NavLink>
-        <NavLink exact="true" activeclassname="active" className="projects-link" to="/projects">
-          <FontAwesomeIcon icon={faRocket} />
-          <span>Projects</span>
-        </NavLink>
-        <NavLink exact="true" activeclassname="active" className="contact-link" to="/contact">
-          <FontAwesomeIcon icon={faEnvelope} />
-          <span>Contact</span>
-        </NavLink>
-      </nav>
-      <div className="social-links">
-        <ul>
-          <li>
-            <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/ngedenidze/">
-              <FontAwesomeIcon icon={faLinkedin} color="white" />
-            </a>
-          </li>
-          <li>
-            <a target="_blank" rel="noreferrer" href="https://www.github.com/Ngedenidze/">
-              <FontAwesomeIcon icon={faGithub} color="white" />
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div className="burger" onClick={toggleDrawer}>
-        <div className="line1"></div>
-        <div className="line2"></div>
-        <div className="line3"></div>
-      </div>
-      <div className={`drawer ${drawerOpen ? 'open' : ''} `}>
-       
-        <button className="close-button" onClick={toggleDrawer}>
-          <FontAwesomeIcon icon={faTimes} />
-        </button>
-        <NavLink exact="true" activeclassname="active" to="/" onClick={toggleDrawer}>
-          Home
-        </NavLink>
-        <NavLink exact="true" activeclassname="active" to="/about" onClick={toggleDrawer}>
-          About
-        </NavLink>
-        <NavLink exact="true" activeclassname="active" to="/projects" onClick={toggleDrawer}>
-          Projects
-        </NavLink>
-        <NavLink exact="true" activeclassname="active" to="/contact" onClick={toggleDrawer}>
-          Contact
-        </NavLink>
-        <div className="social-links">
-          <ul>
-            <li>
-              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/ngedenidze/">
-                <FontAwesomeIcon icon={faLinkedin} color="white" />
-              </a>
-            </li>
-            <li>
-              <a target="_blank" rel="noreferrer" href="https://www.github.com/Ngedenidze/">
-                <FontAwesomeIcon icon={faGithub} color="white" />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-fit" {...handlers}>
+  <div className="bg-white/10 backdrop-blur-md px-9 py-6 rounded-2xl shadow-lg flex flex-row items-center justify-center gap-14 text-white text-lg">
+
+    {/* Logo */}
+    <img src={LogoS} alt="logo" className="w-16 h-16 rounded-full" />
+
+    {/* Nav Links */}
+    <nav className="flex flex-row items-center gap-9">
+      <button onClick={() => scrollToSection('home')} className="hover:text-cyan-400 flex items-center gap-3 text-xl">
+        <FontAwesomeIcon icon={faHome} size="lg" />
+        <span>Home</span>
+      </button>
+      <button onClick={() => scrollToSection('about')} className="hover:text-cyan-400 flex items-center gap-3 text-xl">
+        <FontAwesomeIcon icon={faUser} size="lg" />
+        <span>About</span>
+      </button>
+      <button onClick={() => scrollToSection('projects')} className="hover:text-cyan-400 flex items-center gap-3 text-xl">
+        <FontAwesomeIcon icon={faRocket} size="lg" />
+        <span>Projects</span>
+      </button>
+      <button onClick={() => scrollToSection('contact')} className="hover:text-cyan-400 flex items-center gap-3 text-xl">
+        <FontAwesomeIcon icon={faEnvelope} size="lg" />
+        <span>Contact</span>
+      </button>
+    </nav>
+
+    {/* Social Links */}
+    <div className="flex items-center gap-5 text-xl">
+      <a href="https://www.linkedin.com/in/ngedenidze/" target="_blank" rel="noreferrer">
+        <FontAwesomeIcon icon={faLinkedin} className="hover:text-cyan-400" size="lg" />
+      </a>
+      <a href="https://www.github.com/Ngedenidze/" target="_blank" rel="noreferrer">
+        <FontAwesomeIcon icon={faGithub} className="hover:text-cyan-400" size="lg" />
+      </a>
     </div>
+
+    {/* Mobile Drawer Toggle */}
+    <div className="md:hidden">
+      <button onClick={toggleDrawer} className="text-white ml-4">
+        <FontAwesomeIcon icon={drawerOpen ? faTimes : faRocket} size="2x" />
+      </button>
+    </div>
+  </div>
+
+  {drawerOpen && (
+    <div className="absolute top-24 left-1/2 transform -translate-x-1/2 bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg flex flex-col space-y-6 text-xl">
+      <button onClick={() => scrollToSection('home')}>Home</button>
+      <button onClick={() => scrollToSection('about')}>About</button>
+      <button onClick={() => scrollToSection('projects')}>Projects</button>
+      <button onClick={() => scrollToSection('contact')}>Contact</button>
+    </div>
+  )}
+</div>
+
   );
 };
 
