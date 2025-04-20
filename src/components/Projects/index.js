@@ -1,36 +1,42 @@
 import React, { useEffect, useState } from 'react';
-import { m, AnimatePresence } from 'framer-motion';
-import {
-  SiPython, SiExpress, SiNodedotjs, SiPrisma, SiGooglecloud,
-  SiMongoose, SiReact, SiHtml5, SiCss3, SiVisualstudiocode,
-  SiGithub, SiJavascript, SiTailwindcss, SiMongodb, SiHeroku,
-  SiGit, SiFirebase, SiMysql, SiPostgresql, SiGraphql,
-  SiDocker, SiTensorflow, SiKeras, SiJupyter, SiVirtualbox,
-  SiUnity, SiTypescript, SiSass, SiAmazonaws, SiJsonwebtokens
-} from 'react-icons/si';
+import { motion, AnimatePresence } from 'framer-motion';
 import Loader from 'react-loaders';
+import {
+  SiReact, SiTypescript, SiSass, SiNodedotjs, SiExpress,
+  SiGraphql, SiPostgresql, SiJsonwebtokens, SiAmazonaws,
+  SiKeras, SiTensorflow, SiPython, SiDocker
+} from 'react-icons/si';
 
+// Animation Variants
+const containerVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.4 }
+  }
+};
 const fadeItem = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
 };
 
-// Data sample (import from separate file or API)
 const projectData = [
   {
+    // Sep 2024
     title: "Admin Portal for Redhawk Research",
     description:
       "Developed an admin portal with integrated core backend functionality using GraphQL. This project significantly enhanced security and administrative efficiency by 30%. The portal's design focused on user-friendly interfaces and secure data handling, streamlining administrative tasks and improving overall operational workflow.",
     image: require("../../assets/adminpg.png"),
-    projectOverview: "The admin portal for Redhawk Research was developed to enhance security and administrative efficiency. It features a user-friendly interface and robust data handling capabilities.",
+    projectOverview: "Admin portal enhancing security and efficiency with GraphQL, Prisma, and Docker on cloud.",
     keyFeatures: [
       "Integrated Core Backend Functionality",
       "Enhanced Security Measures",
       "Streamlined Administrative Tasks",
       "User-Friendly Interface",
-      "Staff User Authentication and Permission Inspection",
-      "30+ Custom GraphQL Queries and Mutations",
-      "Control of 25+ Tables in PostgreSQL"
+      "Staff Authentication & Permissions",
+      "30+ Custom GraphQL Queries & Mutations",
+      "Control of 25+ PostgreSQL Tables"
     ],
     techStack: {
       Frontend: ["React", "TypeScript", "SCSS"],
@@ -38,39 +44,17 @@ const projectData = [
     }
   },
   {
-    title: "Products Page for AeroDefense",
-    description:
-      "Engineered the Products Page for AeroDefense's main website, which resulted in a 40% increase in user engagement and a 25% boost in conversion rates. The project involved designing a responsive and visually appealing layout, optimizing page performance, and ensuring seamless integration with the existing website infrastructure.",
-    image: require("../../assets/products.png"),
-    projectOverview: "The Products Page for AeroDefense was designed to increase user engagement and boost conversion rates with a responsive and visually appealing layout.",
-    keyFeatures: [
-      "Responsive Design",
-      "Increased User Engagement",
-      "Optimized Page Performance",
-      "Seamless Integration",
-      "Embedded Customer Reviews",
-      "Testimonial Subpages",
-      "Enhanced Product Listing Accuracy",
-      "SEO Optimization"
-    ],
-    techStack: {
-      Frontend: ["React", "TypeScript", "SCSS"],
-      Backend: ["Node.js", "Express"]
-    }
-  },
-  {
+    // May 2024
     title: "Optimized Convolutional Neural Networks (CNNs)",
     description:
-      "Conducted extensive research on Convolutional Neural Networks (CNNs) and developed optimized techniques to reduce AI training times significantly. This project involved deep learning, data analysis, and algorithm optimization, contributing to advancements in AI efficiency and performance.",
+      "Conducted research optimizing CNN training workflows on 150K+ images via transfer learning, reducing training time and improving accuracy.",
     image: require("../../assets/research.png"),
-    projectOverview: "This project focused on optimizing Convolutional Neural Networks to reduce AI training times, involving deep learning, data analysis, and algorithm optimization.",
+    projectOverview: "AI research project on CNN optimization using Python, TensorFlow, Keras for faster, more accurate models.",
     keyFeatures: [
-      "Reduced AI Training Times",
-      "Deep Learning Techniques",
-      "Data Analysis",
-      "Algorithm Optimization",
+      "Reduced Training Times",
       "Layer Freezing Schedules",
-      "Transfer Learning with Frozen Backpropagation",
+      "Transfer Learning Strategies",
+      "Algorithm Optimization",
       "Improved Model Interpretability"
     ],
     techStack: {
@@ -79,19 +63,38 @@ const projectData = [
     }
   },
   {
+    // Dec 2023
+    title: "Wordle Game App",
+    description:
+      "Built a multi-platform Wordle-inspired game using JavaScript, React, MongoDB, and Express—optimized for performance and deployed via Firebase.",
+    image: require("../../assets/wordle.png"),
+    projectOverview: "A Wordle clone featuring caching, optimized DB queries, and Firebase Hosting for fast, reliable play across devices.",
+    keyFeatures: [
+      "NYT-style Game Mechanics",
+      "Indexed MongoDB Queries (40% faster)",
+      "Redis Caching Mechanism",
+      "Firebase Hosting & Functions Deployment"
+    ],
+    techStack: {
+      Frontend: ["JavaScript", "React", "HTML5", "CSS3"],
+      Backend: ["MongoDB", "Express", "Redis", "Firebase"]
+    }
+  },
+  {
+    // React Native App
     title: "React Native Mobile Application",
     description:
-      "This project highlights my proficiency in developing complex mobile applications with a focus on user experience, performance, and security. The combination of React Native and TypeScript allowed for a robust and scalable codebase, while SCSS ensured a responsive and visually appealing UI. The integration of various technologies such as GraphQL, JWT, and Amazon S3 demonstrates my ability to work with a diverse tech stack to deliver comprehensive solutions.",
+      "Developed a cross-platform mobile app in React Native & TypeScript, featuring JWT auth, S3 media storage, real-time inventory alerts, and analytics.",
     image: require("../../assets/gastro.png"),
     projectOverview:
-      "I developed a comprehensive mobile application using React Native, SCSS, and TypeScript. This application was designed to provide a seamless and efficient user experience with a variety of features tailored to modern needs.",
+      "A robust mobile solution focusing on UX, performance, and security, integrating AWS S3, JWT, and PostgreSQL.",
     keyFeatures: [
-      "Secure login and registration system using JWT for authentication.",
-      "Personalized user profiles with customizable settings.",
-      "Easy and fast media upload capabilities integrated with Amazon S3 for storage.",
-      "Inventory Updates & Low Stock Alerts: Real-time tracking of inventory levels with automated low stock notifications.",
-      "Push notifications to keep users informed and engaged.",
-      "Detailed analytics for monitoring application usage and performance."
+      "JWT Authentication System",
+      "Customizable User Profiles",
+      "Amazon S3 Media Upload",
+      "Real-time Inventory Alerts",
+      "Push Notifications",
+      "In-app Analytics Dashboard"
     ],
     techStack: {
       Frontend: ["React Native", "TypeScript", "SCSS", "Material-UI"],
@@ -99,18 +102,36 @@ const projectData = [
     }
   },
   {
+    // AeroDefense "
+    title: "Products Page for AeroDefense",
+    description:
+      "Engineered the Products Page for AeroDefense's main site—boosted engagement by 40% and conversion by 25% with responsive, SEO-optimized design.",
+    image: require("../../assets/products.png"),
+    projectOverview: "AeroDefense product showcase with SEO, testimonials, and embedded reviews for higher conversions.",
+    keyFeatures: [
+      "Responsive Design",
+      "SEO Optimization",
+      "Embedded Reviews & Testimonials",
+      "Performance Tuning",
+      "Accurate Product Listings"
+    ],
+    techStack: {
+      Frontend: ["React", "TypeScript", "SCSS"],
+      Backend: ["Node.js", "Express"]
+    }
+  },
+  {
+    // GraphQL integration
     title: "GraphQL Backend Integration",
     description:
-      "Constructed a backend system using GraphQL, enhancing the data query efficiency and security. This project included setting up robust authentication mechanisms, implementing secure data transactions, and creating scalable APIs for efficient data management.",
+      "Built a scalable GraphQL API with robust auth, secure data flows, and efficient queries to support multiple frontends.",
     image: require("../../assets/adminpg.png"),
-    projectOverview: "The GraphQL Backend Integration project aimed to enhance data query efficiency and security through robust authentication mechanisms and scalable APIs.",
+    projectOverview: "GraphQL service layer with JWT, PostgreSQL, and optimized resolvers for fast data access.",
     keyFeatures: [
-      "Enhanced Data Query Efficiency",
-      "Robust Authentication Mechanisms",
-      "Secure Data Transactions",
-      "Scalable APIs",
-      "Improved System Interoperability",
-      "Control of Multiple Data Tables"
+      "Secure JWT Authentication",
+      "Optimized Query Efficiency",
+      "Scalable API Design",
+      "Role-based Data Access"
     ],
     techStack: {
       Frontend: [],
@@ -119,14 +140,13 @@ const projectData = [
   }
 ];
 
-
 export default function Projects() {
   const [isLoading, setIsLoading] = useState(true);
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setIsLoading(false), 500);
-    return () => clearTimeout(t1);
+    const timer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(timer);
   }, []);
 
   if (isLoading) {
@@ -138,60 +158,67 @@ export default function Projects() {
   }
 
   return (
-    <section className="relative py-20 px-6 bg-gradient-to-br from-indigo-700 to-cyan-900 text-white min-h-screen">
-      {/* Blurred Background Blobs */}
+    <motion.section
+      className="relative px-6 bg-gradient-to-br from-indigo-700 to-cyan-900 text-white min-h-screen pt-10"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      {/* Background blobs */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute top-[-80px] left-[-80px] w-72 h-72 bg-pink-500 rounded-full filter blur-3xl opacity-40 animate-pulse" />
         <div className="absolute bottom-[-100px] right-[-100px] w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-40 animate-pulse delay-300" />
       </div>
 
-      <m.div
-        className="relative z-10 max-w-6xl mx-auto"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <m.h1
-          className="text-5xl md:text-6xl font-extrabold mb-12 text-center"
+      <div className="relative z-10 max-w-6xl mx-auto space-y-12">
+        <motion.h1
+          className="text-5xl md:text-6xl font-extrabold text-center"
           variants={fadeItem}
         >
           Projects
-        </m.h1>
+        </motion.h1>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projectData.map((proj, i) => (
-            <m.div
-              key={i}
+        {/* Carousel on mobile, grid on larger screens */}
+        <div className="flex flex-row sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 overflow-wrap sm:overflow-visible px-4 sm:px-0 snap-x snap-mandatory">
+          {projectData.map((proj, idx) => (
+            <motion.div
+              key={idx}
+              className="snap-start flex-shrink-0 sm:flex-shrink sm:flex-grow w-80 sm:w-auto bg-white bg-opacity-10 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition p-6 flex flex-col"
               variants={fadeItem}
-              className="bg-white bg-opacity-10 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition p-6 flex flex-col"
               onClick={() => setSelected(proj)}
             >
-              <h2 className="text-2xl font-semibold mb-4">{proj.title}</h2>
-              <p className="flex-grow text-base leading-relaxed mb-6">
+              <img
+                src={proj.image}
+                alt={proj.title}
+                className="rounded-md mb-4 object-cover h-48 w-full overflow-hidden"
+              />
+              <h2 className="text-2xl font-semibold mb-2">{proj.title}</h2>
+              <p className="flex-grow text-base leading-relaxed mb-4">
                 {proj.description}
               </p>
               <button className="mt-auto self-start bg-cyan-400 text-indigo-900 font-semibold py-2 px-4 rounded-lg hover:bg-cyan-300 transition">
                 View Details
               </button>
-            </m.div>
+            </motion.div>
           ))}
         </div>
 
         <AnimatePresence>
           {selected && (
-            <m.div
+            <motion.div
               className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelected(null)}
             >
-              <m.div
+              <motion.div
                 className="bg-white rounded-2xl p-8 max-w-3xl w-full text-gray-900 relative"
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.8 }}
                 onClick={e => e.stopPropagation()}
+                variants={fadeItem}
               >
                 <button
                   className="absolute top-4 right-4 text-gray-700 hover:text-gray-900"
@@ -201,8 +228,8 @@ export default function Projects() {
                 </button>
                 <h3 className="text-3xl font-bold mb-4">Key Features</h3>
                 <ul className="list-disc list-inside mb-6">
-                  {selected.keyFeatures.map((f, idx) => (
-                    <li key={idx} className="mb-2">{f}</li>
+                  {selected.keyFeatures.map((feat, i) => (
+                    <li key={i} className="mb-2">{feat}</li>
                   ))}
                 </ul>
                 <h3 className="text-3xl font-bold mb-4">Tech Stack</h3>
@@ -212,14 +239,22 @@ export default function Projects() {
                       <h4 className="font-semibold mb-2">{cat}</h4>
                       <div className="flex flex-wrap gap-3">
                         {items.map((tech, j) => {
-                          // choose appropriate icon
-                          const Icon = {
-                            'React': SiReact, 'TypeScript': SiTypescript,
-                            'SCSS': SiSass, 'Node.js': SiNodedotjs,
-                            'Express': SiExpress, 'GraphQL': SiGraphql,
-                            'PostgreSQL': SiPostgresql, 'JWT': SiJsonwebtokens,
-                            'Amazon S3': SiAmazonaws
-                          }[tech] || SiApplearcade;
+                          const IconMap = {
+                            React: SiReact,
+                            TypeScript: SiTypescript,
+                            SCSS: SiSass,
+                            'Node.js': SiNodedotjs,
+                            Express: SiExpress,
+                            GraphQL: SiGraphql,
+                            PostgreSQL: SiPostgresql,
+                            JWT: SiJsonwebtokens,
+                            'Amazon S3': SiAmazonaws,
+                            TensorFlow: SiTensorflow,
+                            Keras: SiKeras,
+                            Python: SiPython,
+                            Docker: SiDocker
+                          };
+                          const Icon = IconMap[tech] || SiReact;
                           return (
                             <div key={j} className="flex items-center gap-2">
                               <Icon size={28} className="text-cyan-500" />
@@ -231,11 +266,11 @@ export default function Projects() {
                     </div>
                   ))}
                 </div>
-              </m.div>
-            </m.div>
+              </motion.div>
+            </motion.div>
           )}
         </AnimatePresence>
-      </m.div>
-    </section>
+      </div>
+    </motion.section>
   );
 }

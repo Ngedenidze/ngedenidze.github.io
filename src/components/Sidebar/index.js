@@ -26,7 +26,7 @@ const Sidebar = () => {
 
   return (
     <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-fit" {...handlers}>
-  <div className="bg-white/10 backdrop-blur-md px-9 py-6 rounded-2xl shadow-lg flex flex-row items-center justify-center gap-14 text-white text-lg">
+  <div className="bg-gray-600/70 backdrop-blur-md px-9 py-6 rounded-2xl shadow-lg flex flex-row items-center justify-center gap-14 text-cyan-100 text-lg">
 
     {/* Logo */}
     <img src={LogoS} alt="logo" className="w-16 h-16 rounded-full" />

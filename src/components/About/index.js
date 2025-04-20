@@ -6,14 +6,14 @@ import {
   SiGithub, SiJavascript, SiTailwindcss, SiMongodb, SiHeroku,
   SiGit, SiFirebase, SiMysql, SiPostgresql, SiGraphql,
   SiDocker, SiTensorflow, SiKeras, SiJupyter, SiVirtualbox,
-  SiUnity,
+  SiUnity
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import Loader from "react-loaders";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
 };
 
 export default function About() {
@@ -42,12 +42,12 @@ export default function About() {
     [SiFirebase, "Firebase Hosting"], [SiFirebase, "Firebase Functions"],
     [SiGooglecloud, "Cloud Run"], [SiDocker, "Docker"], [SiVisualstudiocode, "VS Code"],
     [SiGithub, "GitHub"], [SiJupyter, "Jupyter"], [SiVirtualbox, "VirtualBox"],
-    [SiUnity, "Unity"],
+    [SiUnity, "Unity"]
   ];
 
   return (
-    <section className="relative h-screen flex items-center px-6 md:px-20 bg-gradient-to-br from-indigo-100 to-white text-gray-800">
-      {/* animated blurred blobs */}
+    <section className="relative py-20 px-6 md:px-20 bg-gradient-to-br from-indigo-100 to-white text-gray-800 w-full">
+      {/* blurred background blobs */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-pink-500 rounded-full filter blur-3xl opacity-50 animate-pulse" />
         <div className="absolute bottom-[-120px] right-[-80px] w-[400px] h-[400px] bg-blue-500 rounded-full filter blur-3xl opacity-50 animate-pulse delay-300" />
@@ -55,62 +55,54 @@ export default function About() {
       </div>
 
       <motion.div
-        className="relative w-full max-w-8xl mx-auto grid gap-16 md:grid-cols-2 items-start h-full z-10 pt-36"
+        className="relative grid gap-12 md:grid-cols-2 max-w-8xl mx-auto z-10"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeInUp}
       >
-        {/* Left */}
-        <motion.div variants={fadeInUp} className="space-y-14 align-top justify-start content-start items-start">
+        {/* Left Column */}
+        <motion.div variants={fadeInUp} className="space-y-8">
           <div>
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-3 text-cyan-700">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-cyan-700 mb-2">
               About Me
             </h2>
-            <div className="w-20 h-1 bg-cyan-700 rounded mb-6" />
-            <p className="text-3xl md:text-3xl leading-relaxed text-gray-950">
-              I’m <span className="font-semibold">Nika Gedenidze</span>, a
-              Computer Science graduate (’24) from Caldwell University. As a
-              Back‑end Developer Intern at Mazi Restaurants, I built a
-              .NET Core inventory management system that cut 40+ hours of
-              manual work each month and automated stock updates by 80%.
+            <div className="w-16 h-1 bg-cyan-700 rounded mb-4" />
+            <p className="text-base md:text-lg leading-relaxed mb-4">
+              I’m <span className="font-semibold">Nika Gedenidze</span>, a Computer Science graduate (’24) from Caldwell University. As a Back‑end Developer Intern at Mazi Restaurants, I built a .NET Core inventory management system that saved 40+ hours of manual work monthly and automated stock updates by 80%.
             </p>
-            <p className="mt-6 text-3xl md:text-3xl leading-relaxed text-gray-950">
-              Previously at Redhawk Research, I architected a full‑stack admin
-              portal with GraphQL, Prisma & Docker on Google Cloud Run—boosting
-              query speeds by 40% and achieving 75% test coverage with Jest.
-              In academia, I led CNN transfer‑learning research on 150K+
-              images, improving accuracy and training time.
+            <p className="text-base md:text-lg leading-relaxed">
+              Previously at Redhawk Research, I architected a full‑stack admin portal with GraphQL, Prisma & Docker on Google Cloud Run—boosting query speeds by 40% and maintaining 75% test coverage. I also led CNN transfer‑learning research on 150K+ images, improving accuracy and training efficiency.
             </p>
           </div>
 
           <div>
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-3 text-cyan-700">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-cyan-700 mb-2">
               Hobbies
             </h2>
-            <div className="w-20 h-1 bg-cyan-700 rounded mb-6" />
-            <p className="text-3xl md:text-3xl leading-relaxed text-gray-950">
-              Off‑duty, I produce electronic music, collect vinyl records, and
-              skateboard. I’m also a film buff and avid reader—passions that
-              keep my creative edge sharp.
+            <div className="w-16 h-1 bg-cyan-700 rounded mb-4" />
+            <p className="text-base md:text-lg leading-relaxed">
+              Off‑duty, I produce electronic music, collect vinyl records, and skateboard. I’m also a film buff and avid reader—passions that keep my creativity sharp.
             </p>
           </div>
         </motion.div>
 
-        {/* Right */}
+        {/* Right Column */}
         <motion.div variants={fadeInUp}>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-3 text-cyan-700">
+          <h2 className="text-2xl md:text-4xl font-extrabold text-cyan-700 mb-2">
             Tech & Tools
           </h2>
-          <div className="w-20 h-1 bg-cyan-700 rounded mb-6" />
-          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-6 w-full">
+          <div className="w-16 h-1 bg-cyan-700 rounded mb-6" />
+
+          {/* horizontal scroll on mobile, grid on larger */}
+          <div className="flex gap-4 overflow-x-auto sm:grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {tech.map(([Icon, name], i) => (
               <div
                 key={i}
-                className="flex flex-col items-center p-5 w-full bg-indigo-800 bg-opacity-60 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition"
+                className="flex-shrink-0 sm:flex-shrink sm:flex-grow bg-indigo-800 bg-opacity-60 rounded-2xl shadow p-4 flex flex-col items-center text-center min-w-[80px]"
               >
-                <Icon size={56} className="text-cyan-300 mb-3 pt-2 pb-2 pr-2 pl-2" />
-                <span className="text-base md:text-lg font-medium text-white whitespace-nowrap">
+                <Icon size={36} className="text-cyan-300 mb-2" />
+                <span className="text-sm md:text-base font-medium text-white whitespace-nowrap">
                   {name}
                 </span>
               </div>

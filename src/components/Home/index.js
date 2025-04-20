@@ -49,7 +49,7 @@ const Home = () => {
         variants={itemVariants}
       >
         <motion.h1
-          className="text-white text-4xl md:text-6xl font-extrabold leading-tight mb-2"
+          className="text-white text-4xl md:text-6xl font-extrabold leading-tight mb-8"
           variants={itemVariants}
         >
           Hey, <br />
@@ -57,14 +57,14 @@ const Home = () => {
         </motion.h1>
 
         <motion.h2
-          className="text-cyan-300 font-semibold text-xl md:text-3xl mb-6"
+          className="text-cyan-300 font-semibold text-xl md:text-3xl mb-2"  
           variants={itemVariants}
         >
           <AnimatedTitles />
         </motion.h2>
 
         <motion.p
-          className="text-white text-base md:text-lg max-w-xl leading-relaxed mb-8"
+          className="text-white text-base md:text-2xl max-w-xl leading-relaxed mb-8"
           variants={itemVariants}
         >
           Crafting Innovative Solutions with Full-Stack Development and AI Expertise
@@ -76,7 +76,7 @@ const Home = () => {
         >
           <motion.button
             onClick={handleClick}
-            className="bg-gradient-to-r from-teal-400 to-cyan-500 text-white font-medium py-2.5 px-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center"
+            className="bg-cyan-600/70 text-white font-medium py-2.5 px-8 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
