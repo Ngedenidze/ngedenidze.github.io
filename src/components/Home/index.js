@@ -1,182 +1,102 @@
-import "./index.scss";
-import { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import Loader from "react-loaders";
 import IconLogoAppleAr from "./IconLogoAppleAr";
 import IconChevronRight from "./IconChevronRight";
-import GLTFModel from "../Animated Laptop/GLTFModel";
-import TypingEffect from "../Typing/TypingEffect"; 
-import flyImageSrc from './../../assets/next.png';
+import TypingEffect from "../Typing/TypingEffect";
+import backImage from "./back.png";
+import AnimatedTitles from "./AnimatedTitle";
 
-function loadScript(src) {
-  return new Promise((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = src;
-    script.type = "module";
-    script.onload = resolve;
-    script.onerror = reject;
-    document.head.appendChild(script);
-  });
-}
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.4 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
 const Home = () => {
-  const navigation = useNavigate();
-  const [letterClass, setLetterClass] = useState("text-animate");
-  const canvasRef = useRef(null);
-
-  const handleClick = () => {
-    navigation("/projects");
-  };
-  useEffect(() => {
-    const timerId = setTimeout(() => {
-      setLetterClass("text-animate-hover");
-    }, 4000);
-
-    return () => clearTimeout(timerId);
-  }, []);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    const flyImage = new Image();
-    const flyImage2 = new Image();
-    flyImage.src = flyImageSrc;
-    flyImage2.src = flyImageSrc;
-
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-    let fly = { x: width / 2, y: height / 2, size: 10 };
-    let fly2 = { x: width / 2, y: height / 2, size: 10 };
-    let trail = [];
-    let trail2 = [];
-    let t = 0; // time variable
-    const a = (window.innerWidth-window.innerHeight); // constant to control the size of the lemniscate
-    const b = 800;
-
-    const updateFlyPosition = () => {
-      fly.x = width / 2 + a * Math.sin(t) / (1.00001 + Math.abs(Math.cos(t/4) * Math.tan(t/3)));
-      fly.y = height / 2 + a * Math.sin(t) * Math.cos(t) / (1 + Math.cos(t) * Math.cos(t));
-
-      fly2.x = width / 2 + b * Math.sin(t/2) / (1.2 + Math.abs(Math.cos(t/2) * Math.tan(t/3)* Math.tan(t/2)));
-      fly2.y = height / 2 + b * Math.sin(t/3) * Math.cos(t) / (1 + Math.cos(t) * Math.cos(t));
-
-
-      t += 0.01; // increment time for the next position
-      trail2.push({ x: fly2.x, y: fly2.y });
-      trail.push({ x: fly.x, y: fly.y });
-      if (trail.length > 75) trail.shift();
-      if (trail2.length > 75) trail2.shift();
-    };
-
-    const drawFly = () => {
-      ctx.clearRect(0, 0, width, height);
-      
-
-      // Draw trail
-      ctx.beginPath();
-      ctx.moveTo(trail[0].x, trail[0].y);
-      for (let i = 1; i < trail.length; i++) {
-        ctx.lineTo(trail[i].x, trail[i].y);
-      }
-      ctx.strokeStyle = "rgba(0, 150, 255, 0.5)";
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      // Draw trail 2
-      ctx.beginPath();
-      ctx.moveTo(trail2[0].x, trail2[0].y);
-      for (let i = 1; i < trail2.length; i++) {
-        ctx.lineTo(trail2[i].x, trail2[i].y);
-      }
-      ctx.strokeStyle = "rgba(0, 150, 255, 0.5)";
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      // Draw fly
-      ctx.drawImage(flyImage, fly.x - fly.size / 2, fly.y - fly.size / 2, fly.size, fly.size);
-      ctx.drawImage(flyImage2, fly2.x - fly2.size / 2, fly2.y - fly2.size / 2, fly2.size, fly2.size); 
-    };
-
-    const animate = () => {
-      updateFlyPosition();
-      drawFly();
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
-  }, []);
+  const navigate = useNavigate();
+  const handleClick = () => navigate("/projects");
 
   return (
-    <>
-      <div className="container home-page">
-        <canvas ref={canvasRef} className="fly-canvas"></canvas>
-        <div className="text-zone">
-          <div className="headings">
-            <h1>
-              <span className={`${letterClass} _1`}>Hey, </span>
-              <span className={`${letterClass} _2`}>I am </span>
-              <span className={`${letterClass} _3`}>Nika!</span>
-              <br />
-            </h1>
-            <h1 className="title">
-              <TypingEffect
-                textArray={[
-                  "Full-Stack Developer",
-                  "AI Researcher",
-                  "Software Developer",
-                ]}
-                typingSpeed={100}
-                deletingSpeed={50}
-                delay={2000}
-              />
-            </h1>
-          </div>
-          <h2>
-            <span className={`${letterClass} _5`}>
-              Crafting Innovative Solutions with Full-Stack Development and AI
-              Expertise
-            </span>
-          </h2>
-          <div className="buttonContainer">
-            <button className="btnProject" onClick={handleClick}>
-              <span className="text">PROJECTS</span>
-              <svg
-                height="24"
-                width="24"
-                fill="#FFFFFF"
-                viewBox="0 0 24 24"
-                data-name="Layer 1"
-                id="Layer_1"
-                className="sparkle"
-              >
-                <IconLogoAppleAr />
-              </svg>
-            </button>
-            <a href="/resume.pdf" download className="btnContact">
-              <span className="text">RESUME</span>
-              <svg
-                height="24"
-                width="24"
-                fill="#FFFFFF"
-                viewBox="0 0 24 24"
-                data-name="Layer 1"
-                id="Layer_1"
-                className="sparkle"
-              >
-                <IconChevronRight />
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div>
-          <img src={require("./back.png")} alt="" className="home-page-pic" />
-        </div>
-      </div>
-      <Loader type="ball-grid-pulse" color="#339ecc" />
-    </>
+    <motion.div
+      className="relative flex flex-col md:flex-row justify-center items-center min-h-screen w-full pb-40 px-4 overflow-hidden"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      {/* Text Section */}
+      <motion.div
+        className="relative flex flex-col justify-center w-full md:w-1/2 max-w-2xl z-10"
+        variants={itemVariants}
+      >
+<motion.h1
+  className="text-white text-4xl md:text-6xl font-extrabold leading-tight"
+  variants={itemVariants}
+>
+  Hey, <br />I am <span className="text-cyan-400">Nika!</span>
+</motion.h1>
+
+<motion.h2
+  className="text-cyan-300 font-semibold text-xl md:text-3xl mb-6"
+  variants={itemVariants}
+>
+  <AnimatedTitles />
+</motion.h2>
+
+<motion.p
+  className="text-white text-lg md:text-base mt-4 max-w-lg leading-relaxed"
+  variants={itemVariants}
+>
+  Crafting Innovative Solutions with Full-Stack Development and AI Expertise
+</motion.p>
+
+
+        <motion.div
+  className="flex flex-col md:flex-row gap-4 mt-8"
+  variants={itemVariants}
+>
+  <motion.button
+    onClick={handleClick}
+    className="bg-gradient-to-r from-teal-400 to-cyan-500 text-white font-medium py-2.5 px-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.98 }}
+  >
+    PROJECTS
+  </motion.button>
+
+  <motion.a
+    href="/resume.pdf"
+    download
+    className="bg-white text-cyan-600 font-medium py-2.5 px-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.98 }}
+  >
+    RESUME
+  </motion.a>
+</motion.div>
+
+      </motion.div>
+
+      {/* Image Section */}
+      <motion.img
+        src={backImage}
+        alt="Hero background"
+        className="hidden md:block h-[80vh] w-[40vw] object-contain relative z-10"
+        initial={{ opacity: 0, x: 80 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 1 }}
+      />
+    </motion.div>
   );
 };
 
