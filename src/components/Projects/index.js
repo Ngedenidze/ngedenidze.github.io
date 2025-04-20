@@ -1,41 +1,21 @@
-import React, { useEffect, useState } from "react";
-import "./index.scss";
+import React, { useEffect, useState } from 'react';
+import { m, AnimatePresence } from 'framer-motion';
 import {
-  SiPython,
-  SiSaaS,
-  SiExpress,
-  SiNodedotjs,
-  SiPrisma,
-  SiGooglecloud,
-  SiMongoose,
-  SiReact,
-  SiHtml5,
-  SiCss3,
-  SiVisualstudiocode,
-  SiGithub,
-  SiJavascript,
-  SiTailwindcss,
-  SiMongodb,
-  SiHeroku,
-  SiGit,
-  SiFirebase,
-  SiMysql,
-  SiPostgresql,
-  SiGraphql,
-  SiDocker,
-  SiTensorflow,
-  SiKeras,
-  SiJupyter,
-  SiVirtualbox,
-  SiUnity,
-  SiTypescript,
-  SiSass,
-  SiApplearcade,
-  SiAmazonaws,
-  SiJsonwebtokens,
-} from "react-icons/si";
-import Loader from "react-loaders";
-import { m } from "framer-motion";
+  SiPython, SiExpress, SiNodedotjs, SiPrisma, SiGooglecloud,
+  SiMongoose, SiReact, SiHtml5, SiCss3, SiVisualstudiocode,
+  SiGithub, SiJavascript, SiTailwindcss, SiMongodb, SiHeroku,
+  SiGit, SiFirebase, SiMysql, SiPostgresql, SiGraphql,
+  SiDocker, SiTensorflow, SiKeras, SiJupyter, SiVirtualbox,
+  SiUnity, SiTypescript, SiSass, SiAmazonaws, SiJsonwebtokens
+} from 'react-icons/si';
+import Loader from 'react-loaders';
+
+const fadeItem = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+};
+
+// Data sample (import from separate file or API)
 const projectData = [
   {
     title: "Admin Portal for Redhawk Research",
@@ -140,191 +120,122 @@ const projectData = [
 ];
 
 
-
-const Projects = () => {
-  const [letterClass, setLetterClass] = useState("text-animate");
+export default function Projects() {
   const [isLoading, setIsLoading] = useState(true);
-  const [fadeClass, setFadeClass] = useState("");
-  const [modalData, setModalData] = useState(null);
-
+  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    const letterTimerId = setTimeout(() => {
-      setLetterClass("text-animate-hover");
-    }, 4000);
-
-    const loaderTimerId = setTimeout(() => {
-      setIsLoading(false);
-      setFadeClass("fade-in");
-    }, 500);
-
-    return () => {
-      clearTimeout(letterTimerId);
-      clearTimeout(loaderTimerId);
-    };
+    const t1 = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(t1);
   }, []);
 
-  const handleCardClick = (project) => {
-    setModalData(project);
-
-  };
-
-  const handleCloseModal = () => {
-    setModalData(null);
-  };
-
   if (isLoading) {
-    return <Loader type="ball-grid-pulse" color="#339ecc" />;
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-indigo-700 to-cyan-900 z-50">
+        <Loader type="ball-grid-pulse" color="#FFFFFF" />
+      </div>
+    );
   }
-  <script src="http://localhost:8097"></script>
 
   return (
-    <div className={`projects-page ${fadeClass} `}>
-      <h1>
-        <span className={`${letterClass} _1`}>On going/Finished Projects</span>
-      </h1>
-      <div className="projects-grid">
-        {projectData.map((project, index) => (
-          <div
-            className="project-card"
-            key={index}
-            onClick={() => handleCardClick(project)}
-          >
-            <div className="text-area">
-              <h1>{project.title}</h1>
-              <p>{project.description}</p>
-              <div className="button-container">
-                <button
-                  className="project-button"
-                  onClick={() => handleCardClick(project)}
-                >
-                  View Details
-                </button>
-              </div>
-            </div>
-            <img
-              src={project.image}
-              alt={project.title}
-              className="project-image"
-            />
-          </div>
-        ))}
+    <section className="relative py-20 px-6 bg-gradient-to-br from-indigo-700 to-cyan-900 text-white min-h-screen">
+      {/* Blurred Background Blobs */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        <div className="absolute top-[-80px] left-[-80px] w-72 h-72 bg-pink-500 rounded-full filter blur-3xl opacity-40 animate-pulse" />
+        <div className="absolute bottom-[-100px] right-[-100px] w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-40 animate-pulse delay-300" />
       </div>
 
-      {modalData && (
-        <div className="modal" onClick={handleCloseModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <span className="close" onClick={handleCloseModal}>
-              &times;
-            </span>
-            <div className="modal-main-content">
-              <div className="modal-text-zone">
-                <h1>Key Features:</h1>
-                <ul>
-                  {modalData.keyFeatures.map((feature, index) => (
-                    <li key={index}>{feature}</li>
+      <m.div
+        className="relative z-10 max-w-6xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <m.h1
+          className="text-5xl md:text-6xl font-extrabold mb-12 text-center"
+          variants={fadeItem}
+        >
+          Projects
+        </m.h1>
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {projectData.map((proj, i) => (
+            <m.div
+              key={i}
+              variants={fadeItem}
+              className="bg-white bg-opacity-10 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition p-6 flex flex-col"
+              onClick={() => setSelected(proj)}
+            >
+              <h2 className="text-2xl font-semibold mb-4">{proj.title}</h2>
+              <p className="flex-grow text-base leading-relaxed mb-6">
+                {proj.description}
+              </p>
+              <button className="mt-auto self-start bg-cyan-400 text-indigo-900 font-semibold py-2 px-4 rounded-lg hover:bg-cyan-300 transition">
+                View Details
+              </button>
+            </m.div>
+          ))}
+        </div>
+
+        <AnimatePresence>
+          {selected && (
+            <m.div
+              className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelected(null)}
+            >
+              <m.div
+                className="bg-white rounded-2xl p-8 max-w-3xl w-full text-gray-900 relative"
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                onClick={e => e.stopPropagation()}
+              >
+                <button
+                  className="absolute top-4 right-4 text-gray-700 hover:text-gray-900"
+                  onClick={() => setSelected(null)}
+                >
+                  ×
+                </button>
+                <h3 className="text-3xl font-bold mb-4">Key Features</h3>
+                <ul className="list-disc list-inside mb-6">
+                  {selected.keyFeatures.map((f, idx) => (
+                    <li key={idx} className="mb-2">{f}</li>
                   ))}
                 </ul>
-              </div>
-              <div className="stage-cube-cont">
-                <h1>
-                  <span className={`${letterClass} _1`}>
-                    Technologies and Tools:
-                  </span>
-                </h1>
-                <div className="stage-cube">
-                  {Object.keys(modalData.techStack).map((category, index) => (
-                    <div className="main-column">
-                      <h2>{category}</h2>
-                      <div key={index} className="cube-column">
-                        <div className="tech-grid">
-                          {modalData.techStack[category].map((tech, index) => {
-                            switch (tech) {
-                              case "React Native":
-                                return (
-                                  <div className="tech-item" key={index}>
-                                    <SiReact size={50} />
-                                    <span>React Native</span>
-                                  </div>
-                                );
-                              case "TypeScript":
-                                return (
-                                  <div className="tech-item" key={index}>
-                                    <SiTypescript size={50} />
-                                    <span>TypeScript</span>
-                                  </div>
-                                );
-                              case "SCSS":
-                                return (
-                                  <div className="tech-item" key={index}>
-                                    <SiSass size={50} />
-                                    <span>SCSS</span>
-                                  </div>
-                                );
-                              case "Node.js":
-                                return (
-                                  <div className="tech-item" key={index}>
-                                    <SiNodedotjs size={50} />
-                                    <span>Node.js</span>
-                                  </div>
-                                );
-                              case "Express":
-                                return (
-                                  <div className="tech-item" key={index}>
-                                    <SiExpress size={50} />
-                                    <span>Express.js</span>
-                                  </div>
-                                );
-                              case "GraphQL":
-                                return (
-                                  <div className="tech-item" key={index}>
-                                    <SiGraphql size={50} />
-                                    <span>GraphQL</span>
-                                  </div>
-                                );
-                              case "PostgreSQL":
-                                return (
-                                  <div className="tech-item" key={index}>
-                                    <SiPostgresql size={50} />
-                                    <span>PostgreSQL</span>
-                                  </div>
-                                );
-                              case "JWT":
-                                return (
-                                  <div className="tech-item" key={index}>
-                                    <SiJsonwebtokens size={50} />
-                                    <span>JWT</span>
-                                  </div>
-                                );
-                              case "Amazon S3":
-                                return (
-                                  <div className="tech-item" key={index}>
-                                    <SiAmazonaws size={50} />
-                                    <span>Amazon S3</span>
-                                  </div>
-                                );
-
-                              default:
-                                return (
-                                  <div className="tech-item" key={index}>
-                                    <SiApplearcade size={50} />
-                                    <span>{tech}</span>
-                                  </div>
-                                );
-                            }
-                          })}
-                        </div>
+                <h3 className="text-3xl font-bold mb-4">Tech Stack</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {Object.entries(selected.techStack).map(([cat, items]) => (
+                    <div key={cat}>
+                      <h4 className="font-semibold mb-2">{cat}</h4>
+                      <div className="flex flex-wrap gap-3">
+                        {items.map((tech, j) => {
+                          // choose appropriate icon
+                          const Icon = {
+                            'React': SiReact, 'TypeScript': SiTypescript,
+                            'SCSS': SiSass, 'Node.js': SiNodedotjs,
+                            'Express': SiExpress, 'GraphQL': SiGraphql,
+                            'PostgreSQL': SiPostgresql, 'JWT': SiJsonwebtokens,
+                            'Amazon S3': SiAmazonaws
+                          }[tech] || SiApplearcade;
+                          return (
+                            <div key={j} className="flex items-center gap-2">
+                              <Icon size={28} className="text-cyan-500" />
+                              <span>{tech}</span>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+              </m.div>
+            </m.div>
+          )}
+        </AnimatePresence>
+      </m.div>
+    </section>
   );
-};
-
-export default Projects;
+}
