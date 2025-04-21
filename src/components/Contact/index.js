@@ -49,22 +49,22 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="rrelative py-20 px-6 md:px-20 bg-gradient-to-br from-indigo-100 to-white text-gray-800 w-full max-w-8xl">
+    <section id="contact" className="rrelative py-20 px-6 md:px-20 bg-gradient-to-br from-indigo-100 to-white text-gray-800 w-full max-w-8xl h-svh mx-auto flex flex-col items-center justify-center">
       <motion.h2
-        className="text-3xl md:text-5xl font-extrabold text-cyan-700 text-center mb-10"
+        className="text-6xl md:text-7xl font-extrabold text-cyan-700 text-center mb-10"
         initial="hidden"
         animate="visible"
         variants={fadeUp}
       >
         <span className={`${letterClass} inline-block`}>Contact</span> Me
       </motion.h2>
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      {/* <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-pink-500 rounded-full filter blur-3xl opacity-50 animate-pulse" />
         <div className="absolute bottom-[-120px] right-[-80px] w-[400px] h-[400px] bg-blue-500 rounded-full filter blur-3xl opacity-50 animate-pulse delay-300" />
         <div className="absolute top-1/2 left-1/3 w-[250px] h-[250px] bg-purple-500 rounded-full filter blur-2xl opacity-40 animate-pulse delay-600" />
-      </div>
+      </div> */}
 
-      <div className="grid gap-12 md:grid-cols-2 max-w-6xl mx-auto">
+      <div className="grid gap-12 md:grid-cols-2 max-w-8xl mx-auto">
         {/* Form */}
         <motion.form
           ref={formRef}
@@ -80,14 +80,14 @@ export default function Contact() {
               type="text"
               placeholder="Name"
               required
-              className="flex-1 bg-white bg-opacity-80 backdrop-blur rounded px-4 py-2 placeholder-cyan-800 text-cyan-800 focus:outline-none"
+              className="flex-1 bg-white bg-opacity-80 backdrop-blur rounded px-4 py-2 placeholder-cyan-800 text-cyan-800 focus:outline-none text-3xl"
             />
             <input
               name="email"
               type="email"
               placeholder="Email"
               required
-              className="flex-1 bg-white bg-opacity-80 backdrop-blur rounded px-4 py-2 mt-4 sm:mt-0 placeholder-cyan-800 text-cyan-800 focus:outline-none"
+              className="flex-1 bg-white bg-opacity-80 backdrop-blur rounded px-4 py-2 mt-4 sm:mt-0 placeholder-cyan-800 text-cyan-800 focus:outline-none text-3xl"
             />
           </div>
           <input
@@ -95,7 +95,7 @@ export default function Contact() {
             type="text"
             placeholder="Subject"
             required
-            className="w-full bg-white bg-opacity-80 backdrop-blur rounded px-4 py-2 placeholder-cyan-800 text-cyan-800 focus:outline-none"
+            className="w-full bg-white bg-opacity-80 backdrop-blur rounded px-4 py-2 placeholder-cyan-800 text-cyan-800 focus:outline-none text-3xl"
           />
           <textarea
             name="message"
@@ -132,9 +132,6 @@ export default function Contact() {
               <p>+1 (717) 775-0711</p>
               <p>ngedenidze@outlook.com</p>
             </div>
-          </div>
-          <div className="w-full h-64 rounded-xl overflow-hidden">
-            <spline-viewer url="https://prod.spline.design/your-scene-url/scene.splinecode" />
           </div>
         </motion.div>
       </div>

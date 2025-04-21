@@ -1,30 +1,74 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import {
-  SiPython, SiExpress, SiNodedotjs, SiPrisma, SiGooglecloud,
-  SiMongoose, SiReact, SiHtml5, SiCss3, SiVisualstudiocode,
-  SiGithub, SiJavascript, SiTailwindcss, SiMongodb, SiHeroku,
-  SiGit, SiFirebase, SiMysql, SiPostgresql, SiGraphql,
-  SiDocker, SiTensorflow, SiKeras, SiJupyter, SiVirtualbox,
-  SiUnity
-} from "react-icons/si";
-import { FaJava } from "react-icons/fa";
-import Loader from "react-loaders";
+  VerticalTimeline,
+  VerticalTimelineElement
+} from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import Loader from 'react-loaders';
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+// Icons for timeline events
+import { FaDatabase, FaServer, FaBrain } from 'react-icons/fa';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
 };
 
+const experience = [
+  {
+    date: 'Sep 2024 – Present',
+    icon: <FaServer />,    
+    role: 'Back‑end Developer Intern',
+    company: 'Mazi Restaurants LLC',
+    bullets: [
+      'Saved 40+ hrs/mo by automating inventory tasks with .NET Core & EF',
+      'Reduced manual stock updates by 80% via T‑SQL triggers',
+      'Optimized REST API calls, improving data retrieval by 25%'
+    ]
+  },
+  {
+    date: 'May 2024 – Sep 2024',
+    icon: <FaDatabase />,    
+    role: 'Software Engineering Intern',
+    company: 'Redhawk Research LLC',
+    bullets: [
+      'Boosted GraphQL query speed by 40% in full‑stack admin portal',
+      'Achieved 75% test coverage with Jest, reducing deployment bugs',
+      'Containerized with Docker & deployed on Google Cloud Run'
+    ]
+  },
+  {
+    date: 'Mar 2022 – May 2024',
+    icon: <FaBrain />,    
+    role: 'AI Research Assistant',
+    company: 'Interdisciplinary Center for Quantitative Research',
+    bullets: [
+      'Optimized CNN training on 150K+ images via transfer learning',
+      'Designed 100+ model architectures improving accuracy',
+      'Built Matplotlib visualizations for non‑technical stakeholders'
+    ]
+  }
+];
+
+const skills = [
+  { name: 'Node.js', level: 85 },
+  { name: 'React', level: 90 },
+  { name: 'Python', level: 80 },
+  { name: 'GraphQL', level: 75 },
+  { name: 'Docker', level: 70 },
+  { name: 'TensorFlow', level: 65 }
+];
+
 export default function About() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 500);
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setLoading(false), 500);
+    return () => clearTimeout(t);
   }, []);
 
-  if (isLoading) {
+  if (loading) {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-indigo-700 to-cyan-900 z-50">
         <Loader type="ball-grid-pulse" color="#FFFFFF" />
@@ -32,83 +76,81 @@ export default function About() {
     );
   }
 
-  const tech = [
-    [SiJavascript, "JavaScript"], [SiPython, "Python"], [FaJava, "Java"],
-    [SiHtml5, "HTML"], [SiCss3, "CSS"], [SiNodedotjs, "Node.js"],
-    [SiExpress, "Express"], [SiReact, "React"], [SiReact, "React Native"],
-    [SiKeras, "Keras"], [SiTensorflow, "TensorFlow"], [SiPostgresql, "PostgreSQL"],
-    [SiPrisma, "Prisma"], [SiGraphql, "GraphQL"], [SiMongodb, "MongoDB"],
-    [SiGooglecloud, "Google Cloud SQL"], [SiMongoose, "Mongoose"],
-    [SiFirebase, "Firebase Hosting"], [SiFirebase, "Firebase Functions"],
-    [SiGooglecloud, "Cloud Run"], [SiDocker, "Docker"], [SiVisualstudiocode, "VS Code"],
-    [SiGithub, "GitHub"], [SiJupyter, "Jupyter"], [SiVirtualbox, "VirtualBox"],
-    [SiUnity, "Unity"]
-  ];
-
   return (
-    <section className="relative py-20 px-6 md:px-20 bg-gradient-to-br from-indigo-100 to-white text-gray-800 w-full">
-      {/* blurred background blobs */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-pink-500 rounded-full filter blur-3xl opacity-50 animate-pulse" />
-        <div className="absolute bottom-[-120px] right-[-80px] w-[400px] h-[400px] bg-blue-500 rounded-full filter blur-3xl opacity-50 animate-pulse delay-300" />
-        <div className="absolute top-1/2 left-1/3 w-[250px] h-[250px] bg-purple-500 rounded-full filter blur-2xl opacity-40 animate-pulse delay-600" />
-      </div>
-
+    <section className="py-16 px-6 md:px-20 bg-gradient-to-br from-indigo-50 to-white text-gray-900 overflow-auto">
+      {/* Intro & Bio */}
       <motion.div
-        className="relative grid gap-12 md:grid-cols-2 max-w-8xl mx-auto z-10"
+        className="max-w-3xl mx-auto text-center space-y-4"
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={fadeInUp}
+        animate="visible"
+        variants={fadeUp}
       >
-        {/* Left Column */}
-        <motion.div variants={fadeInUp} className="space-y-8">
-          <div>
-            <h2 className="text-2xl md:text-4xl font-extrabold text-cyan-700 mb-2">
-              About Me
-            </h2>
-            <div className="w-16 h-1 bg-cyan-700 rounded mb-4" />
-            <p className="text-base md:text-lg leading-relaxed mb-4">
-              I’m <span className="font-semibold">Nika Gedenidze</span>, a Computer Science graduate (’24) from Caldwell University. As a Back‑end Developer Intern at Mazi Restaurants, I built a .NET Core inventory management system that saved 40+ hours of manual work monthly and automated stock updates by 80%.
-            </p>
-            <p className="text-base md:text-lg leading-relaxed">
-              Previously at Redhawk Research, I architected a full‑stack admin portal with GraphQL, Prisma & Docker on Google Cloud Run—boosting query speeds by 40% and maintaining 75% test coverage. I also led CNN transfer‑learning research on 150K+ images, improving accuracy and training efficiency.
-            </p>
-          </div>
+        <h1 className="text-4xl md:text-5xl font-bold">
+          Hi, I’m Nika Gedenidze
+        </h1>
+        <p className="text-lg md:text-xl">
+          Back-end Developer Intern at Mazi Restaurants (40+ hrs saved/mo), Software Eng Intern at Redhawk Research (40% faster queries), and AI Research Assistant optimizing CNNs on 150K+ images.
+        </p>
+        <a
+          href="/NGedenidze.pdf"
+          className="inline-block bg-cyan-500 text-white px-6 py-2 rounded-lg hover:bg-cyan-400 transition"
+        >
+          Download Résumé
+        </a>
+      </motion.div>
 
-          <div>
-            <h2 className="text-2xl md:text-4xl font-extrabold text-cyan-700 mb-2">
-              Hobbies
-            </h2>
-            <div className="w-16 h-1 bg-cyan-700 rounded mb-4" />
-            <p className="text-base md:text-lg leading-relaxed">
-              Off‑duty, I produce electronic music, collect vinyl records, and skateboard. I’m also a film buff and avid reader—passions that keep my creativity sharp.
-            </p>
-          </div>
-        </motion.div>
+      {/* Professional Timeline */}
+      <motion.div
+        className="mt-16"
+        initial="hidden"
+        animate="visible"
+        variants={fadeUp}
+      >
+        <VerticalTimeline>
+          {experience.map((exp, idx) => (
+            <VerticalTimelineElement
+              key={idx}
+              date={exp.date}
+              iconStyle={{ background: 'rgb(38, 138, 199)', color: '#fff' }}
+              icon={exp.icon}
+            >
+              <h3 className="vertical-timeline-element-title text-lg font-semibold">
+                {exp.role}
+              </h3>
+              <h4 className="vertical-timeline-element-subtitle mb-2 text-sm text-gray-600">
+                {exp.company}
+              </h4>
+              <ul className="list-disc list-inside space-y-1">
+                {exp.bullets.map((b, j) => (
+                  <li key={j} className="text-sm text-gray-700">{b}</li>
+                ))}
+              </ul>
+            </VerticalTimelineElement>
+          ))}
+        </VerticalTimeline>
+      </motion.div>
 
-        {/* Right Column */}
-        <motion.div variants={fadeInUp}>
-          <h2 className="text-2xl md:text-4xl font-extrabold text-cyan-700 mb-2">
-            Tech & Tools
-          </h2>
-          <div className="w-16 h-1 bg-cyan-700 rounded mb-6" />
-
-          {/* horizontal scroll on mobile, grid on larger */}
-          <div className="flex gap-4 overflow-x-auto sm:grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            {tech.map(([Icon, name], i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 sm:flex-shrink sm:flex-grow bg-indigo-800 bg-opacity-60 rounded-2xl shadow p-4 flex flex-col items-center text-center min-w-[80px]"
-              >
-                <Icon size={36} className="text-cyan-300 mb-2" />
-                <span className="text-sm md:text-base font-medium text-white whitespace-nowrap">
-                  {name}
-                </span>
+      {/* Core Competencies */}
+      <motion.div
+        className="mt-16 max-w-4xl mx-auto"
+        initial="hidden"
+        animate="visible"
+        variants={fadeUp}
+      >
+        <h2 className="text-3xl font-bold mb-6">Core Competencies</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {skills.map((s, i) => (
+            <div key={i}>
+              <label className="font-medium">{s.name}</label>
+              <div className="w-full bg-gray-200 rounded-full h-4 mt-1">
+                <div
+                  className="bg-cyan-500 h-4 rounded-full"
+                  style={{ width: `${s.level}%` }}
+                />
               </div>
-            ))}
-          </div>
-        </motion.div>
+            </div>
+          ))}
+        </div>
       </motion.div>
     </section>
   );

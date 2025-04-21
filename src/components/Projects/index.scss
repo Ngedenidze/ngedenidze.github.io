@@ -8,6 +8,10 @@ $transition-slow-transform: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 .projects-page>.blur {
   filter: blur(5px);
 }
+.modal-open section[style*="transform"] {
+  transform: none !important;
+}
+
 
 .projects-page {
   min-height: 100vh;
@@ -132,7 +136,6 @@ $transition-slow-transform: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
       object-fit: contain;
       padding: 5vw 2vw;
       border-radius: 10%;
-      overflow: hidden;
     }
 
     .project-overlay {
