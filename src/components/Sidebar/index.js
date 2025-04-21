@@ -25,7 +25,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-fit" {...handlers}>
+    <div className="fixed top-0 md:top-6 left-1/2 transform -translate-x-1/2 z-50 w-fit" {...handlers}>
   <div className="bg-gray-600/70 backdrop-blur-md px-9 py-6 rounded-2xl shadow-lg flex flex-row items-center justify-center gap-14 text-cyan-100 text-lg">
 
     {/* Logo */}
@@ -70,7 +70,23 @@ const Sidebar = () => {
   </div>
 
   {drawerOpen && (
-    <div className="absolute top-24 left-1/2 transform -translate-x-1/2 bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg flex flex-col space-y-6 text-xl">
+    <div
+    className="
+      absolute 
+      top-0           
+      sm:top-24        
+      left-1/2 
+      transform -translate-x-1/2 
+      bg-white/10 
+      backdrop-blur-md 
+      p-6 
+      rounded-xl 
+      shadow-lg 
+      flex flex-col 
+      space-y-6 
+      text-xl
+    "
+  >
       <button onClick={() => scrollToSection('home')}>Home</button>
       <button onClick={() => scrollToSection('about')}>About</button>
       <button onClick={() => scrollToSection('projects')}>Projects</button>

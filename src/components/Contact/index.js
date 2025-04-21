@@ -1,140 +1,175 @@
 import React, { useEffect, useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
-import {
-  FaChevronLeft,
-  FaChevronRight
-} from 'react-icons/fa';
 import Loader from 'react-loaders';
 
+// Animation Variants
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.2 } }
+};
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+};
+const fieldVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.4 } }
 };
 
 export default function Contact() {
   const [letterClass, setLetterClass] = useState('text-animate');
   const [isLoading, setIsLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
   const formRef = useRef();
 
   useEffect(() => {
-    const t1 = setTimeout(() => setLetterClass('text-animate-hover'), 4000);
+    const t1 = setTimeout(() => setLetterClass('text-animate-hover'), 3000);
     const t2 = setTimeout(() => setIsLoading(false), 500);
     return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
   useEffect(() => {
-    if (!customElements.get('spline-viewer')) {
-      const s = document.createElement('script');
-      s.src = 'https://unpkg.com/@splinetool/viewer@0.9.383/build/spline-viewer.js';
-      s.type = 'module';
-      document.body.appendChild(s);
-      return () => document.body.removeChild(s);
+    if (!window.customElements?.get('spline-viewer')) {
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/@splinetool/viewer@0.9.383/build/spline-viewer.js';
+      script.type = 'module';
+      document.body.appendChild(script);
+      return () => document.body.removeChild(script);
     }
   }, []);
 
-  const sendEmail = e => {
+  const sendEmail = async e => {
     e.preventDefault();
-    emailjs.sendForm('gmail','template_YeJhZkgb', formRef.current, 'your-token')
-      .then(() => alert('Message sent!'), () => alert('Failed.'));  
-    e.target.reset();
+    setSubmitting(true);
+    setStatusMessage('');
+    try {
+      await emailjs.sendForm('gmail', 'template_YeJhZkgb', formRef.current, 'your-token');
+      setStatusMessage('✅ Message sent successfully!');
+      formRef.current.reset();
+    } catch {
+      setStatusMessage('❌ Sending failed. Please try again later.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (isLoading) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-indigo-700 to-cyan-900">
+      <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-cyan-700 to-cyan-900">
         <Loader type="ball-grid-pulse" color="#FFF" />
       </div>
     );
   }
 
   return (
-    <section id="contact" className="rrelative py-20 px-6 md:px-20 bg-gradient-to-br from-indigo-100 to-white text-gray-800 w-full max-w-8xl h-svh mx-auto flex flex-col items-center justify-center">
+    <section
+      id="contact"
+      className="py-16 px-4 md:px-8 lg:px-16 bg-gray-50 text-gray-900 text-base md:text-lg"
+    >
       <motion.h2
-        className="text-6xl md:text-7xl font-extrabold text-cyan-700 text-center mb-10"
+        className="text-5xl md:text-6xl font-bold text-center text-cyan-600 mb-8"
         initial="hidden"
         animate="visible"
         variants={fadeUp}
       >
-        <span className={`${letterClass} inline-block`}>Contact</span> Me
+        <span className={`${letterClass} inline-block`}>Get In Touch</span>
       </motion.h2>
-      {/* <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] bg-pink-500 rounded-full filter blur-3xl opacity-50 animate-pulse" />
-        <div className="absolute bottom-[-120px] right-[-80px] w-[400px] h-[400px] bg-blue-500 rounded-full filter blur-3xl opacity-50 animate-pulse delay-300" />
-        <div className="absolute top-1/2 left-1/3 w-[250px] h-[250px] bg-purple-500 rounded-full filter blur-2xl opacity-40 animate-pulse delay-600" />
-      </div> */}
 
-      <div className="grid gap-12 md:grid-cols-2 max-w-8xl mx-auto">
-        {/* Form */}
+      <motion.div
+        className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        {/* Contact Form */}
         <motion.form
           ref={formRef}
           onSubmit={sendEmail}
-          className="space-y-4 bg-cyan-700 bg-opacity-70 backdrop-blur rounded-xl p-6 text-white h-max"
-          initial="hidden"
-          animate="visible"
-          variants={fadeUp}
+          className="space-y-6 bg-white p-6 rounded-lg shadow-lg"
+          noValidate
         >
-          <div className="flex flex-col sm:flex-row sm:space-x-4">
-            <input
-              name="name"
-              type="text"
-              placeholder="Name"
+          {[
+            { id: 'name', label: 'Name', type: 'text', placeholder: 'Your full name' },
+            { id: 'email', label: 'Email', type: 'email', placeholder: 'you@example.com' },
+            { id: 'subject', label: 'Subject', type: 'text', placeholder: 'Brief subject' }
+          ].map(field => (
+            <motion.div key={field.id} variants={fieldVariants}>
+              <label htmlFor={field.id} className="block text-base font-medium text-gray-700">
+                {field.label}
+              </label>
+              <input
+                id={field.id}
+                name={field.id}
+                type={field.type}
+                required
+                className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 text-base focus:ring-cyan-500 focus:border-cyan-500"
+                placeholder={field.placeholder}
+              />
+            </motion.div>
+          ))}
+
+          <motion.div variants={fieldVariants}>
+            <label htmlFor="message" className="block text-base font-medium text-gray-700">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={5}
               required
-              className="flex-1 bg-white bg-opacity-80 backdrop-blur rounded px-4 py-2 placeholder-cyan-800 text-cyan-800 focus:outline-none text-3xl"
+              className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 text-base focus:ring-cyan-500 focus:border-cyan-500"
+              placeholder="How can I help you?"
             />
-            <input
-              name="email"
-              type="email"
-              placeholder="Email"
-              required
-              className="flex-1 bg-white bg-opacity-80 backdrop-blur rounded px-4 py-2 mt-4 sm:mt-0 placeholder-cyan-800 text-cyan-800 focus:outline-none text-3xl"
-            />
-          </div>
-          <input
-            name="subject"
-            type="text"
-            placeholder="Subject"
-            required
-            className="w-full bg-white bg-opacity-80 backdrop-blur rounded px-4 py-2 placeholder-cyan-800 text-cyan-800 focus:outline-none text-3xl"
-          />
-          <textarea
-            name="message"
-            placeholder="Message"
-            required
-            rows={5}
-            className="w-full bg-white bg-opacity-80 backdrop-blur rounded px-4 py-2 placeholder-cyan-800 text-cyan-800 focus:outline-none"
-          />
-          <button
-            type="submit"
-            className="bg-cyan-500 hover:bg-cyan-400 text-white font-semibold px-6 py-2 rounded-lg transition"
-          >
-            SEND
-          </button>
+          </motion.div>
+
+          <motion.div variants={fieldVariants}>
+            <button
+              type="submit"
+              disabled={submitting}
+              className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none ${submitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+            >
+              {submitting ? 'Sending...' : 'Send Message'}
+            </button>
+          </motion.div>
+
+          {statusMessage && (
+            <motion.p
+              className="text-base text-center text-gray-600 mt-2"
+              variants={fadeUp}
+            >
+              {statusMessage}
+            </motion.p>
+          )}
         </motion.form>
 
-        {/* Info Card + 3D */}
+        {/* Info Card & 3D Viewer */}
         <motion.div
+          className="flex flex-col items-center p-6 bg-white rounded-lg shadow-lg space-y-6 text-base"
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="space-y-6"
         >
-          <div className="bg-cyan-700 bg-opacity-70 backdrop-blur rounded-xl p-6 text-white">
-            <img
-              src={require('./../../assets/logo-2.png')}
-              alt="Avatar"
-              className="w-36 h-36 rounded-full mx-auto mb-4"
-            />
-            <h3 className="text-3xl font-bold text-center">Nika Gedenidze</h3>
-            <p className="text-center text-xl text-white">Software Engineer</p>
-            <div className="mt-4 text-center space-y-1 text-2xl">
+          <motion.img
+            src={require('./../../assets/logo-2.png')}
+            alt="Avatar"
+            className="w-32 h-32 rounded-full"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+          />
+          <motion.div initial="hidden" animate="visible" variants={fadeUp}>
+            <h3 className="text-2xl md:text-3xl font-bold text-center">Nika Gedenidze</h3>
+            <p className="text-base text-gray-600 text-center">Software Engineer</p>
+            <div className="mt-2 text-base text-gray-500 text-center space-y-1">
               <p>Caldwell, NJ 07006</p>
               <p>+1 (717) 775-0711</p>
               <p>ngedenidze@outlook.com</p>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

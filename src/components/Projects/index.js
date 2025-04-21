@@ -147,43 +147,55 @@ export default function Projects() {
 
   return (
     <motion.section
-    className="relative px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-sky-950  text-white min-h-screen pt-10 "
-    initial="hidden"
-    animate="visible"
-    variants={containerVariants}
-  >
-    <div className="relative z-10 max-w-6xl mx-auto space-y-12">
-      <motion.h1
-        className="text-5xl md:text-6xl font-extrabold text-center"
-        variants={fadeItem}
-      >
-        Projects
-      </motion.h1>
+      className="relative px-6 pb-20 bg-gradient-to-br from-slate-900 via-slate-800 to-sky-950 text-white pt-10 md:min-h-screen"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <div className="relative z-10 max-w-6xl mx-auto space-y-12">
+        <motion.h1
+          className="text-5xl md:text-6xl font-extrabold text-center"
+          variants={fadeItem}
+        >
+          Projects
+        </motion.h1>
+          {/* Swipe hint on mobile */}
+<div className="sm:hidden flex justify-center mb-4">
+  <span className="text-gray-400 text-3xl animate-pulse">Swipe →</span>
+</div>
 
-      <div className="overflow-x-auto grid grid-flow-col gap-6 sm:grid-flow-row sm:grid-cols-2 lg:grid-cols-3 snap-x snap-mandatory px-4">
-
-        {projectData.map((proj, idx) => (
-          <motion.div
-            key={idx}
-            className="snap-start flex-shrink-0 sm:flex-shrink sm:flex-grow w-80 sm:w-auto bg-white bg-opacity-10 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition p-6 flex flex-col"
-            variants={fadeItem}
-            onClick={() => setSelected(proj)}
-          >
-           <img
-  src={proj.images[0]}
-  alt={proj.title}
-  className="rounded-md mb-4 object-cover h-80 w-full overflow-hidden"
-/>
-            <h2 className="text-4xl font-semibold mb-2">{proj.title}</h2>
-            <p className="flex-grow text-xl leading-relaxed mb-4">
-              {proj.description}
-            </p>
-            <button className="mt-auto self-start bg-cyan-400 text-indigo-900 font-semibold py-2 px-4 rounded-lg hover:bg-cyan-300 transition">
-              View Details
-            </button>
-          </motion.div>
-        ))}
-      </div>
+        {/* Responsive Carousel/Grid */}
+        <motion.div
+          className="overflow-x-auto grid grid-flow-col gap-6 sm:grid-flow-row sm:grid-cols-2 lg:grid-cols-3 snap-x snap-mandatory px-4"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {projectData.map((proj, idx) => (
+            <motion.div
+              key={idx}
+              className="snap-start flex-shrink-0 sm:flex-shrink sm:flex-grow w-80 sm:w-auto bg-white bg-opacity-10 rounded-2xl shadow-lg p-6 flex flex-col"
+              variants={fadeItem}
+              onClick={() => setSelected(proj)}
+            >
+              <img
+                src={proj.images[0]}
+                loading="lazy"
+                width="500"
+                height="300"
+                alt={proj.title}
+                className="rounded-md mb-4 object-cover h-80 w-full overflow-hidden" 
+              />
+              <h2 className="text-4xl font-semibold mb-2">{proj.title}</h2>
+              <p className="flex-grow text-xl leading-relaxed mb-4">
+                {proj.description}
+              </p>
+              <button className="mt-auto self-start bg-cyan-400 text-indigo-900 font-semibold py-2 px-4 rounded-lg hover:bg-cyan-300 transition">
+                View Details
+              </button>
+            </motion.div>
+          ))}
+        </motion.div>
 
         <AnimatePresence>
           {selected && (
