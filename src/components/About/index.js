@@ -85,12 +85,12 @@ export default function About() {
         animate="visible"
         variants={fadeUp}
       >
-        <h1 className="text-4xl md:text-5xl font-bold">
-          Hi, I’m Nika Gedenidze
-        </h1>
-        <p className="text-lg md:text-xl">
-          Back-end Developer Intern at Mazi Restaurants (40+ hrs saved/mo), Software Eng Intern at Redhawk Research (40% faster queries), and AI Research Assistant optimizing CNNs on 150K+ images.
-        </p>
+       <h1 className="text-4xl md:text-5xl font-bold">
+  Nika Gedenidze — Backend Software Engineer & AI Researcher
+</h1>
+<p className="text-lg md:text-xl">
+  Experienced in building scalable backend systems, cloud deployments, and advancing convolutional neural network models.
+</p>
         <a
           href="/NGedenidze.pdf"
           className="inline-block bg-cyan-500 text-white px-6 py-2 rounded-lg hover:bg-cyan-400 transition"
@@ -114,15 +114,15 @@ export default function About() {
               iconStyle={{ background: 'rgb(38, 138, 199)', color: '#fff' }}
               icon={exp.icon}
             >
-              <h3 className="vertical-timeline-element-title text-lg font-semibold">
+              <h3 className="vertical-timeline-element-title text-4xl font-semibold text-cyan-800">
                 {exp.role}
               </h3>
-              <h4 className="vertical-timeline-element-subtitle mb-2 text-sm text-gray-600">
+              <h4 className="vertical-timeline-element-subtitle mb-4 text-2xl italic my-2 text-indigo-600">
                 {exp.company}
               </h4>
-              <ul className="list-disc list-inside space-y-1">
+              <ul className="list-disc list-inside space-y-1 ">
                 {exp.bullets.map((b, j) => (
-                  <li key={j} className="text-sm text-gray-700">{b}</li>
+                  <li key={j} className="text-2xl text-gray-600">{b}</li>
                 ))}
               </ul>
             </VerticalTimelineElement>
