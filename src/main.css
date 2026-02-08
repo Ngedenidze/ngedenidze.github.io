@@ -1,0 +1,496 @@
+/**
+ * Main Stylesheet
+ * Personal Portfolio — Calm Confidence Aesthetic
+ */
+
+/* ========================================
+   CSS RESET & BASE STYLES
+   ======================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    overflow-x: hidden;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-3);
+}
+
+h1 {
+    font-size: var(--text-3xl);
+}
+
+h2 {
+    font-size: var(--text-2xl);
+}
+
+h3 {
+    font-size: var(--text-xl);
+}
+
+p {
+    margin-bottom: var(--space-3);
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--duration-base) var(--ease-out);
+}
+
+a:hover {
+    color: var(--color-accent-soft);
+}
+
+a:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+/* ========================================
+   LAYOUT STRUCTURE
+   ======================================== */
+
+.site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+}
+
+/* Section spacing - generous vertical rhythm */
+section {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+}
+
+section:first-of-type {
+    padding-top: var(--space-16);
+}
+
+@media (min-width: 768px) {
+    section {
+        padding-top: var(--space-16);
+        padding-bottom: var(--space-16);
+    }
+
+    section:first-of-type {
+        padding-top: var(--space-20);
+    }
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+.site-nav {
+    padding: var(--space-4) var(--padding-mobile);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .site-nav {
+        padding: var(--space-6) var(--padding-desktop);
+    }
+}
+
+.nav-link {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.02em;
+    transition: color var(--duration-base) var(--ease-out);
+}
+
+.nav-link:hover {
+    color: var(--color-accent);
+}
+
+/* ========================================
+   SECTION CARDS
+   ======================================== */
+
+.section-card {
+    background-color: var(--color-bg-card);
+    padding: var(--space-6) var(--space-4);
+    margin-top: var(--space-6);
+    border-radius: 4px;
+    /* Subtle rounding for "square" feel */
+}
+
+@media (min-width: 768px) {
+    .section-card {
+        padding: var(--space-8) var(--space-8);
+    }
+}
+
+/* Update project entry to remove top borders inside card */
+/* Update project entry to remove top borders inside card */
+.section-card .project-entry {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    /* Very subtle divider inside card */
+    padding-top: var(--space-6);
+}
+
+.section-card .project-entry:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero {
+    text-align: center;
+}
+
+.hero-name {
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+}
+
+@media (min-width: 768px) {
+    .hero-name {
+        font-size: var(--text-4xl);
+    }
+}
+
+.hero-title {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-light);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-1);
+}
+
+.hero-location {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+}
+
+.hero-bio {
+    max-width: 600px;
+    margin: 0 auto var(--space-8);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+}
+
+/* ========================================
+   SECTION HEADINGS
+   ======================================== */
+
+.section-heading {
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-8);
+    text-align: left;
+}
+
+/* ========================================
+   PROJECT CATALOG
+   ======================================== */
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+}
+
+.project-entry {
+    border-top: var(--border-subtle);
+    padding-top: var(--space-6);
+}
+
+.project-entry:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.project-number {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    margin-bottom: var(--space-2);
+}
+
+.project-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-text-secondary);
+    transition: color var(--duration-base) var(--ease-out);
+}
+
+.project-link:hover {
+    color: var(--color-accent);
+}
+
+.icon-launch {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.project-meta {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+    line-height: var(--leading-normal);
+}
+
+.project-description {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-3);
+}
+
+.project-tech {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   RESEARCH & PUBLICATIONS
+   ======================================== */
+
+.research-role {
+    margin-bottom: var(--space-6);
+}
+
+.role-title {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.role-org {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+}
+
+.role-description {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+.publications-list {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-8);
+}
+
+.publications-list h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-medium);
+    margin-bottom: var(--space-4);
+}
+
+.publication-item {
+    margin-bottom: var(--space-4);
+    padding-left: var(--space-3);
+    border-left: 2px solid var(--color-border);
+}
+
+.publication-item p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    font-style: italic;
+}
+
+.recognition {
+    margin-top: var(--space-6);
+}
+
+.recognition h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--weight-medium);
+    margin-bottom: var(--space-3);
+}
+
+.recognition-list {
+    list-style: none;
+}
+
+.recognition-list li {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-2);
+    padding-left: var(--space-3);
+    position: relative;
+}
+
+.recognition-list li::before {
+    content: "·";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: var(--weight-semibold);
+}
+
+/* ========================================
+   EDUCATION
+   ======================================== */
+
+.education-entry {
+    margin-bottom: var(--space-6);
+}
+
+.education-school {
+    font-size: var(--text-xl);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.education-degree {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-1);
+}
+
+.education-years {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+}
+
+.education-achievements {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+/* ========================================
+   FOOTER / CONTACT
+   ======================================== */
+
+.site-footer {
+    padding: var(--space-10) var(--padding-mobile);
+    text-align: center;
+    border-top: var(--border-subtle);
+}
+
+@media (min-width: 768px) {
+    .site-footer {
+        padding: var(--space-12) var(--padding-desktop);
+    }
+}
+
+.contact-info {
+    margin-bottom: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    align-items: center;
+}
+
+.contact-link {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    transition: color var(--duration-base) var(--ease-out);
+}
+
+.contact-link:hover {
+    color: var(--color-accent);
+}
+
+.footer-copyright {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    margin-top: var(--space-6);
+}
+
+/* ========================================
+   FADE-IN ANIMATION
+   ======================================== */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--duration-entrance) var(--ease-out),
+        transform var(--duration-entrance) var(--ease-out);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation delay for sequential elements */
+.fade-in:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.fade-in:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.fade-in:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.fade-in:nth-child(4) {
+    transition-delay: 0.3s;
+}

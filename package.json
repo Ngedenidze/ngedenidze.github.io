@@ -54,9 +54,10 @@
     "vite-plugin-static-copy": "^0.16.0"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
+    "dev": "npm start",
+    "start": "npx serve .",
+    "build": "rm -rf build && mkdir -p build && cp index.html favicon.ico logo.png build/ && cp -r src build/src",
+    "test": "echo \"No tests specified\" && exit 0",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
