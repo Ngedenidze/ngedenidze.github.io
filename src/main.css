@@ -165,13 +165,14 @@ section:first-of-type {
 }
 
 /* Update project entry to remove top borders inside card */
-.project-entry {
+/* Update project entry to remove top borders inside card */
+.section-card .project-entry {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     /* Very subtle divider inside card */
     padding-top: var(--space-6);
 }
 
-.project-entry:first-child {
+.section-card .project-entry:first-child {
     border-top: none;
     padding-top: 0;
 }

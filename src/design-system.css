@@ -23,8 +23,8 @@
    /* Deep charcoal, never pure black */
    --color-text-secondary: hsl(220, 12%, 45%);
    /* Medium slate gray */
-   --color-text-muted: hsl(220, 15%, 62%);
-   /* Cool gray with slight blue */
+   --color-text-muted: #919191;
+   /* User requested neutral gray */
 
    /* Accent Color — Soft Electric Blue */
    --color-accent: hsl(210, 85%, 60%);
