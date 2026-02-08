@@ -1,0 +1,338 @@
+/* index.scss */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes blur {
+  from {
+    filter: blur(0px);
+  }
+  to {
+    filter: blur(10px);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+.blur{
+  animation: blur 1s ease-in-out;
+}
+.about-page{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 0 10px;
+  margin: 0 10px;
+  margin-bottom: 20px;
+  min-height: 110vh;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.5s ease-in-out;
+  overflow: scroll;
+  scrollbar-width: none;
+  
+
+  h1{
+    color:#02c8ff;
+    font-size: 45px;
+    margin: 0;
+  }
+  .info-card{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 4rem;
+    margin: 2rem 0 2rem;
+    border-radius: 1.5em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #101113df;
+    box-shadow: 0 0.4em 0.8em rgba(0, 0, 0, 0.1);
+    background-image: url('../../star.svg');
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    background-position: 90% 0%;
+    border: 0.2px solid #02c8ff15;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+
+  .text-zone{
+    position: relative;
+    height: 100%;
+    width: 50%;
+    padding: 4rem;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    p{
+      color:white;
+      font-size: 1.2vw;
+      line-height: 3vh;
+    }
+    li{
+      font-size: 1.5rem;
+    }
+  }
+  .stage-cube-cont{
+    height: 100%;
+    width: 50%;
+    padding: 4rem;
+    h1{
+      text-align: center;
+    }
+  }
+  .tech-grid {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    padding: 5rem;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 2.5vw;
+  
+    .tech-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      align-content: space-evenly;
+      background-color: #161616af;
+      color: #02c8ff;
+      padding: 0.3vw;
+      border-radius: 2px;
+      height: 4.5vw;
+      width: 4.5vw;
+      box-shadow: 2px 2px 6px rgba(241, 217, 217, 0.05);
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+      .bf{
+        display: none;
+      }
+      svg {
+        margin-bottom: 1vh;
+        height: 3vw;
+        width: 3vw;
+      }
+  
+      span {
+        font-size: 0.5vw;
+        font-weight: bold;
+        color: #fff;
+      }
+  
+      &:hover {
+        transform: translateY(-5px);
+        color: #fff;
+        background-color: #02c8ff;
+      }
+    }
+  }
+
+}
+
+
+
+
+@keyframes spincube {
+  from,
+  to {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }   
+  16% {
+    transform: rotateY(-90deg) rotateZ(90deg);
+  }
+  33% {
+    transform: rotateY(-90deg) rotateX(90deg);
+  }
+  50% {
+    transform: rotateY(-180deg) rotateZ(90deg);
+  }
+  66% {
+    transform: rotateY(-270deg) rotateX(90deg);
+  }
+  83% {
+    transform: rotateX(90deg);
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .about-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 80vh;
+    margin-bottom: 50px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    padding: 0rem;
+    transition: all 0.5s ease-in-out;
+
+    .text-zone{
+      padding: 0rem 2rem;
+      width: 90%;
+      height: 20%;
+      min-height: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      p{
+        font-size: 1.9rem;
+        line-height: 3vh;
+      }
+        max-width: 1200px;
+    }
+
+
+    .stage-cube-cont{
+    
+      min-height: 30vh;
+      padding: 5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 90%;
+      margin: 0;
+      h1{
+        text-align: left;
+      }
+      .tech-grid{
+        width: 100%;
+        padding: 2rem 5px;
+        justify-items: start;
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+        gap: 50px;
+        margin-bottom: 2rem;
+        
+
+        .tech-item{
+          height: 8rem;
+          width: 8rem;
+          border-radius: 10%;
+
+          svg{
+            width: 3.5rem;
+            height: 3.5rem;
+          }
+
+        }
+       
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 768px){
+  .about-page {
+    .text-zone{
+      p{
+        font-size: 1.8rem;
+      }
+     h1{
+    font-size: 3rem;
+     }
+    }
+    .info-card{
+    }
+    .stage-cube-cont{
+      margin-bottom: 100px;
+      padding-top: 0;
+      height: 100%;
+      h1{
+        font-size: 3rem;
+        margin-bottom: 2rem;
+      }
+      .tech-grid{
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 20px;
+
+      .tech-item{
+        height: 8rem;
+        width: 8rem;
+
+        svg{
+          width: 4rem;
+          height: 4rem;
+        }
+        span {
+          font-size: 1rem;
+         }
+      }
+    }
+    }
+  }
+}
+
+@media screen and (max-width: 480px){
+  .about-page{
+    .text-zone{
+      p{
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+      }
+     h1{
+    font-size: 3rem;
+     }
+     margin-bottom: 0;
+    }
+    min-height: 100vh;
+    .stage-cube-cont{
+      margin-bottom: 100px;
+      padding-top: 0;
+      .tech-grid{
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        margin-bottom: 2rem;
+        justify-content: center;
+        align-content: center;
+        gap: 20px;
+        .tech-item{
+          height: 4rem;
+          width: 4rem;
+          border-radius: 2px;
+          svg{
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+          span {
+            display: none;
+
+           }
+           &:hover{
+            transform: scale(1.2) translateY(-5px);
+            height: 5rem;
+            width: 5rem;
+            span{
+              font-size: 8px;
+              display: block;
+            }
+            svg{
+              width: 2rem;
+              height: 2rem;
+            }
+            
+          }
+          
+      }
+    }
+    }
+  }
+}

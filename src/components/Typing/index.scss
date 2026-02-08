@@ -1,0 +1,29 @@
+/* TypingEffect.scss */
+.typing-effect {
+    font-size: 2vw;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+    display: inline-block;
+  }
+  
+  .cursor {
+    display: inline-block;
+    background-color: #61dafb;
+    width: 0px;
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .typing-effect {
+      font-size: 20px;
+    }
+  }

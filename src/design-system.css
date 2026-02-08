@@ -1,0 +1,173 @@
+/**
+ * Design System — Personal Portfolio
+ * "Calm Confidence" Aesthetic
+ * 
+ * Core philosophy: Soft minimalism, editorial hierarchy, intentional restraint
+ */
+
+:root {
+  /* ========================================
+     COLOR SYSTEM — Cool & Airy
+     ======================================== */
+  
+  /* Background Layers */
+  --color-bg-primary: hsl(220, 15%, 97%);        /* Very light cool gray, almost white with blue shift */
+  --color-bg-secondary: hsl(220, 12%, 94%);      /* Barely darker cool gray for section separation */
+  --color-bg-surface: hsl(220, 10%, 96%);        /* Soft neutral for panels */
+  
+  /* Typography Colors */
+  --color-text-primary: hsl(220, 20%, 25%);      /* Deep charcoal, never pure black */
+  --color-text-secondary: hsl(220, 12%, 45%);    /* Medium slate gray */
+  --color-text-muted: hsl(220, 15%, 62%);        /* Cool gray with slight blue */
+  
+  /* Accent Color — Soft Electric Blue */
+  --color-accent: hsl(210, 85%, 60%);            /* Used sparingly for links, focus states */
+  --color-accent-soft: hsl(210, 70%, 65%);       /* Lighter variant for hover */
+
+  /* Border & Divider */
+  --color-border: hsl(220, 12%, 88%);            /* Extremely low contrast borders */
+  
+
+  /* ========================================
+     TYPOGRAPHY — Editorial Hierarchy
+     ======================================== */
+  
+  /* Font Families */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", 
+               "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "Monaco", "Cascadia Code", "Courier New", monospace;
+  
+  /* Font Sizes — Fluid & Generous */
+  --text-xs: 0.75rem;      /* 12px - metadata, timestamps */
+  --text-sm: 0.875rem;     /* 14px - captions, tech stack */
+  --text-base: 1rem;       /* 16px - body text */
+  --text-lg: 1.125rem;     /* 18px - large body */
+  --text-xl: 1.5rem;       /* 24px - section headings */
+  --text-2xl: 2rem;        /* 32px - project titles */
+  --text-3xl: 2.5rem;      /* 40px - name/hero */
+  --text-4xl: 3rem;        /* 48px - extra large displays */
+  
+  /* Font Weights */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  
+  /* Line Heights — Breathable */
+  --leading-tight: 1.2;
+  --leading-snug: 1.4;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+  --leading-loose: 2;
+  
+
+  /* ========================================
+     SPACING & LAYOUT — Generous Rhythm
+     ======================================== */
+  
+  /* Base Unit: 8px */
+  --space-1: 0.5rem;     /* 8px */
+  --space-2: 1rem;       /* 16px */
+  --space-3: 1.5rem;     /* 24px */
+  --space-4: 2rem;       /* 32px */
+  --space-5: 2.5rem;     /* 40px */
+  --space-6: 3rem;       /* 48px */
+  --space-8: 4rem;       /* 64px */
+  --space-10: 5rem;      /* 80px */
+  --space-12: 6rem;      /* 96px */
+  --space-16: 8rem;      /* 128px */
+  --space-20: 10rem;     /* 160px */
+  
+  /* Content Widths */
+  --width-content: 680px;      /* Max reading width */
+  --width-content-wide: 880px; /* For projects with images */
+  --width-full: 100%;
+  
+  /* Container Padding */
+  --padding-mobile: 1.5rem;    /* 24px sides on mobile */
+  --padding-tablet: 3rem;      /* 48px sides on tablet */
+  --padding-desktop: 4rem;     /* 64px sides on desktop */
+  
+
+  /* ========================================
+     UI GEOMETRY — Soft but Precise
+     ======================================== */
+  
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  
+  /* Borders */
+  --border-width: 1px;
+  --border-subtle: var(--border-width) solid var(--color-border);
+  
+  /* Elevation — Flat with tonal separation (no shadows) */
+  --elevation-surface: 0;
+  
+
+  /* ========================================
+     ANIMATION & TIMING
+     ======================================== */
+  
+  /* Motion — Inertia, not animation */
+  --duration-fast: 0.15s;
+  --duration-base: 0.25s;
+  --duration-slow: 0.4s;
+  --duration-entrance: 0.8s;
+  
+  /* Easing */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  
+
+  /* ========================================
+     BREAKPOINTS (for reference in media queries)
+     ======================================== */
+  
+  /* Mobile: < 768px */
+  /* Tablet: 768px - 1023px */
+  /* Desktop: >= 1024px */
+}
+
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Text Color Utilities */
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-muted { color: var(--color-text-muted); }
+.text-accent { color: var(--color-accent); }
+
+/* Font Weight Utilities */
+.font-light { font-weight: var(--weight-light); }
+.font-regular { font-weight: var(--weight-regular); }
+.font-medium { font-weight: var(--weight-medium); }
+.font-semibold { font-weight: var(--weight-semibold); }
+
+/* Container Utilities */
+.container {
+  width: 100%;
+  max-width: var(--width-content);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--padding-mobile);
+  padding-right: var(--padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--padding-tablet);
+    padding-right: var(--padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--padding-desktop);
+    padding-right: var(--padding-desktop);
+  }
+}
