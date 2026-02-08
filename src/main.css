@@ -147,6 +147,36 @@ section:first-of-type {
 }
 
 /* ========================================
+   SECTION CARDS
+   ======================================== */
+
+.section-card {
+    background-color: var(--color-bg-card);
+    padding: var(--space-6) var(--space-4);
+    margin-top: var(--space-6);
+    border-radius: 4px;
+    /* Subtle rounding for "square" feel */
+}
+
+@media (min-width: 768px) {
+    .section-card {
+        padding: var(--space-8) var(--space-8);
+    }
+}
+
+/* Update project entry to remove top borders inside card */
+.project-entry {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    /* Very subtle divider inside card */
+    padding-top: var(--space-6);
+}
+
+.project-entry:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* ========================================
    HERO SECTION
    ======================================== */
 
