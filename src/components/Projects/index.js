@@ -64,7 +64,7 @@ const projectData = [
   {
     title: 'CNN Optimization Research',
     images: [require('../../assets/research.png')],
-    description: 'Led AI research at Caldwell Interdisciplinary Center, optimizing CNN training on 150K+ images via transfer learning and custom layer‑freezing schedules, improving accuracy and reducing training time.',
+    description: 'Led AI research at an interdisciplinary quantitative research center, optimizing CNN training on 150K+ images via transfer learning and custom layer‑freezing schedules, improving accuracy and reducing training time.',
     keyFeatures: [
       'Transfer learning with frozen backpropagation',
       '100+ model architectures tested for performance',

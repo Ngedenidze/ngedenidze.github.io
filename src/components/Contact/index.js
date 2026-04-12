@@ -163,7 +163,7 @@ export default function Contact() {
             <h3 className="text-2xl md:text-3xl font-bold text-center">Nika Gedenidze</h3>
             <p className="text-base text-gray-600 text-center">Software Engineer</p>
             <div className="mt-2 text-base text-gray-500 text-center space-y-1">
-              <p>Caldwell, NJ 07006</p>
+              <p>Brooklyn, NY</p>
               <p>+1 (717) 775-0711</p>
               <p>ngedenidze@outlook.com</p>
             </div>

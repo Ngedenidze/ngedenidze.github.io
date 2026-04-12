@@ -8,7 +8,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import Loader from 'react-loaders';
 
 // Icons for timeline events
-import { FaDatabase, FaServer, FaBrain } from 'react-icons/fa';
+import { FaDatabase, FaServer, FaBrain, FaStore } from 'react-icons/fa';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -16,6 +16,17 @@ const fadeUp = {
 };
 
 const experience = [
+  {
+    date: 'Nov 2025 – Present',
+    icon: <FaStore />,
+    role: 'CTO, Co-founder & Founding Engineer',
+    company: 'Vellin',
+    bullets: [
+      'Building an AI-powered back-of-house operating system for restaurants across inventory, purchasing, vendor collaboration, and analytics',
+      'Designed a modular system architecture separating inventory, ordering, and vendor workflows, with an offline-first data layer and reusable frontend component system, enabling the platform to scale across complex, real-world restaurant operations',
+      'Built workflows that auto-generate purchase orders from inventory counts/par levels, process invoices with AI line-item extraction, and deliver real-time COGS and price-variance visibility across React, React Native, Next.js, TypeScript, .NET, and PostgreSQL'
+    ]
+  },
   {
     date: 'Sep 2024 – Present',
     icon: <FaServer />,    

@@ -3,6 +3,7 @@
   "name": "personal-portfolio",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "bun@1.3.4",
   "dependencies": {
     "@craco/craco": "^7.1.0",
     "@emailjs/browser": "^3.11.0",
@@ -54,12 +55,12 @@
     "vite-plugin-static-copy": "^0.16.0"
   },
   "scripts": {
-    "dev": "npm start",
-    "start": "npx serve .",
-    "build": "rm -rf build && mkdir -p build && cp index.html favicon.ico logo.png build/ && cp -r src build/src",
+    "dev": "bun run start",
+    "start": "bunx serve .",
+    "build": "rm -rf build && mkdir -p build && cp index.html favicon.ico logo.png build/ && cp -r src build/src && cp -r projects build/projects",
     "test": "echo \"No tests specified\" && exit 0",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "bun run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
