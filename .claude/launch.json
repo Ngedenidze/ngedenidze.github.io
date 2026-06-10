@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "bunx",
+      "runtimeArgs": ["vite", "--port", "4123", "--strictPort"],
+      "port": 4123,
+      "autoPort": false
+    }
+  ]
+}
