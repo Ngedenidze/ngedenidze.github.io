@@ -86,12 +86,6 @@ a:focus-visible {
    LAYOUT STRUCTURE
    ======================================== */
 
-.site-wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 .main-content {
     flex: 1;
 }
@@ -118,32 +112,20 @@ section:first-of-type {
 }
 
 /* ========================================
-   NAVIGATION
+   MASTHEAD — wordmark + minimal lowercase nav
    ======================================== */
 
-.site-nav {
-    padding: var(--space-4) var(--padding-mobile);
-    display: flex;
-    justify-content: flex-end;
-    gap: var(--space-4);
+.home-main {
+    display: block;
 }
 
-@media (min-width: 768px) {
-    .site-nav {
-        padding: var(--space-6) var(--padding-desktop);
-    }
+.home-section {
+    padding: 0;
+    margin-bottom: 120px;
 }
 
-.nav-link {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    font-weight: var(--weight-medium);
-    letter-spacing: 0.02em;
-    transition: color var(--duration-base) var(--ease-out);
-}
-
-.nav-link:hover {
-    color: var(--color-accent);
+.home-section:last-child {
+    margin-bottom: 0;
 }
 
 /* ========================================
@@ -238,25 +220,27 @@ section:first-of-type {
 .projects-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-10);
+    gap: 0;
 }
 
-.project-entry {
-    border-top: var(--border-subtle);
-    padding-top: var(--space-6);
+.home-work-block {
+    margin-bottom: 120px;
 }
 
-.project-entry:first-child {
-    border-top: none;
-    padding-top: 0;
+.home-work-block:last-child {
+    margin-bottom: 0;
 }
 
-.project-number {
-    font-size: var(--text-sm);
-    font-weight: var(--weight-medium);
-    color: var(--color-text-muted);
-    font-family: var(--font-mono);
-    margin-bottom: var(--space-2);
+.home-research-block:last-child {
+    margin-bottom: 0;
+}
+
+.project-panel {
+    margin-top: 0;
+}
+
+.home-research-block .section-card {
+    margin-top: 0;
 }
 
 .project-title {
@@ -306,6 +290,7 @@ section:first-of-type {
     font-weight: var(--weight-medium);
     letter-spacing: 0.03em;
     text-transform: uppercase;
+    margin-bottom: var(--space-6);
 }
 
 /* ========================================
@@ -317,16 +302,16 @@ section:first-of-type {
 }
 
 .role-title {
-    font-size: var(--text-lg);
-    font-weight: var(--weight-medium);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-semibold);
     color: var(--color-text-primary);
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-2);
 }
 
 .role-org {
     font-size: var(--text-sm);
     color: var(--color-text-muted);
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-4);
 }
 
 .role-description {
@@ -338,6 +323,11 @@ section:first-of-type {
 .publications-list {
     margin-top: var(--space-8);
     margin-bottom: var(--space-8);
+}
+
+.home-publications-list {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .publications-list h3 {
@@ -361,6 +351,10 @@ section:first-of-type {
 
 .recognition {
     margin-top: var(--space-6);
+}
+
+.home-research-block .recognition {
+    margin-top: 0;
 }
 
 .recognition h3 {
@@ -460,6 +454,19 @@ section:first-of-type {
     font-size: var(--text-xs);
     color: var(--color-text-muted);
     margin-top: var(--space-6);
+}
+
+.studio-foot-home {
+    align-items: flex-start;
+}
+
+.studio-foot-home > span {
+    display: none;
+}
+
+.studio-foot-home .contact-info {
+    margin-bottom: 0;
+    align-items: flex-start;
 }
 
 /* ========================================

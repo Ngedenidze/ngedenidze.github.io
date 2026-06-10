@@ -33,8 +33,8 @@
    /* Lighter variant for hover */
 
    /* Section Card Background */
-   --color-bg-card: #dce9ee;
-   /* User requested accent for section cards */
+   --color-bg-card: #dfe9f6;
+   /* Landing-page card background */
 
    /* Border & Divider */
    --color-border: hsl(220, 12%, 88%);
@@ -46,8 +46,9 @@
      ======================================== */
 
    /* Font Families */
-   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
-      "Roboto", "Helvetica Neue", Arial, sans-serif;
+   --font-sans: "Urbanist Variable", "Urbanist", -apple-system,
+      BlinkMacSystemFont, "SF Pro Display", "Segoe UI", "Roboto",
+      "Helvetica Neue", Arial, sans-serif;
    --font-mono: "SF Mono", "Monaco", "Cascadia Code", "Courier New", monospace;
 
    /* Font Sizes — Fluid & Generous */

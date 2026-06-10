@@ -1,0 +1,871 @@
+/**
+ * Studio — Shared minimal "design. distilled" aesthetic
+ * Used by the landing page (refinements) and the Brand Book page.
+ *
+ * Philosophy: near-white paper, a calm centered column, soft light-blue
+ * showcase panels, tiny lowercase labels, generous whitespace.
+ */
+
+:root {
+   /* Paper & column */
+   --paper: #f5f5f5;                     /* outer page */
+   --column: #ffffff;                    /* centered content column */
+
+   /* Ink */
+   --ink: hsl(220, 18%, 22%);            /* primary, soft charcoal */
+   --ink-soft: hsl(220, 10%, 46%);       /* secondary */
+   --ink-faint: hsl(220, 8%, 64%);       /* labels, captions */
+   --hairline: hsl(220, 14%, 90%);       /* dividers */
+
+   /* Soft light-blue showcase */
+   --showcase: hsl(212, 60%, 92%);       /* panel fill */
+   --showcase-deep: hsl(212, 52%, 86%);  /* nested panel */
+
+   /* Signal blue (links, the one bright accent) */
+   --signal: hsl(222, 84%, 56%);
+   --signal-ink: hsl(222, 70%, 46%);
+
+   /* Rhythm */
+   --rail-w: 56px;                       /* left tick-mark rail width */
+   --shell-gap: 48px;                    /* vertical gap framing the column */
+}
+
+@media (max-width: 600px) {
+   :root { --shell-gap: 16px; }
+}
+
+/* ----------------------------------------
+   BASE — smooth scrolling
+   ---------------------------------------- */
+
+html {
+   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+   html { scroll-behavior: auto; }
+}
+
+/* ----------------------------------------
+   PAGE FRAME — paper with centered white column
+   ---------------------------------------- */
+
+.studio {
+   background: var(--paper);
+   color: var(--ink);
+   font-family: var(--font-sans);
+   -webkit-font-smoothing: antialiased;
+   line-height: 1.6;
+   min-height: 100vh;
+   padding: var(--shell-gap) 0;
+}
+
+.studio-shell {
+   max-width: 1120px;
+   margin: 0 auto;
+   background: var(--column);
+   min-height: calc(100vh - var(--shell-gap) * 2);
+   position: relative;
+   border-radius: 4px;
+   box-shadow: 0 0 0 1px hsl(220, 14%, 90%),
+      0 30px 80px rgba(20, 30, 50, 0.05);
+}
+
+/* Decorative left tick-mark rail (reference: stacked short lines) */
+.studio-rail {
+   position: absolute;
+   top: 220px;
+   left: 18px;
+   display: flex;
+   flex-direction: column;
+   gap: 7px;
+   pointer-events: none;
+}
+
+.studio-rail span {
+   display: block;
+   width: 16px;
+   height: 1px;
+   background: var(--ink-faint);
+   opacity: 0.5;
+}
+
+/* The rail as the landing page's section navigation. Pinned to the viewport,
+   sitting in the gray gutter just OUTSIDE the centered column's left edge. */
+.rail-nav {
+   position: fixed;
+   top: 50%;
+   transform: translateY(-50%);
+   left: max(14px, calc(50vw - 560px - 30px));
+   display: flex;
+   flex-direction: column;
+   gap: 16px;
+   z-index: 3;
+}
+
+.rail-link {
+   display: inline-flex;
+   align-items: center;
+   gap: 12px;
+   text-decoration: none;
+   padding: 3px 0;
+}
+
+.rail-tick {
+   display: block;
+   width: 16px;
+   height: 1px;
+   background: var(--ink-faint);
+   opacity: 0.5;
+   transition: width 0.25s ease, background-color 0.25s ease, opacity 0.25s ease;
+}
+
+.rail-name {
+   font-size: 0.72rem;
+   letter-spacing: 0.04em;
+   color: var(--ink-faint);
+   white-space: nowrap;
+   opacity: 0;
+   transform: translateX(-4px);
+   transition: opacity 0.25s ease, transform 0.25s ease, color 0.25s ease;
+}
+
+.rail-link:hover .rail-tick,
+.rail-link.is-active .rail-tick {
+   width: 26px;
+   opacity: 1;
+   background: var(--ink);
+}
+
+.rail-link:hover .rail-name,
+.rail-link.is-active .rail-name {
+   opacity: 1;
+   transform: translateX(0);
+   color: var(--ink);
+}
+
+@media (max-width: 980px) {
+   .rail-nav { display: none; }
+}
+
+.studio-inner {
+   max-width: 1120px;
+   margin: 0 auto;
+   padding: 48px var(--padding-mobile) 0;
+}
+
+@media (min-width: 768px) {
+   .studio-inner {
+      padding: 64px 72px 0;
+   }
+}
+
+/* Text blocks keep a comfortable reading measure, left-aligned;
+   showcase panels (below) break out to the full column width. */
+.studio-lede,
+.studio-desc,
+.case-lede,
+.case-copy {
+   max-width: 34em;
+}
+
+@media (max-width: 980px) {
+   .studio-rail { display: none; }
+}
+
+/* ----------------------------------------
+   MASTHEAD — wordmark + minimal lowercase nav
+   ---------------------------------------- */
+
+.studio-mast {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   margin-bottom: 40px;
+}
+
+.studio-mark {
+   width: 16px;
+   height: 16px;
+   border-radius: 50%;
+   background: var(--showcase-deep);
+   border: 1px solid var(--ink-faint);
+   flex: none;
+}
+
+.studio-word {
+   font-size: 0.82rem;
+   letter-spacing: 0.02em;
+   color: var(--ink);
+   font-weight: 500;
+}
+
+.studio-word sup {
+   color: var(--ink-faint);
+   font-weight: 400;
+}
+
+.studio-lede {
+   font-size: 0.95rem;
+   line-height: 1.65;
+   color: var(--ink-soft);
+   max-width: 30em;
+   margin-bottom: 28px;
+}
+
+.studio-nav {
+   display: flex;
+   gap: 22px;
+   margin-bottom: 96px;
+}
+
+.studio-nav a {
+   font-size: 0.82rem;
+   letter-spacing: 0.01em;
+   color: var(--ink-faint);
+   text-decoration: none;
+   transition: color var(--duration-base, 0.25s) ease;
+}
+
+.studio-nav a:hover,
+.studio-nav a[aria-current="page"] {
+   color: var(--ink);
+}
+
+/* ----------------------------------------
+   SECTION LABEL — "work / 01", "brand / 01"
+   ---------------------------------------- */
+
+.studio-block {
+   margin-bottom: 120px;
+}
+
+.studio-label {
+   font-size: 0.8rem;
+   color: var(--ink);
+   letter-spacing: 0.01em;
+   margin-bottom: 10px;
+}
+
+.studio-label b {
+   font-weight: 500;
+}
+
+.studio-label span {
+   color: var(--ink-faint);
+}
+
+.studio-desc {
+   font-size: 0.92rem;
+   line-height: 1.6;
+   color: var(--ink-soft);
+   max-width: 32em;
+   margin-bottom: 26px;
+}
+
+/* ----------------------------------------
+   SHOWCASE PANEL — the soft light-blue stage
+   ---------------------------------------- */
+
+.showcase {
+   background: var(--showcase);
+   border-radius: 6px;
+   padding: 56px clamp(20px, 6vw, 72px);
+}
+
+.showcase.tall {
+   padding-top: 72px;
+   padding-bottom: 72px;
+}
+
+/* A clean white card that sits inside the blue stage */
+.stage-card {
+   background: #fff;
+   border-radius: 8px;
+   box-shadow: 0 1px 2px rgba(20, 30, 50, 0.04),
+      0 12px 40px rgba(20, 30, 50, 0.06);
+}
+
+/* ----------------------------------------
+   FOOTER — "© 2026 design. distilled."
+   ---------------------------------------- */
+
+.studio-foot {
+   max-width: 1120px;
+   margin: 40px auto 0;
+   padding: 40px var(--padding-mobile) 64px;
+   display: flex;
+   justify-content: space-between;
+   align-items: baseline;
+   gap: 16px;
+   flex-wrap: wrap;
+   border-top: 1px solid var(--hairline);
+}
+
+@media (min-width: 768px) {
+   .studio-foot { padding: 40px 72px 80px; }
+}
+
+.studio-foot p {
+   font-size: 0.78rem;
+   color: var(--ink-faint);
+   margin: 0;
+}
+
+.studio-foot a {
+   font-size: 0.78rem;
+   color: var(--ink-soft);
+   text-decoration: none;
+}
+
+.studio-foot a:hover { color: var(--ink); }
+
+/* ----------------------------------------
+   BRAND BOARD — the actual design-guideline tiles
+   ---------------------------------------- */
+
+.board {
+   display: grid;
+   gap: 14px;
+}
+
+@media (min-width: 640px) {
+   .board.cols-2 { grid-template-columns: repeat(2, 1fr); }
+   .board.cols-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+.tile {
+   padding: 22px 22px 20px;
+}
+
+.tile-cap {
+   font-size: 0.7rem;
+   text-transform: lowercase;
+   letter-spacing: 0.04em;
+   color: var(--ink-faint);
+   margin-top: 16px;
+}
+
+.tile-cap b {
+   display: block;
+   color: var(--ink);
+   font-weight: 500;
+   font-size: 0.82rem;
+   text-transform: none;
+   letter-spacing: 0;
+   margin-bottom: 2px;
+}
+
+/* Logo lockup tile */
+.lockup {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 150px;
+}
+
+.lockup-mark {
+   display: inline-flex;
+   align-items: center;
+   gap: 12px;
+   font-size: 1.6rem;
+   font-weight: 600;
+   letter-spacing: -0.02em;
+   color: var(--ink);
+}
+
+.lockup-glyph {
+   width: 34px;
+   height: 34px;
+   border-radius: 9px;
+   display: grid;
+   place-items: center;
+   color: #fff;
+   font-size: 1rem;
+   font-weight: 700;
+}
+
+/* Color swatches */
+.swatches {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 0;
+   border-radius: 8px;
+   overflow: hidden;
+   min-height: 150px;
+}
+
+.swatch {
+   padding: 14px;
+   display: flex;
+   align-items: flex-end;
+   min-height: 72px;
+}
+
+.swatch small {
+   font-size: 0.66rem;
+   letter-spacing: 0.02em;
+   font-family: var(--font-mono);
+}
+
+/* Type scale tile */
+.type-row {
+   display: flex;
+   align-items: baseline;
+   gap: 12px;
+   padding: 4px 0;
+   border-bottom: 1px solid var(--hairline);
+}
+
+.type-row:last-child { border-bottom: none; }
+
+.type-row em {
+   font-style: normal;
+   color: var(--ink-faint);
+   font-size: 0.66rem;
+   font-family: var(--font-mono);
+   margin-left: auto;
+}
+
+/* Component preview chips */
+.chiprow {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+   align-items: center;
+}
+
+.ui-btn {
+   font-size: 0.82rem;
+   font-weight: 500;
+   padding: 9px 18px;
+   border-radius: 8px;
+   border: none;
+   cursor: default;
+}
+
+.ui-btn.ghost {
+   background: transparent;
+   border: 1px solid var(--hairline);
+   color: var(--ink);
+}
+
+.ui-pill {
+   font-size: 0.72rem;
+   padding: 5px 12px;
+   border-radius: 999px;
+   background: var(--showcase-deep);
+   color: var(--signal-ink);
+}
+
+.ui-field {
+   width: 100%;
+   font-size: 0.82rem;
+   padding: 10px 12px;
+   border-radius: 8px;
+   border: 1px solid var(--hairline);
+   color: var(--ink-faint);
+   background: #fff;
+}
+
+/* ----------------------------------------
+   CASE STUDY — detail page layout
+   ---------------------------------------- */
+
+.case-title {
+   font-size: 1.5rem;
+   font-weight: 600;
+   letter-spacing: -0.01em;
+   color: var(--ink);
+   margin: 0 0 8px;
+}
+
+.case-tag {
+   font-size: 0.78rem;
+   color: var(--ink-faint);
+   letter-spacing: 0.04em;
+   text-transform: lowercase;
+   margin-bottom: 22px;
+}
+
+.case-lede {
+   font-size: 1.02rem;
+   line-height: 1.7;
+   color: var(--ink-soft);
+   max-width: 34em;
+   margin-bottom: 80px;
+}
+
+/* A step = copy block followed by a showcase stage */
+.case-step {
+   margin-bottom: 96px;
+}
+
+.case-copy {
+   font-size: 0.95rem;
+   line-height: 1.7;
+   color: var(--ink-soft);
+   max-width: 34em;
+   margin-bottom: 26px;
+}
+
+.case-copy b {
+   color: var(--ink);
+   font-weight: 500;
+}
+
+/* Prev/next foot link */
+.case-next {
+   max-width: 1120px;
+   margin: 0 auto;
+   padding: 56px var(--padding-mobile) 0;
+}
+
+@media (min-width: 768px) {
+   .case-next { padding: 56px 72px 0; }
+}
+
+.case-next a {
+   display: inline-flex;
+   align-items: baseline;
+   gap: 10px;
+   text-decoration: none;
+   color: var(--ink-soft);
+}
+
+.case-next a span { color: var(--ink-faint); font-size: 0.78rem; }
+.case-next a b { color: var(--ink); font-weight: 500; font-size: 1.1rem; }
+.case-next a:hover b { color: var(--signal-ink); }
+
+/* Landing: per-project case link */
+.project-caselink {
+   display: inline-block;
+   margin-top: 18px;
+   font-size: 0.82rem;
+   color: var(--signal-ink);
+   text-decoration: none;
+}
+
+.project-caselink:hover { color: var(--ink); }
+
+/* ----------------------------------------
+   BRAND GUIDE — detail page sections
+   ---------------------------------------- */
+
+.guide-h {
+   font-size: 1.15rem;
+   font-weight: 600;
+   letter-spacing: -0.01em;
+   color: var(--ink);
+   margin: 2px 0 8px;
+}
+
+/* Full color palette */
+.palette {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 16px;
+}
+
+@media (min-width: 720px) {
+   .palette { grid-template-columns: repeat(4, 1fr); }
+}
+
+.palette-color {
+   height: 104px;
+   border-radius: 10px;
+   box-shadow: inset 0 0 0 1px rgba(20, 30, 50, 0.06);
+}
+
+.palette-chip b {
+   display: block;
+   font-size: 0.84rem;
+   color: var(--ink);
+   font-weight: 500;
+   margin-top: 12px;
+}
+
+.palette-chip code {
+   display: block;
+   font-family: var(--font-mono);
+   font-size: 0.72rem;
+   color: var(--ink-soft);
+   margin-top: 3px;
+}
+
+.palette-chip span {
+   display: block;
+   font-size: 0.72rem;
+   color: var(--ink-faint);
+   margin-top: 4px;
+   line-height: 1.4;
+}
+
+/* Card grids (principles, do/don't, sizing, icons) */
+.guide-grid {
+   display: grid;
+   gap: 14px;
+   grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+   .guide-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+   .guide-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+   .guide-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+.principle .num {
+   font-family: var(--font-mono);
+   font-size: 0.8rem;
+   color: var(--ink-faint);
+}
+
+.principle b {
+   display: block;
+   font-size: 0.92rem;
+   color: var(--ink);
+   margin: 10px 0 5px;
+   font-weight: 600;
+}
+
+.principle p {
+   font-size: 0.82rem;
+   color: var(--ink-soft);
+   line-height: 1.55;
+   margin: 0;
+}
+
+.dont {
+   display: flex;
+   gap: 10px;
+   align-items: center;
+   min-height: 64px;
+}
+
+.dont .ic {
+   font-size: 1rem;
+   line-height: 1;
+   flex: none;
+}
+
+.dont .ic.yes { color: #1c8c63; }
+.dont .ic.no { color: #c0492f; }
+
+.dont b {
+   font-size: 0.84rem;
+   color: var(--ink);
+   font-weight: 500;
+}
+
+/* Min-size ladder */
+.sizerow {
+   display: flex;
+   align-items: center;
+   gap: 16px;
+   padding: 12px 0;
+   border-bottom: 1px solid var(--hairline);
+}
+
+.sizerow:last-child { border-bottom: none; }
+.sizerow .glyph { flex: none; }
+.sizerow b { font-size: 0.84rem; color: var(--ink); font-weight: 500; }
+.sizerow span { display: block; font-size: 0.72rem; color: var(--ink-faint); font-family: var(--font-mono); }
+
+/* Thin-line iconography tile */
+.iconcell {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 10px;
+   padding: 18px 6px;
+}
+
+.iconcell svg { width: 30px; height: 30px; }
+.iconcell small { font-size: 0.7rem; color: var(--ink-faint); }
+
+/* Mockup screenshots & placeholders */
+.shot-screen { padding: 0; }
+.shot-img { width: 100%; display: block; }
+
+.shot-ph {
+   display: grid;
+   place-items: center;
+   align-content: center;
+   gap: 6px;
+   min-height: 220px;
+   padding: 28px 24px;
+   text-align: center;
+   background: repeating-linear-gradient(45deg, #fff, #fff 11px, #f3f6fb 11px, #f3f6fb 22px);
+   color: var(--ink-faint);
+}
+
+.shot-ph span { font-size: 0.9rem; color: var(--ink-soft); font-weight: 500; }
+.shot-ph small { font-size: 0.72rem; color: var(--ink-faint); }
+
+.mock-deck {
+   display: flex;
+   gap: 28px;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+
+/* Index → detail link on the overview */
+.brand-more {
+   display: inline-block;
+   margin-top: 18px;
+   font-size: 0.82rem;
+   color: var(--signal-ink);
+   text-decoration: none;
+}
+
+.brand-more:hover { color: var(--ink); }
+
+/* ----------------------------------------
+   DEVICE MOCKS (built in CSS, no images)
+   ---------------------------------------- */
+
+/* App / browser window */
+.win {
+   background: #fff;
+   border-radius: 10px;
+   overflow: hidden;
+   box-shadow: 0 1px 2px rgba(20, 30, 50, 0.05),
+      0 18px 50px rgba(20, 30, 50, 0.08);
+   margin: 0 auto;
+   max-width: 560px;
+}
+
+.win-bar {
+   height: 32px;
+   display: flex;
+   align-items: center;
+   gap: 6px;
+   padding: 0 12px;
+   background: #f7f8fa;
+   border-bottom: 1px solid var(--hairline);
+}
+
+.win-bar i {
+   width: 9px; height: 9px; border-radius: 50%;
+   background: #dde1e8; flex: none;
+}
+
+.win-body { padding: 34px 28px; }
+
+/* Phone */
+.phone {
+   width: 224px;
+   margin: 0 auto;
+   background: #0d0f13;
+   border-radius: 34px;
+   padding: 9px;
+   box-shadow: 0 20px 50px rgba(20, 30, 50, 0.16);
+}
+
+.phone-screen {
+   background: #fff;
+   border-radius: 26px;
+   overflow: hidden;
+   position: relative;
+   padding: 30px 18px 22px;
+   min-height: 360px;
+}
+
+.phone-screen::before {
+   content: "";
+   position: absolute;
+   top: 9px; left: 50%; transform: translateX(-50%);
+   width: 64px; height: 5px; border-radius: 3px;
+   background: #0d0f13;
+}
+
+/* Tablet */
+.tablet {
+   width: 100%;
+   max-width: 460px;
+   margin: 0 auto;
+   background: #0d0f13;
+   border-radius: 20px;
+   padding: 12px;
+   box-shadow: 0 20px 50px rgba(20, 30, 50, 0.16);
+}
+
+.tablet-screen {
+   background: #fff;
+   border-radius: 10px;
+   overflow: hidden;
+   padding: 26px 30px;
+   min-height: 280px;
+}
+
+.mock-row { display: flex; gap: 24px; align-items: center; justify-content: center; flex-wrap: wrap; }
+
+/* Generic mock UI atoms */
+.mock-brand {
+   text-align: center;
+   font-weight: 600;
+   font-size: 1.05rem;
+   letter-spacing: -0.01em;
+   color: var(--signal-ink);
+   margin-bottom: 18px;
+}
+
+.mock-h {
+   font-size: 0.9rem;
+   font-weight: 600;
+   color: var(--ink);
+   margin-bottom: 14px;
+   text-align: center;
+}
+
+.mock-label {
+   font-size: 0.68rem;
+   color: var(--ink-faint);
+   margin: 12px 0 5px;
+}
+
+.mock-input {
+   height: 30px;
+   border: 1px solid var(--hairline);
+   border-radius: 6px;
+   background: #fff;
+}
+
+.mock-btn {
+   height: 32px;
+   border-radius: 6px;
+   background: var(--signal);
+   margin-top: 16px;
+   display: grid;
+   place-items: center;
+   color: #fff;
+   font-size: 0.72rem;
+   font-weight: 500;
+}
+
+.mock-line {
+   height: 9px;
+   border-radius: 4px;
+   background: var(--hairline);
+}
+
+.mock-line.s { width: 40%; }
+.mock-line.m { width: 65%; }
+.mock-line.l { width: 100%; }
+
+.mock-table { display: grid; gap: 9px; }
+
+.mock-tr {
+   display: grid;
+   grid-template-columns: 24px 1fr 1fr 1fr;
+   gap: 12px;
+   align-items: center;
+   padding: 9px 0;
+   border-bottom: 1px solid var(--hairline);
+}
+
+.mock-tr.head .mock-line { background: #e7ebf1; height: 7px; }
+
+.mock-dots { display: flex; gap: 8px; justify-content: center; margin-top: 18px; }
+.mock-dots i { width: 26px; height: 26px; border-radius: 7px; background: var(--showcase-deep); display: inline-block; }

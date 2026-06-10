@@ -9,6 +9,7 @@
     "@emailjs/browser": "^3.11.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@fontsource-variable/urbanist": "^5.2.7",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
@@ -16,6 +17,7 @@
     "@react-three/drei": "^9.107.0",
     "@react-three/fiber": "^8.16.8",
     "@splinetool/viewer": "^0.9.383",
+    "@tabler/icons-react": "^3.44.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -45,6 +47,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.4",
     "@types/webgi": "https://storage.googleapis.com/dist.pixotronics.com/webgi/runtime/bundle-types-0.7.9.tgz",
+    "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.21",
     "customize-cra": "^1.0.0",
     "gh-pages": "^6.1.1",
@@ -55,13 +58,13 @@
     "vite-plugin-static-copy": "^0.16.0"
   },
   "scripts": {
-    "dev": "bun run start",
-    "start": "bunx serve .",
-    "build": "rm -rf build && mkdir -p build && cp index.html favicon.ico logo.png build/ && cp -r src build/src && cp -r projects build/projects",
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "test": "echo \"No tests specified\" && exit 0",
-    "eject": "react-scripts eject",
-    "predeploy": "bun run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "vite build",
+    "deploy": "gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": [
