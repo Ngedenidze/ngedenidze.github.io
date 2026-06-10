@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="hsl(220, 15%, 97%)" />
+    <meta name="theme-color" content="hsl(220, 14%, 93%)" />
     <meta
       name="description"
-      content="Nika Gedenidze — Software Engineer specializing in backend development, AI, and full-stack solutions. Based in Caldwell, New Jersey."
+      content="Nika Gedenidze — Software Engineer specializing in backend development, AI, and full-stack solutions. Based in Brooklyn, New York."
     />
     <meta name="author" content="Nika Gedenidze" />
 
@@ -21,253 +21,25 @@
 
     <title>Nika Gedenidze — Software Engineer</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="./favicon.ico" />
-    <link rel="apple-touch-icon" href="./logo.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/logo.png" />
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="./src/design-system.css" />
-    <link rel="stylesheet" href="./src/main.css" />
+    <!-- SPA redirect restore (works with the public/404.html fallback on GitHub Pages) -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-68a339f4.js"></script>
+    <link rel="stylesheet" href="/assets/index-d0dcca67.css">
   </head>
 
   <body>
-    <div class="site-wrapper">
-      <!-- Navigation -->
-      <nav class="site-nav" role="navigation">
-        <a href="#work" class="nav-link">Work</a>
-        <a href="#research" class="nav-link">Research</a>
-        <a href="#about" class="nav-link">About</a>
-      </nav>
-
-      <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero container">
-          <h1 class="hero-name">Nika Gedenidze</h1>
-          <p class="hero-title">Software Engineer</p>
-          <p class="hero-location">Based in Caldwell, New Jersey</p>
-          <p class="hero-bio">
-            Software Engineer with expertise in backend development, AI, and
-            full-stack solutions. Skilled in .NET Core, GraphQL, Prisma,
-            JavaScript, TypeScript, and PostgreSQL. Focused on building scalable
-            applications that improve efficiency and automation.
-          </p>
-        </section>
-
-        <!-- Work / Projects Section -->
-        <section id="work" class="container">
-          <h2 class="section-heading">Work</h2>
-          
-          <div class="section-card">
-            <div class="projects-list">
-              <!-- Project 01 -->
-              <article class="project-entry fade-in">
-                <div class="project-number">01</div>
-                <h3 class="project-title">
-                  Fixify
-                  <a href="https://fixify.ge" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Fixify website">
-                    <svg class="icon-launch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-                  </a>
-                </h3> 
-                <p class="project-meta">
-                  Co-founder & Founding Engineer<br />
-                  July 2025 — November 2025
-                </p>
-                <p class="project-description">
-                  Co-founded and built an automotive marketplace in Georgia from
-                  scratch, serving as the Founding Engineer. Scaled the platform
-                  to handle over 5,000+ monthly service requests, successfully
-                  connecting car owners with a network of 150+ verified mechanics.
-                </p>
-                <p class="project-tech">
-                  GraphQL · Prisma · TypeScript · PostgreSQL
-                </p>
-              </article>
-
-              <!-- Project 02 -->
-              <article class="project-entry fade-in">
-                <div class="project-number">02</div>
-                <h3 class="project-title">
-                  Synapse Studio
-                  <a href="https://synapse.ge" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Synapse Studio website">
-                    <svg class="icon-launch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-                  </a>
-                </h3>
-                <p class="project-meta">
-                  Co-founder & Founding Engineer<br />
-                  January 2025 — November 2025
-                </p>
-                <p class="project-description">
-                  Co-founded a product studio and served as the Founding Engineer
-                  across multiple startup projects. Led technical architecture and
-                  implementation for early-stage ventures.
-                </p>
-                <p class="project-tech">
-                  Full-Stack Development · Product Engineering
-                </p>
-              </article>
-
-              <!-- Project 03 -->
-              <article class="project-entry fade-in">
-                <div class="project-number">03</div>
-                <h3 class="project-title">
-                  Redhawk Research LLC
-                  <a href="https://redhawkresearch.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Redhawk Research website">
-                    <svg class="icon-launch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-                  </a>
-                </h3>
-                <p class="project-meta">
-                  Software Engineer Intern<br />
-                  May 2024 — September 2024
-                </p>
-                <p class="project-description">
-                  Spearheaded the design and development of a full-stack admin
-                  portal using Prisma, Apollo Server, and GraphQL, leading to a
-                  30% reduction in database response time. Developed core features
-                  including user registration, permission inspection, and activity
-                  tracking tools. Improved system scalability by implementing
-                  efficient data querying and API requests, contributing to a 50%
-                  increase in system performance.
-                </p>
-                <p class="project-tech">
-                  Prisma · Apollo Server · GraphQL · Node.js
-                </p>
-              </article>
-
-              <!-- Project 04 -->
-              <article class="project-entry fade-in">
-                <div class="project-number">04</div>
-                <h3 class="project-title">
-                  AeroDefense
-                  <a href="https://aerodefense.tech" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit AeroDefense website">
-                    <svg class="icon-launch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-                  </a>
-                </h3>
-                <p class="project-meta">
-                  Web Development Intern<br />
-                  June 2024 — August 2024
-                </p>
-                <p class="project-description">
-                  Engineered and maintained over 15 pages on the company's main
-                  website using WordPress. Implemented custom plugins to enhance
-                  responsive design and accessibility, boosting user engagement
-                  by 40% and increasing conversion rates by 25%. Designed custom
-                  components using JavaScript, HTML, and CSS. Optimized website
-                  for search engines (SEO).
-                </p>
-                <p class="project-tech">
-                  WordPress · JavaScript · HTML · CSS · SEO
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- Research & Publications Section -->
-        <section id="research" class="container">
-          <h2 class="section-heading">Research & Publications</h2>
-          
-          <div class="section-card">
-            <div class="research-role">
-              <h3 class="role-title">
-                Artificial Intelligence Research Assistant
-              </h3>
-              <p class="role-org">
-                Interdisciplinary Center for Quantitative Research · March 2022 —
-                May 2024
-              </p>
-              <p class="role-description">
-                Led research project optimizing training workflows of
-                Convolutional Neural Networks on 150,000+ item dataset through
-                transfer learning. Designed and implemented 100+ diverse
-                architecture models using Python, TensorFlow, and Keras. Reduced
-                training times by 57.7% and 66.2% through layer freezing and
-                transfer learning approaches.
-              </p>
-            </div>
-
-            <div class="publications-list">
-              <h3>Peer-Reviewed Publications</h3>
-
-              <div class="publication-item">
-                <p>
-                  Gedenidze, N. & Veksler, V. D. (2024). A Layer-Freezing Approach
-                  for Reduced Backpropagation Demand. 28th annual conference of
-                  the Consortium for Computing Sciences in Colleges, Northeastern
-                  Region (CCSCNE).
-                </p>
-              </div>
-
-              <div class="publication-item">
-                <p>
-                  Gedenidze, N. & Veksler, V. D. (2023). Backpropagation is
-                  expensive. Is it necessary? 27th annual conference of the
-                  Consortium for Computing Sciences in Colleges, Northeastern
-                  Region (CCSCNE).
-                </p>
-              </div>
-
-              <div class="publication-item">
-                <p>
-                  Veksler, V.D., Gedenidze, N., & Yadav, R. (2023). Visual Cortex
-                  Doesn't Change, Why Should Convolutional Layers? The 16th
-                  International Conference on Brain Informatics.
-                </p>
-              </div>
-            </div>
-
-            <div class="recognition">
-              <h3>Recognition</h3>
-              <ul class="recognition-list">
-                <li>Top 3 Presenters at Research Day</li>
-                <li>
-                  Dean's List: Fall 2020, Fall 2021, Spring 2022, Spring 2023
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="about" class="container">
-          <h2 class="section-heading">Education</h2>
-          
-          <div class="section-card">
-            <div class="education-entry">
-              <h3 class="education-school">Caldwell University</h3>
-              <p class="education-degree">Bachelor's degree, Computer Science</p>
-              <p class="education-years">2020 — 2024</p>
-              <p class="education-achievements">
-                Dean's List recognition across multiple semesters. Active
-                participant in research initiatives focused on artificial
-                intelligence and machine learning optimization.
-              </p>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <!-- Footer / Contact -->
-      <footer class="site-footer">
-        <div class="contact-info">
-          <a href="mailto:ngedenidze@outlook.com" class="contact-link"
-            >ngedenidze@outlook.com</a
-          >
-          <a href="tel:+17177750711" class="contact-link">717.775.0711</a>
-          <a
-            href="https://www.linkedin.com/in/ngedenidze"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-link"
-          >
-            linkedin.com/in/ngedenidze
-          </a>
-        </div>
-
-        <p class="footer-copyright">© 2026 Nika Gedenidze</p>
-      </footer>
-    </div>
-
-    <!-- JavaScript for interactions -->
-    <script src="./src/interactions.js"></script>
+    <div id="root"></div>
+    
   </body>
 </html>
