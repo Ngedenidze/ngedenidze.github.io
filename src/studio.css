@@ -236,6 +236,15 @@ html {
    SECTION LABEL — "work / 01", "brand / 01"
    ---------------------------------------- */
 
+/* Inside the studio shell, sections space themselves with block margins
+   (same 120px rhythm as the landing work cards) — cancel the global
+   section padding from main.css. */
+.studio section,
+.studio section:first-of-type {
+   padding-top: 0;
+   padding-bottom: 0;
+}
+
 .studio-block {
    margin-bottom: 120px;
 }

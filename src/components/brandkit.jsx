@@ -133,15 +133,17 @@ export function TypeScale({ rows }) {
 /* Principle / foundation cards. */
 export function Principles({ items, cols = 'cols-2' }) {
   return (
-    <div className={`guide-grid ${cols}`}>
-      {items.map((p, i) => (
-        <div className="stage-card tile principle" key={i}>
-          <span className="num">{p.n}</span>
-          <b>{p.title}</b>
-          <p>{p.text}</p>
-        </div>
-      ))}
-    </div>
+    <Showcase>
+      <div className={`guide-grid ${cols}`}>
+        {items.map((p, i) => (
+          <div className="stage-card tile principle" key={i}>
+            <span className="num">{p.n}</span>
+            <b>{p.title}</b>
+            <p>{p.text}</p>
+          </div>
+        ))}
+      </div>
+    </Showcase>
   )
 }
 
@@ -182,15 +184,17 @@ export function Mockup({ device = 'browser', img, label, alt }) {
 /* Do & don't checklist. */
 export function DoDont({ items, cols = 'cols-3' }) {
   return (
-    <div className={`guide-grid ${cols}`}>
-      {items.map((d, i) => (
-        <div className="stage-card tile" key={i}>
-          <div className="dont">
-            <span className={`ic ${d.ok ? 'yes' : 'no'}`}>{d.ok ? '✓' : '✕'}</span>
-            <b>{d.label}</b>
+    <Showcase>
+      <div className={`guide-grid ${cols}`}>
+        {items.map((d, i) => (
+          <div className="stage-card tile" key={i}>
+            <div className="dont">
+              <span className={`ic ${d.ok ? 'yes' : 'no'}`}>{d.ok ? '✓' : '✕'}</span>
+              <b>{d.label}</b>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </Showcase>
   )
 }
