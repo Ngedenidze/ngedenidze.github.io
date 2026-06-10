@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f5f5f5"/>
+
+  <rect x="76" y="54" width="1048" height="522" rx="8" fill="#ffffff"/>
+  <rect x="76.5" y="54.5" width="1047" height="521" rx="7.5" fill="none" stroke="#dfe3ea"/>
+
+  <g opacity="0.65">
+    <rect x="104" y="232" width="20" height="1" fill="#9ca3af"/>
+    <rect x="104" y="244" width="20" height="1" fill="#9ca3af"/>
+    <rect x="104" y="256" width="20" height="1" fill="#9ca3af"/>
+    <rect x="104" y="268" width="20" height="1" fill="#9ca3af"/>
+    <rect x="104" y="280" width="20" height="1" fill="#9ca3af"/>
+    <rect x="104" y="292" width="20" height="1" fill="#9ca3af"/>
+    <rect x="104" y="304" width="20" height="1" fill="#9ca3af"/>
+    <rect x="104" y="316" width="20" height="1" fill="#9ca3af"/>
+  </g>
+
+  <g font-family="Inter, Urbanist, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <circle cx="218" cy="118" r="8" fill="#d8e9f7" stroke="#9ca3af"/>
+    <text x="238" y="124" fill="#334155" font-size="15" font-weight="500" letter-spacing="0.4">nika gedenidze</text>
+    <text x="360" y="113" fill="#9ca3af" font-size="12">°</text>
+
+    <text x="218" y="218" fill="#1f2937" font-size="68" font-weight="650" letter-spacing="-1.5">Nika Gedenidze</text>
+    <text x="218" y="270" fill="#526174" font-size="28" font-weight="400">Software Engineer</text>
+    <text x="218" y="318" fill="#6b7280" font-size="22" font-weight="400">
+      backend · AI · full-stack systems
+    </text>
+    <text x="218" y="362" fill="#6b7280" font-size="18" font-weight="400">
+      scalable products built for efficiency and automation
+    </text>
+
+    <g fill="#8b95a3" font-size="15">
+      <text x="218" y="462">work</text>
+      <text x="282" y="462">brand book</text>
+      <text x="398" y="462">research</text>
+      <text x="498" y="462">about</text>
+    </g>
+
+    <text x="218" y="526" fill="#94a3b8" font-size="15">ngedenidze.github.io</text>
+  </g>
+
+  <g font-family="Inter, Urbanist, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <rect x="716" y="126" width="294" height="116" rx="6" fill="#dfe9f6"/>
+    <text x="746" y="166" fill="#64748b" font-size="16" font-family="'SF Mono', Menlo, monospace">01</text>
+    <text x="746" y="204" fill="#334155" font-size="34" font-weight="650">WOX</text>
+    <text x="874" y="205" fill="#64748b" font-size="15">restaurant OS</text>
+
+    <rect x="654" y="260" width="294" height="116" rx="6" fill="#dfe9f6"/>
+    <text x="684" y="300" fill="#64748b" font-size="16" font-family="'SF Mono', Menlo, monospace">02</text>
+    <text x="684" y="338" fill="#334155" font-size="34" font-weight="650">Vellin</text>
+    <text x="818" y="339" fill="#64748b" font-size="15">back-of-house OS</text>
+
+    <rect x="744" y="394" width="294" height="116" rx="6" fill="#dfe9f6"/>
+    <text x="774" y="434" fill="#64748b" font-size="16" font-family="'SF Mono', Menlo, monospace">03</text>
+    <text x="774" y="472" fill="#334155" font-size="34" font-weight="650">Fixify</text>
+    <text x="908" y="473" fill="#64748b" font-size="15">marketplace</text>
+  </g>
+</svg>
