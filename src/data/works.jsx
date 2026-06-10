@@ -23,6 +23,15 @@ export const works = [
       'Defined the product vision, system architecture, and brand direction for an AI-powered restaurant operating system spanning POS, inventory, purchasing, supplier workflows, analytics, and an operational AI assistant.',
     lede:
       'As chief architect, I defined the product vision, system architecture, and brand direction for WOX — an AI-powered restaurant operating system spanning POS, inventory, purchasing, supplier workflows, and operational intelligence.',
+    homePanel: (
+      <Showcase tall>
+        <img
+          className="home-shot home-shot-bare"
+          src="/brands/wox/wox-mockup.png"
+          alt="WOX POS terminal on a tablet"
+        />
+      </Showcase>
+    ),
     steps: [
       {
         copy: (
@@ -30,27 +39,6 @@ export const works = [
             <b>One system across four surfaces.</b> POS terminal, mobile app, web
             dashboard, and supplier portal all run on the same tenant model and
             live operational data.
-          </>
-        ),
-        panel: (
-          <Showcase tall>
-            <div className="mock-deck">
-              <Mockup
-                device="browser"
-                img="/brands/wox/responsive.webp"
-                label="WOX across web, POS, mobile, and vendor surfaces"
-                alt="WOX responsive landing and platform surfaces"
-              />
-            </div>
-          </Showcase>
-        ),
-      },
-      {
-        copy: (
-          <>
-            <b>Service, inventory, and purchasing stay in sync.</b> Orders hit the
-            POS, stock moves in real time, and purchasing workflows react from the
-            same source of truth instead of disconnected tools.
           </>
         ),
         panel: (
@@ -73,6 +61,27 @@ export const works = [
                 img="/brands/wox/vendor-portal-tablet.png"
                 label="Vendor portal"
                 alt="WOX vendor portal on tablet"
+              />
+            </div>
+          </Showcase>
+        ),
+      },
+      {
+        copy: (
+          <>
+            <b>Service, inventory, and purchasing stay in sync.</b> Orders hit the
+            POS, stock moves in real time, and purchasing workflows react from the
+            same source of truth instead of disconnected tools.
+          </>
+        ),
+        panel: (
+          <Showcase tall>
+            <div className="mock-deck">
+              <Mockup
+                device="browser"
+                img="/brands/wox/pos.png"
+                label="Quick order — every tap moves stock in real time"
+                alt="WOX point of sale quick order screen"
               />
             </div>
           </Showcase>
@@ -116,6 +125,15 @@ export const works = [
       'Building an AI-powered back-of-house operating system for restaurants that unifies inventory, purchasing, vendor collaboration, and analytics. Modular architecture with offline-first counts, auto-generated purchase orders, AI invoice extraction, and real-time COGS visibility.',
     lede:
       'Vellin unifies inventory, purchasing, vendor collaboration, and analytics into one calm operating system — designed to hold up under the pressure of a live kitchen, online or off.',
+    homePanel: (
+      <Showcase tall>
+        <img
+          className="home-shot home-shot-bare"
+          src="/brands/vellin/app-mockup.png"
+          alt="Vellin mobile app on a phone"
+        />
+      </Showcase>
+    ),
     steps: [
       {
         copy: (
@@ -228,6 +246,15 @@ export const works = [
       'Co-founded and built an automotive marketplace in Georgia from scratch as Founding Engineer. Scaled to 5,000+ monthly service requests, connecting car owners with a network of 150+ verified mechanics.',
     lede:
       'Built from scratch in Georgia as founding engineer — a marketplace that scaled to 5,000+ monthly service requests, connecting car owners with a network of 150+ verified mechanics.',
+    homePanel: (
+      <Showcase tall>
+        <img
+          className="home-shot home-shot-bare"
+          src="/brands/fixify/app-screenshot.png"
+          alt="Fixify mobile app on two phones"
+        />
+      </Showcase>
+    ),
     steps: [
       {
         copy: (
@@ -291,6 +318,123 @@ export const works = [
       'Co-founded a product studio and served as Founding Engineer across multiple startup projects. Led technical architecture and implementation for early-stage ventures.',
     lede:
       'Co-founded a product studio and served as founding engineer across multiple startup projects — leading technical architecture and implementation for early-stage ventures.',
+    homePanel: (
+      <Showcase tall>
+        <div className="stage-card ds-board">
+          <div className="ds-grid">
+            <div>
+              <div className="ds-stage" style={{ background: '#FAF9F5' }}>
+                <img
+                  src="/brands/synapse/logo.svg"
+                  alt="Synapse wordmark"
+                  style={{ maxHeight: 24, maxWidth: '78%' }}
+                />
+              </div>
+              <p className="ds-cap"><b>Wordmark</b>azonix display</p>
+            </div>
+            <div>
+              <div className="ds-stage" style={{ background: '#FAF9F5' }}>
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: 34,
+                    padding: '0 18px',
+                    borderRadius: 999,
+                    background: '#2F4BFF',
+                    color: '#fff',
+                    fontSize: '0.74rem',
+                    fontWeight: 500,
+                  }}
+                >
+                  Start a project
+                </span>
+              </div>
+              <p className="ds-cap"><b>Button</b>pill · fixed brand blue</p>
+            </div>
+            <div>
+              <div className="ds-stage" style={{ background: '#F4F4F1' }}>
+                <span
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 8,
+                    width: '78%',
+                    padding: '14px 14px 12px',
+                    background: '#fff',
+                    borderRadius: 14,
+                    border: '1px solid rgba(140, 130, 110, 0.18)',
+                    boxShadow: '0 6px 18px rgba(23, 23, 23, 0.06)',
+                  }}
+                >
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <i style={{ width: 22, height: 2, borderRadius: 2, background: '#2F4BFF', display: 'block' }} />
+                    <i style={{ width: '34%', height: 7, borderRadius: 4, background: '#171717', opacity: 0.85, display: 'block' }} />
+                  </span>
+                  <i style={{ width: '88%', height: 6, borderRadius: 4, background: '#E4E2DB', display: 'block' }} />
+                  <i style={{ width: '62%', height: 6, borderRadius: 4, background: '#E4E2DB', display: 'block' }} />
+                </span>
+              </div>
+              <p className="ds-cap"><b>Card</b>paper surface · hairline · soft elevation</p>
+            </div>
+            <div>
+              <div className="ds-stage" style={{ background: '#FAF9F5', padding: 12 }}>
+                <span style={{ display: 'flex', gap: 6, width: '100%', justifyContent: 'center' }}>
+                  {['#2F4BFF', '#171717', '#FAF9F5', '#7C8CFF'].map((c) => (
+                    <i
+                      key={c}
+                      style={{
+                        width: 30,
+                        height: 44,
+                        borderRadius: 6,
+                        background: c,
+                        display: 'block',
+                        boxShadow: 'inset 0 0 0 1px rgba(20, 30, 50, 0.08)',
+                      }}
+                    />
+                  ))}
+                </span>
+              </div>
+              <p className="ds-cap"><b>Color</b>paper · ink · brand blue</p>
+            </div>
+            <div>
+              <div className="ds-stage" style={{ background: '#FAF9F5' }}>
+                <span style={{ textAlign: 'center', lineHeight: 1 }}>
+                  <span style={{ fontSize: '1.7rem', color: '#171717', letterSpacing: '-0.02em' }}>Aa</span>
+                  <small style={{ display: 'block', fontSize: '0.6rem', color: '#5F5F5F', marginTop: 6 }}>
+                    DM Sans
+                  </small>
+                </span>
+              </div>
+              <p className="ds-cap"><b>Typography</b>one family · weight does the work</p>
+            </div>
+            <div>
+              <div className="ds-stage" style={{ background: '#0B0B0D' }}>
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    height: 30,
+                    padding: '0 16px',
+                    borderRadius: 999,
+                    background: '#17171B',
+                    color: '#7C8CFF',
+                    fontSize: '0.68rem',
+                    fontWeight: 500,
+                    boxShadow: 'inset 0 0 0 1px rgba(124, 140, 255, 0.35)',
+                  }}
+                >
+                  Dark mode
+                </span>
+              </div>
+              <p className="ds-cap"><b>Theme</b>dark twin · periwinkle accent</p>
+            </div>
+          </div>
+        </div>
+      </Showcase>
+    ),
     steps: [
       {
         copy: (
@@ -337,6 +481,16 @@ export const works = [
       'Designed and built a full-stack admin portal using Prisma, Apollo Server, and GraphQL — user registration, permission inspection, and activity tracking — cutting database response time 30% and lifting performance 50%.',
     lede:
       'Designed and built a full-stack admin portal — user registration, permission inspection, and activity tracking — cutting database response time by 30% and lifting system performance by 50%.',
+    homePanel: (
+      <Showcase tall>
+        <img
+          className="home-shot home-shot-bare"
+          style={{ maxWidth: 720 }}
+          src="/brands/redhawk/product-preview.png"
+          alt="Redhawk admin portal interface"
+        />
+      </Showcase>
+    ),
     steps: [
       {
         copy: (
@@ -380,6 +534,16 @@ export const works = [
       "Engineered and maintained 15+ pages on the company's main site with custom plugins and accessible, responsive components — lifting engagement 40% and conversion 25%, with SEO baked in.",
     lede:
       "Engineered and maintained 15+ pages on the company's main site — custom plugins and components for responsive, accessible design that lifted engagement 40% and conversion 25%.",
+    homePanel: (
+      <Showcase tall>
+        <img
+          className="home-shot home-shot-bare"
+          style={{ maxWidth: 640 }}
+          src="/brands/aerodefense/mockup.png"
+          alt="AeroDefense website on a desktop display"
+        />
+      </Showcase>
+    ),
     steps: [
       {
         copy: (

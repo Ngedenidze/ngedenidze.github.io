@@ -65,6 +65,7 @@ export const guides = [
         { label: 'Emerald on mint', body: <IconImg img="/brands/rentlab_rl_mark_emerald.png" bg="#F0FAF4" /> },
       ],
     },
+    appIcon: { img: '/brands/rentlab_rl_mark_white.png', bg: '#0A3D2E' },
     clearspace: {
       note: 'The logo needs quiet space — keep surrounding UI, copy, or partner marks outside a clear-space zone equal to the height of the L base. Never reduce the monogram so far that the gap between the R curve and the L base disappears.',
       markImg: '/brands/rentlab_rl_mark_emerald.png',
@@ -175,6 +176,7 @@ export const guides = [
         { label: 'On brand tint', body: <IconImg img="/brands/wox/logo.png" bg="#f1f0eb" h={40} /> },
       ],
     },
+    appIcon: { img: '/brands/wox/mark.png', bg: '#FAF9F5' },
     colorIntro:
       'Solid surfaces only — no gradients. Cream warmth, near-black theatre, and a single purple accent that never floods. Status colors live in the app, not the marketing site.',
     colors: [
@@ -259,6 +261,7 @@ export const guides = [
         { label: 'On light', body: <IconImg img="/brands/vellin/logo.png" bg="#fff" h={40} /> },
       ],
     },
+    appIcon: { img: '/brands/vellin/mark.png', bg: '#2B2B2B' },
     colorIntro:
       'A warm off-white canvas, near-black ink, and a single purple accent. No gradients, no heavy shadows, one accent per screen.',
     colors: [
@@ -339,11 +342,12 @@ export const guides = [
       note: 'A location-pin + wrench mark with the “Fixify” wordmark. The wordmark is set in Instrument Serif; the square pin mark doubles as the app icon.',
       primary: <LogoTile img="/brands/fixify/logo.png" bg="#fff" h={48} />,
       variants: [
-        { label: 'App icon', body: <IconImg img="/brands/fixify/mark.png" bg="#faf7f2" /> },
+        { label: 'App icon', body: <IconImg img="/brands/fixify/bitmap.png" bg="#fff" /> },
         { label: 'On dark', body: <IconImg img="/brands/fixify/logo-white.webp" bg="#14110c" h={36} /> },
         { label: 'On cream', body: <IconImg img="/brands/fixify/logo.png" bg="#f4eee3" h={40} /> },
       ],
     },
+    appIcon: { img: '/brands/fixify/bitmap.png', bg: '#fff' },
     colorIntro:
       'A warm cream canvas, near-black warm ink, and a refined Fixify blue reserved for actions. A three-tier semantic system: blue = action, green = verified, orange = fast/soon, red = cancelled.',
     colors: [
@@ -384,7 +388,7 @@ export const guides = [
       intro: 'Fixify across the marketplace, mechanic detail, and partner onboarding. Real assets wired in; app screens are placeholders to provide.',
       steps: [
         { copy: 'Social / brand card.', devices: [{ device: 'browser', img: '/brands/fixify/og.png', label: 'OG card' }] },
-        { copy: 'Partner onboarding flow.', devices: [{ device: 'browser', img: '/brands/fixify/screen1.png', label: 'Partner step 1' }] },
+        { copy: 'The marketplace — browse mechanic listings and locate them on the map.', devices: [{ device: 'browser', img: '/brands/fixify/product-screenshot.png', label: 'Marketplace map view', alt: 'Fixify marketplace with mechanic listings beside a map of Georgia' }] },
         { copy: 'Driver app — discover, book, manage your garage.', devices: [{ device: 'phone', label: 'Discover map' }, { device: 'phone', label: 'Mechanic detail' }] },
       ],
     },
@@ -429,6 +433,7 @@ export const guides = [
         { label: 'On surface', body: <IconImg img="/brands/synapse/mark.png" bg="#FAF9F5" h={64} /> },
       ],
     },
+    appIcon: { img: '/brands/synapse/app-mark.png', bg: '#052343', invert: true },
     colorIntro:
       'Two palettes: a warm off-white UI with a single frozen cobalt CTA, and a deep-navy identity. The button blue #2F4BFF is identical in light and dark.',
     colors: [

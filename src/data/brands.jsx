@@ -38,6 +38,7 @@ export const brands = [
     id: 'wox',
     number: '01',
     name: 'wox',
+    logo: '/brands/wox/logo.png',
     desc:
       'an AI-powered restaurant operating system — deliberate, editorial, and calm; serious infrastructure, not a SaaS template. Purple is the accent, never a flood.',
     board: (
@@ -63,6 +64,7 @@ export const brands = [
     id: 'vellin',
     number: '02',
     name: 'vellin',
+    logo: '/brands/vellin/logo.png',
     desc:
       'inventory, purchasing, and cost intelligence for multi-location restaurants — calm, premium, low-noise; hierarchy from type and tone, not color.',
     board: (
@@ -86,6 +88,7 @@ export const brands = [
 
   {
     id: 'fixify',
+    logo: '/brands/fixify/logo-long.png',
     number: '03',
     name: 'fixify',
     desc:
@@ -111,6 +114,7 @@ export const brands = [
 
   {
     id: 'synapse',
+    logo: '/brands/synapse/logo.svg',
     number: '04',
     name: 'synapse studio',
     desc:
@@ -138,6 +142,7 @@ export const brands = [
     id: 'rentlab',
     number: '05',
     name: 'rentlab',
+    logo: '/brands/rentlab.png',
     desc:
       'a peer-to-peer rental marketplace for everyday items across Georgia — a calm, high-trust identity built on access over ownership, never real estate.',
     board: (
@@ -147,9 +152,9 @@ export const brands = [
             <div className="lockup">
               <span className="lockup-mark">
                 <img
-                  src="/brands/rentlab_rl_mark_emerald.png"
+                  src="/brands/rentlab.png"
                   alt="Rentlab RL monogram"
-                  style={{ height: 40, width: 'auto', display: 'block' }}
+                  style={{ height: 56, width: 'auto', display: 'block' }}
                 />
                 rentlab
               </span>

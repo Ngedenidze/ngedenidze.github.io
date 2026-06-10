@@ -119,6 +119,10 @@ section:first-of-type {
     display: block;
 }
 
+.home-masthead .studio-nav {
+    margin-bottom: 56px;
+}
+
 .home-section {
     padding: 0;
     margin-bottom: 120px;
@@ -228,6 +232,10 @@ section:first-of-type {
 }
 
 .home-work-block:last-child {
+    margin-bottom: 0;
+}
+
+.home-brand-block {
     margin-bottom: 0;
 }
 

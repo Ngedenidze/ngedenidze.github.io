@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import StudioShell from '../components/StudioShell.jsx'
+import { Showcase } from '../components/Devices.jsx'
 import Masthead from '../components/Masthead.jsx'
 import RailNav from '../components/RailNav.jsx'
 import Reveal from '../components/Reveal.jsx'
+import { brands } from '../data/brands.jsx'
 import { works } from '../data/works.jsx'
 
 const LaunchIcon = () => (
@@ -28,7 +30,7 @@ export default function Home() {
         </footer>
       }
     >
-      <Masthead />
+      <Masthead className="home-masthead" />
 
       <main className="home-main">
           <section id="work" className="home-section">
@@ -39,24 +41,49 @@ export default function Home() {
                   <p className="studio-label">
                     <b>work / {w.number}</b> &nbsp;<span>— {w.name.toLowerCase()}</span>
                   </p>
-                  <div className="section-card project-panel">
-                    <h3 className="project-title">
-                      {w.name}
-                      <a href={w.href} target="_blank" rel="noopener noreferrer" className="project-link" aria-label={`Visit ${w.name} website`}>
-                        <LaunchIcon />
-                      </a>
-                    </h3>
-                    <p className="project-meta">
-                      {w.role}<br />
-                      {w.period}
-                    </p>
-                    <p className="project-description">{w.description}</p>
-                    <p className="project-tech">{w.tech}</p>
+                  <p className="studio-desc">{w.description}</p>
+                  {w.homePanel ?? w.steps[0].panel}
+                  <div className="work-links">
+                    <Link className="project-caselink" to={`/work/${w.slug}`}>view case study →</Link>
+                    <a className="project-caselink work-visit" href={w.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${w.name} website`}>
+                      visit site <LaunchIcon />
+                    </a>
                   </div>
-                  <Link className="project-caselink" to={`/work/${w.slug}`}>View case study →</Link>
                 </Reveal>
               ))}
             </div>
+          </section>
+
+          <section id="brand-book" className="home-section">
+            <h2 className="section-heading">Brand Book</h2>
+            <Reveal as="article" className="studio-block home-brand-block">
+              <p className="studio-label">
+                <b>brand book</b> &nbsp;<span>— identity systems</span>
+              </p>
+              <p className="studio-desc">
+                A structured library of the visual systems behind the products I
+                architect and design — from product marks and color standards to
+                UI components, voice, and usage rules.
+              </p>
+              <Showcase>
+                <div className="board cols-3">
+                  {brands.map((brand) => (
+                    <Link
+                      className="stage-card tile brand-tile"
+                      to={`/brand-book/${brand.id}`}
+                      key={brand.id}
+                      aria-label={`View ${brand.name} brand guidelines`}
+                    >
+                      <div className="lockup brand-tile-logo">
+                        <img src={brand.logo} alt={`${brand.name} logo`} />
+                      </div>
+                      <p className="tile-cap"><b>{brand.name}</b></p>
+                    </Link>
+                  ))}
+                </div>
+              </Showcase>
+              <Link className="project-caselink" to="/brand-book">view brand book →</Link>
+            </Reveal>
           </section>
 
           <section id="research" className="home-section">

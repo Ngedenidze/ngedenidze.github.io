@@ -3,7 +3,7 @@ import Masthead from '../components/Masthead.jsx'
 import StudioFooter from '../components/StudioFooter.jsx'
 import StudioShell from '../components/StudioShell.jsx'
 import RailNav from '../components/RailNav.jsx'
-import { GuideSection, Card, Palette, TypeScale, Principles, DoDont, Mockup } from '../components/brandkit.jsx'
+import { GuideSection, Card, Palette, TypeScale, Principles, DoDont, Mockup, AppIconRow } from '../components/brandkit.jsx'
 import { Showcase } from '../components/Devices.jsx'
 import { getGuide, nextGuide } from '../data/brandGuides.jsx'
 
@@ -80,6 +80,13 @@ export default function BrandGuide() {
                   </Card>
                 ))}
               </div>
+              {g.appIcon && (
+                <div className="board" style={{ marginTop: 14 }}>
+                  <Card cap={<><b>App icon</b>How the mark sits inside the rounded-square icon shape on a home screen.</>}>
+                    <AppIconRow {...g.appIcon} />
+                  </Card>
+                </div>
+              )}
             </Showcase>
           </GuideSection>
         )}

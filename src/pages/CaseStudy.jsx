@@ -44,6 +44,13 @@ export default function CaseStudy() {
           </p>
           <h1 className="case-title">{work.title}</h1>
           <p className="case-tag">{work.tag}</p>
+          <p className="case-meta">
+            {work.role}
+            <br />
+            {work.period}
+            <br />
+            {work.tech}
+          </p>
           <p className="case-lede">{work.lede}</p>
         </section>
 

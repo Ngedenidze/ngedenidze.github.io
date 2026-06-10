@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 const HOME_SECTIONS = [
   { id: 'work', label: 'work' },
+  { id: 'brand-book', label: 'brand book' },
   { id: 'research', label: 'research' },
   { id: 'about', label: 'about' },
 ]

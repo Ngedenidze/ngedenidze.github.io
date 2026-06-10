@@ -14,11 +14,11 @@ const NAV = [
  * Top-level destinations only (home, brand book) — section navigation on the
  * landing page is handled by the left rail (see RailNav).
  */
-export default function Masthead({ lede = SITE_LEDE }) {
+export default function Masthead({ lede = SITE_LEDE, className }) {
   const { pathname } = useLocation()
 
   return (
-    <header>
+    <header className={className}>
       <Link to="/" className="studio-mast" style={{ textDecoration: 'none' }}>
         <span className="studio-mark" />
         <span className="studio-word">

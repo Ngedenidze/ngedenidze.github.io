@@ -52,6 +52,52 @@ export function Card({ children, cap, style }) {
   )
 }
 
+/* App-icon presentation: the mark inside rounded-square icon tiles,
+   shown at descending sizes like a home-screen icon set. */
+export function AppIconRow({ img, bg, invert, pad = 0.2 }) {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        gap: 26,
+        alignItems: 'flex-end',
+        justifyContent: 'center',
+        minHeight: 128,
+        flexWrap: 'wrap',
+        padding: '10px 0',
+      }}
+    >
+      {[96, 64, 44].map((s) => (
+        <span
+          key={s}
+          style={{
+            width: s,
+            height: s,
+            borderRadius: Math.round(s * 0.224),
+            background: bg,
+            display: 'grid',
+            placeItems: 'center',
+            flex: 'none',
+            boxShadow:
+              'inset 0 0 0 1px rgba(20, 30, 50, 0.07), 0 8px 22px rgba(20, 30, 50, 0.14)',
+          }}
+        >
+          <img
+            src={img}
+            alt=""
+            style={{
+              width: Math.round(s * (1 - pad * 2)),
+              height: Math.round(s * (1 - pad * 2)),
+              objectFit: 'contain',
+              filter: invert ? 'brightness(0) invert(1)' : undefined,
+            }}
+          />
+        </span>
+      ))}
+    </div>
+  )
+}
+
 /* Full color palette grid. */
 export function Palette({ colors }) {
   return (
