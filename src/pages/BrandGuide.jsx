@@ -43,7 +43,7 @@ export default function BrandGuide() {
               <span>next brand /</span> <b>{next.name} →</b>
             </Link>
           </nav>
-          <StudioFooter note="© 2026 — design systems, distilled." link={<Link to="/brand-book">all brands →</Link>} />
+          <StudioFooter note="© 2026 Nika Gedenidze" link={<Link to="/brand-book">all brands →</Link>} />
         </>
       }
     >
@@ -56,6 +56,7 @@ export default function BrandGuide() {
         <h1 className="case-title">{g.title}</h1>
         <p className="case-tag">{g.tag}</p>
         <p className="case-lede">{g.intro}</p>
+        <hr className="case-divider" />
 
         {/* Foundation */}
         {g.principles && (
@@ -155,23 +156,31 @@ export default function BrandGuide() {
           </GuideSection>
         )}
 
-        {/* Applications / in product — mockup showcase */}
-        {g.showcase && (
-          <GuideSection id="applications" n={num()} kicker="in product" title="Applications" intro={g.showcase.intro}>
-            {g.showcase.steps.map((s, i) => (
-              <div key={i} style={{ marginBottom: 22 }}>
-                {s.copy && <p className="case-copy">{s.copy}</p>}
-                <Showcase tall={s.devices.some((d) => d.device === 'phone')}>
-                  <div className="mock-deck">
-                    {s.devices.map((d, j) => (
-                      <Mockup key={j} {...d} />
-                    ))}
-                  </div>
-                </Showcase>
-              </div>
-            ))}
-          </GuideSection>
-        )}
+        {/* Applications / in product — mockup showcase.
+            Only show steps that have at least one real screenshot; placeholder-only
+            steps are hidden, and the whole section hides if nothing real remains. */}
+        {g.showcase && (() => {
+          const appSteps = g.showcase.steps.filter(
+            (s) => s.devices.some((d) => d.img),
+          )
+          if (appSteps.length === 0) return null
+          return (
+            <GuideSection id="applications" n={num()} kicker="in product" title="Applications" intro={g.showcase.intro}>
+              {appSteps.map((s, i) => (
+                <div key={i} style={{ marginBottom: 22 }}>
+                  {s.copy && <p className="case-copy">{s.copy}</p>}
+                  <Showcase tall={s.devices.some((d) => d.device === 'phone')}>
+                    <div className="mock-deck">
+                      {s.devices.map((d, j) => (
+                        <Mockup key={j} {...d} />
+                      ))}
+                    </div>
+                  </Showcase>
+                </div>
+              ))}
+            </GuideSection>
+          )
+        })()}
 
         {/* Voice & tone */}
         {g.voice && (

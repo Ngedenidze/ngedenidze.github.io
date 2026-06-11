@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export default function StudioFooter({ note = '© 2026 — design, distilled.', link }) {
+export default function StudioFooter({ note = '© 2026 Nika Gedenidze', link }) {
   return (
     <footer className="studio-foot">
       <p>{note}</p>

@@ -160,8 +160,19 @@ export function LogoTile({ img, bg = '#fff', invert, h = 46 }) {
   )
 }
 
-/* A device frame holding a real screenshot, or a labeled placeholder. */
-export function Mockup({ device = 'browser', img, label, alt }) {
+/* A device frame holding a real screenshot, or a labeled placeholder.
+   When `bare` is true and an `img` is supplied, the image is rendered
+   directly on the showcase stage (no CSS device frame) — for use with
+   pre-framed renders like 3D phone/tablet mockups. */
+export function Mockup({ device = 'browser', img, label, alt, screenBg, bare }) {
+  if (bare && img) {
+    const bareClass =
+      device === 'phone' ? 'case-shot case-shot-phone'
+        : device === 'tablet' ? 'case-shot case-shot-tablet'
+        : 'case-shot'
+    return <img className={bareClass} src={img} alt={alt || label} />
+  }
+
   const screen = img ? (
     <img src={img} alt={alt || label} className="shot-img" />
   ) : (
@@ -170,13 +181,14 @@ export function Mockup({ device = 'browser', img, label, alt }) {
       <small>screenshot placeholder — provide image</small>
     </div>
   )
+  const screenStyle = screenBg ? { background: screenBg } : undefined
 
-  if (device === 'phone') return <div className="phone"><div className="phone-screen shot-screen">{screen}</div></div>
-  if (device === 'tablet') return <div className="tablet"><div className="tablet-screen shot-screen">{screen}</div></div>
+  if (device === 'phone') return <div className="phone"><div className="phone-screen shot-screen" style={screenStyle}>{screen}</div></div>
+  if (device === 'tablet') return <div className="tablet"><div className="tablet-screen shot-screen" style={screenStyle}>{screen}</div></div>
   return (
-    <div className="win">
+    <div className="win" style={screenBg ? { background: screenBg } : undefined}>
       <div className="win-bar"><i /><i /><i /></div>
-      <div className="shot-screen">{screen}</div>
+      <div className="shot-screen" style={screenStyle}>{screen}</div>
     </div>
   )
 }

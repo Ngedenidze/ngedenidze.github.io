@@ -12,9 +12,9 @@ export default function BrandBook() {
   return (
     <StudioShell
       rail={<RailNav sections={railSections} />}
-      footer={<StudioFooter note="© 2026 — design systems, distilled." />}
+      footer={<StudioFooter note="© 2026 Nika Gedenidze" />}
     >
-      <Masthead lede="design systems and brand guidelines, distilled — the logo, color, type, and component standards behind the products I help build." />
+      <Masthead lede="The design systems and brand guidelines behind the products I build — logo, color, type, and component standards, documented in one place." />
 
       <main>
         {brands.map((brand) => (
@@ -29,18 +29,6 @@ export default function BrandBook() {
             </Link>
           </Reveal>
         ))}
-
-        <Reveal as="section" className="studio-block">
-          <p className="studio-label"><b>brand / next</b> &nbsp;<span>— in progress</span></p>
-          <p className="studio-desc">
-            new guidelines land here. Each book follows the same spine: logo system,
-            color, typography, components, and voice — so every brand reads
-            consistently while staying unmistakably its own.
-          </p>
-          <div className="showcase" style={{ display: 'grid', placeItems: 'center', minHeight: 160 }}>
-            <p style={{ fontSize: '0.85rem', color: 'var(--signal-ink)' }}>add the next brand →</p>
-          </div>
-        </Reveal>
       </main>
     </StudioShell>
   )

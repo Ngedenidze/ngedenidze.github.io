@@ -22,7 +22,7 @@ export default function Masthead({ lede = SITE_LEDE, className }) {
       <Link to="/" className="studio-mast" style={{ textDecoration: 'none' }}>
         <span className="studio-mark" />
         <span className="studio-word">
-          nika gedenidze <sup>°</sup>
+          Nika <span className="studio-word-last">Gedenidze</span>
         </span>
       </Link>
 

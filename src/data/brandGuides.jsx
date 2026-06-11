@@ -169,14 +169,14 @@ export const guides = [
     ],
     logo: {
       note: 'All-caps WOX wordmark where the O is the eye-mark — a thick ring with a purple center dot — over a letterspaced “POS SYSTEM” sublabel. Keep the eye-mark geometry intact; recolor only within approved variants.',
-      primary: <LogoTile img="/brands/wox/logo.png" bg="#faf9f5" h={54} />,
+      primary: <LogoTile img="/brands/wox/wox-long-1.png" bg="#fff" h={120} />,
       variants: [
-        { label: 'Eye-mark', body: <IconImg img="/brands/wox/mark.png" bg="#faf9f5" /> },
-        { label: 'On dark', body: <IconImg img="/brands/wox/logo-white.png" bg="#0a0a0a" h={40} /> },
-        { label: 'On brand tint', body: <IconImg img="/brands/wox/logo.png" bg="#f1f0eb" h={40} /> },
+        { label: 'Eye-mark', body: <IconImg img="/brands/wox/mark.png" bg="#FAF9F5" h={88} /> },
+        { label: 'On purple', body: <IconImg img="/brands/wox/wox-long-2.png" bg="#7C5CDC" h={70} /> },
+        { label: 'Monochrome', body: <IconImg img="/brands/wox/wox-long-3.png" bg="#fff" h={70} /> },
       ],
     },
-    appIcon: { img: '/brands/wox/mark.png', bg: '#FAF9F5' },
+    appIcon: { img: '/brands/wox/mark.png', bg: '#FAF9F5', pad: 0.12 },
     colorIntro:
       'Solid surfaces only — no gradients. Cream warmth, near-black theatre, and a single purple accent that never floods. Status colors live in the app, not the marketing site.',
     colors: [
@@ -217,7 +217,7 @@ export const guides = [
       steps: [
         { copy: 'The marketing surface — serious infrastructure, not a SaaS template.', devices: [{ device: 'browser', img: '/brands/wox/og.png', label: 'Landing / social' }] },
         { copy: 'The POS terminal and product screens — UI as proof.', devices: [{ device: 'browser', img: '/brands/wox/pos.png', label: 'POS screen' }] },
-        { copy: 'Operator and vendor apps on mobile.', devices: [{ device: 'phone', label: 'Operator app' }, { device: 'tablet', label: 'Vendor portal' }] },
+        { copy: 'The operator mobile app and the floor-tablet view — pre-framed renders sit bare on the stage.', devices: [{ device: 'phone', bare: true, img: '/brands/wox/wox-mobile.png', alt: 'WOX operator mobile app' }, { device: 'tablet', bare: true, img: '/brands/wox/wox-ipad.png', alt: 'WOX tablet table management view' }] },
       ],
     },
     voice: {
@@ -426,11 +426,11 @@ export const guides = [
     ],
     logo: {
       note: 'A continuous-line interlocking “S” with the “SYNAPSE — TECH COMPANY” wordmark, in deep navy #052343. On dark surfaces the mark inverts to white.',
-      primary: <LogoTile img="/brands/synapse/mark.png" bg="#fff" h={70} />,
+      primary: <LogoTile img="/brands/synapse/mark.png" bg="#fff" h={84} />,
       variants: [
-        { label: 'Wordmark', body: <IconImg img="/brands/synapse/logo.svg" bg="#fff" h={30} /> },
-        { label: 'On dark', body: <IconImg img="/brands/synapse/mark.png" bg="#0B0B0D" invert h={64} /> },
-        { label: 'On surface', body: <IconImg img="/brands/synapse/mark.png" bg="#FAF9F5" h={64} /> },
+        { label: 'Mark-only', body: <IconImg img="/brands/synapse/app-mark.png" bg="#fff" h={64} /> },
+        { label: 'On dark', body: <IconImg img="/brands/synapse/mark.png" bg="#0B0B0D" invert h={48} /> },
+        { label: 'On surface', body: <IconImg img="/brands/synapse/mark.png" bg="#FAF9F5" h={48} /> },
       ],
     },
     appIcon: { img: '/brands/synapse/app-mark.png', bg: '#052343', invert: true },

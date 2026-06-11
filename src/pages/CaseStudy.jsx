@@ -52,6 +52,7 @@ export default function CaseStudy() {
             {work.tech}
           </p>
           <p className="case-lede">{work.lede}</p>
+          <hr className="case-divider" />
         </section>
 
         {work.steps.map((step, i) => (

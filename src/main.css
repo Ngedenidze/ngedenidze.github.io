@@ -310,8 +310,8 @@ section:first-of-type {
 }
 
 .role-title {
-    font-size: var(--text-2xl);
-    font-weight: var(--weight-semibold);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-medium);
     color: var(--color-text-primary);
     margin-bottom: var(--space-2);
 }

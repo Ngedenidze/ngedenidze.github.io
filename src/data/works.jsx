@@ -1,6 +1,6 @@
 import {
-  Showcase, Win, Phone, Tablet,
-  Line, Pill, Btn, Brand, MockH, MockLabel, Input, MockBtn, Table, TableRow,
+  Showcase, Win,
+  Line, Pill, MockBtn, Table, TableRow,
 } from '../components/Devices.jsx'
 import { Mockup } from '../components/brandkit.jsx'
 
@@ -36,9 +36,10 @@ export const works = [
       {
         copy: (
           <>
-            <b>One system across four surfaces.</b> POS terminal, mobile app, web
-            dashboard, and supplier portal all run on the same tenant model and
-            live operational data.
+            <b>I led with the POS as the system's heart.</b> The terminal had to
+            survive thumb-speed during peak service, so I designed the tenant
+            model and the core ordering flow from there outward — every other
+            surface had to share its source of truth, not duplicate it.
           </>
         ),
         panel: (
@@ -50,18 +51,6 @@ export const works = [
                 label="POS terminal"
                 alt="WOX point of sale interface"
               />
-              <Mockup
-                device="phone"
-                img="/brands/wox/mobile-app-phone.png"
-                label="Operator mobile app"
-                alt="WOX operator mobile application"
-              />
-              <Mockup
-                device="tablet"
-                img="/brands/wox/vendor-portal-tablet.png"
-                label="Vendor portal"
-                alt="WOX vendor portal on tablet"
-              />
             </div>
           </Showcase>
         ),
@@ -69,19 +58,19 @@ export const works = [
       {
         copy: (
           <>
-            <b>Service, inventory, and purchasing stay in sync.</b> Orders hit the
-            POS, stock moves in real time, and purchasing workflows react from the
-            same source of truth instead of disconnected tools.
+            <b>Next I scoped the operator's mobile.</b> I cut what wasn't load-bearing —
+            cost of goods, low stock, the last order, the team chat — so owners
+            could read the floor without opening a laptop. Deciding what
+            <i> not</i> to put on the home screen was the harder problem.
           </>
         ),
         panel: (
           <Showcase tall>
             <div className="mock-deck">
-              <Mockup
-                device="browser"
-                img="/brands/wox/pos.png"
-                label="Quick order — every tap moves stock in real time"
-                alt="WOX point of sale quick order screen"
+              <img
+                className="case-shot case-shot-phone"
+                src="/brands/wox/wox-mobile.png"
+                alt="WOX operator mobile application"
               />
             </div>
           </Showcase>
@@ -90,9 +79,33 @@ export const works = [
       {
         copy: (
           <>
-            <b>An AI layer grounded in real operations.</b> WOX turns POS,
-            inventory, and purchasing data into answers, reorder suggestions, and
-            action plans that managers can actually use during service.
+            <b>Then I designed the floor view.</b> The tablet table-management
+            surface is built for hosts and servers, not back-office — live
+            status per table, order in progress, who's where. It reads the same
+            tenant data the POS writes, so service, inventory, and purchasing
+            never drift.
+          </>
+        ),
+        panel: (
+          <Showcase tall>
+            <div className="mock-deck">
+              <img
+                className="case-shot case-shot-tablet"
+                src="/brands/wox/wox-ipad.png"
+                alt="WOX tablet table management view"
+              />
+            </div>
+          </Showcase>
+        ),
+      },
+      {
+        copy: (
+          <>
+            <b>Finally I layered the AI on real operational data.</b> Not a
+            chatbot grafted on — a reasoning layer with read access to POS,
+            inventory, and purchasing, so its answers are something a manager
+            can act on mid-service. I owned the prompt design, the data
+            grounding, and the fall-back rules.
           </>
         ),
         panel: (
@@ -103,6 +116,7 @@ export const works = [
                 img="/brands/wox/wox-ai.webp"
                 label="WOX intelligence"
                 alt="WOX AI and operational intelligence section"
+                screenBg="#0A0A0A"
               />
             </div>
           </Showcase>
@@ -118,13 +132,13 @@ export const works = [
     href: 'https://vellinapp.com',
     role: 'CTO, Co-founder & Founding Engineer',
     period: 'November 2025 — Present',
-    tech: 'React · React Native · Next.js · TypeScript · .NET · PostgreSQL · AI',
+    tech: '.NET 8 · PostgreSQL · React 19 · TypeScript · React Native · SignalR · Hangfire · OpenAI',
     title: 'Enterprise back-of-house OS',
     tag: 'web · mobile · ai',
     description:
-      'Building an AI-powered back-of-house operating system for restaurants that unifies inventory, purchasing, vendor collaboration, and analytics. Modular architecture with offline-first counts, auto-generated purchase orders, AI invoice extraction, and real-time COGS visibility.',
+      'Designed and built an AI-powered back-of-house operating system for restaurants — count sessions and par levels, idempotent cart-to-PO purchasing, a supplier-side vendor portal, GPT-4 Vision invoice extraction, and live COGS reporting.',
     lede:
-      'Vellin unifies inventory, purchasing, vendor collaboration, and analytics into one calm operating system — designed to hold up under the pressure of a live kitchen, online or off.',
+      "As CTO and founding engineer I build Vellin end-to-end — a .NET 8 + PostgreSQL backend and a React 19 + TypeScript app, joined by a generated API client, SignalR real-time, and Hangfire background jobs. 133 migrations and 133 integration tests in, and counting.",
     homePanel: (
       <Showcase tall>
         <img
@@ -138,94 +152,122 @@ export const works = [
       {
         copy: (
           <>
-            <b>Counts that work offline.</b> Walk-ins have no signal, so counting is
-            local-first — every tap is instant, and the ledger syncs the moment a
-            connection returns.
+            <b>I started with the model everything else stands on.</b>
+            Organizations and locations first, then items, storages, count
+            sessions, and a stock-movement history that every later feature
+            reads from. The home screen is just the first thing to sit on top —
+            Total COGS, the last order, a Vellin AI insight — scoped to the
+            location you're standing in. Get the ledger wrong and nothing above
+            it can be trusted.
           </>
         ),
         panel: (
           <Showcase tall>
-            <Phone>
-              <Brand color="#157A5B">vellin</Brand>
-              <MockH>Cooler · count</MockH>
-              <Table>
-                {[0, 1, 2, 3].map((i) => (
-                  <TableRow key={i}>
-                    <Line s /><Line m={i % 2 === 0} l={i % 2 === 1} /><Line s /><Line s />
-                  </TableRow>
-                ))}
-              </Table>
-              <MockBtn style={{ background: '#157A5B' }}>Save count</MockBtn>
-            </Phone>
+            <img
+              className="case-shot case-shot-photo"
+              src="/brands/vellin/vellin-mobile.png"
+              alt="Vellin operator home dashboard — Total COGS, last order, and Vellin AI insight"
+            />
           </Showcase>
         ),
       },
       {
         copy: (
           <>
-            <b>Purchase orders, generated.</b> Par levels and live counts turn into
-            vendor-ready POs automatically — the buyer reviews, not retypes.
+            <b>Next I layered purchasing on the ledger.</b> Par levels — min,
+            reorder, target, preferred vendor — watch stock and suggest reorders
+            on a sweep job. A cart checks out into one purchase order per vendor
+            behind an idempotency key, a unique index in PostgreSQL, so a crashed
+            or retried request can't double-order. Orders dispatch over email,
+            WhatsApp, or SMS and move Draft → Sent → Accepted → In Delivery →
+            Delivered. I owned the checkout idempotency and the status state
+            machine.
           </>
         ),
         panel: (
           <Showcase>
-            <Win>
-              <Table>
-                <TableRow head><Line s /><Line m /><Line s /><Line s /></TableRow>
-                {[0, 1, 2, 3].map((i) => (
-                  <TableRow key={i}><Line s /><Line l={i % 2 === 0} m={i % 2 === 1} /><Line s /><Line s /></TableRow>
-                ))}
-              </Table>
-              <div style={{ display: 'flex', gap: 10, marginTop: 18, justifyContent: 'flex-end' }}>
-                <Btn ghost>Edit</Btn>
-                <Btn bg="#157A5B" color="#fff">Send to vendor</Btn>
-              </div>
-            </Win>
+            <div className="mock-deck">
+              <Mockup
+                device="browser"
+                img="/brands/vellin/parts/vellin-PO.png"
+                label="Purchase order detail"
+                alt="Vellin purchase order detail — fulfillment status, line items, and delivery window"
+              />
+            </div>
           </Showcase>
         ),
       },
       {
         copy: (
           <>
-            <b>Invoices read themselves.</b> A photographed invoice is parsed
-            line-by-line — quantities, prices, and pack sizes land structured, ready
-            to reconcile.
+            <b>Then I wired up invoice capture, once there were orders to
+            reconcile against.</b> Uploads land in S3; a Hangfire job turns PDFs
+            into images and parses them with a vision model against a JSON
+            schema, falling back to a looser pass when the strict one fails.
+            Nothing imports unreviewed — vendor, dates, terms, and every line
+            item stay editable until the operator confirms. I designed it so a
+            bad parse degrades to a quick correction, never a wrong import.
           </>
         ),
         panel: (
           <Showcase>
-            <Win>
-              <div className="mock-row" style={{ alignItems: 'stretch' }}>
-                <div style={{ flex: 1, minWidth: 140, background: '#f4f6f9', borderRadius: 8, minHeight: 150, display: 'grid', placeItems: 'center', color: 'var(--ink-faint)', fontSize: '0.72rem' }}>
-                  invoice.jpg
-                </div>
-                <div style={{ flex: 1.3, minWidth: 160, display: 'flex', flexDirection: 'column', gap: 11, justifyContent: 'center' }}>
-                  <div className="mock-tr" style={{ border: 'none', padding: 0 }}><Pill bg="#dff1e8" color="#157A5B">matched</Pill><Line l /><Line s /></div>
-                  <div className="mock-tr" style={{ border: 'none', padding: 0 }}><Pill bg="#dff1e8" color="#157A5B">matched</Pill><Line m /><Line s /></div>
-                  <div className="mock-tr" style={{ border: 'none', padding: 0 }}><Pill bg="#fbeacb" color="#9a6a14">review</Pill><Line l /><Line s /></div>
-                </div>
-              </div>
-            </Win>
+            <div className="mock-deck">
+              <Mockup
+                device="browser"
+                img="/brands/vellin/parts/vellin-invoice.png"
+                label="Review invoice"
+                alt="Vellin invoice review — matched vendor, parsed fields, and editable line items before import"
+              />
+            </div>
           </Showcase>
         ),
       },
       {
         copy: (
           <>
-            <b>Costs you can see.</b> Real-time COGS and price-variance roll up from
-            the same counts and invoices — no spreadsheet, no lag.
+            <b>From that same data, I made COGS a live query.</b> Invoices are
+            the preferred cost basis, receiving records fill the gaps, and
+            delivery timestamps are the last resort — computed per location with
+            period-over-period deltas, no nightly job to wait on. A
+            price-variance report flags where quoted and received prices drift
+            apart. Real-time was a database decision, not a UI one.
           </>
         ),
         panel: (
-          <Showcase tall>
-            <Tablet>
-              <MockH style={{ textAlign: 'left' }}>Food cost · this week</MockH>
-              <div style={{ display: 'flex', gap: 16, alignItems: 'flex-end', height: 120, paddingTop: 10 }}>
-                {[60, 80, 95, 70, 55, 78, 64].map((h, i) => (
-                  <div key={i} style={{ flex: 1, background: i === 2 ? '#E8A13C' : '#157A5B', height: `${h}%`, borderRadius: '5px 5px 0 0' }} />
-                ))}
-              </div>
-            </Tablet>
+          <Showcase>
+            <div className="mock-deck">
+              <Mockup
+                device="browser"
+                img="/brands/vellin/parts/vellin-reports.png"
+                label="Reports"
+                alt="Vellin reports — price variance with total price impact, items tracked, and top invoice price changes"
+              />
+            </div>
+          </Showcase>
+        ),
+      },
+      {
+        copy: (
+          <>
+            <b>Finally I shipped the other side of the marketplace.</b> Suppliers
+            got their own portal — separate auth, a catalog with import batches
+            and price agreements, webhooks pushing order-state changes into their
+            systems, and "catalog gaps": the things restaurants searched for and
+            didn't find, surfaced back as suggestions. SignalR groups keep both
+            sides live, pushing updates to exactly the right org, location, or
+            vendor. I built and own both halves of this two-sided product.
+          </>
+        ),
+        panel: (
+          <Showcase>
+            <div className="mock-deck">
+              <Mockup
+                device="browser"
+                img="/brands/vellin/parts/vellin-supplier-portal.png"
+                label="Vendor portal"
+                alt="Vellin vendor portal — purchase orders with totals, delivery windows, and Gantt timeline"
+              />
+            </div>
           </Showcase>
         ),
       },
@@ -238,14 +280,14 @@ export const works = [
     name: 'Fixify',
     href: 'https://fixify.ge',
     role: 'Co-founder & Founding Engineer',
-    period: 'July 2025 — November 2025',
+    period: 'July 2025 to November 2025',
     tech: 'GraphQL · Prisma · TypeScript · PostgreSQL',
     title: 'Automotive marketplace',
     tag: 'web · mobile · marketplace',
     description:
-      'Co-founded and built an automotive marketplace in Georgia from scratch as Founding Engineer. Scaled to 5,000+ monthly service requests, connecting car owners with a network of 150+ verified mechanics.',
+      'Co-founded and engineered Fixify as Georgia\'s automotive marketplace, defining the driver request flow, mechanic discovery map, verification model, matching logic, and GraphQL/Prisma foundation behind 5,000+ monthly service requests.',
     lede:
-      'Built from scratch in Georgia as founding engineer — a marketplace that scaled to 5,000+ monthly service requests, connecting car owners with a network of 150+ verified mechanics.',
+      'As founding engineer, I turned Fixify into a working mechanic marketplace for Georgia. I defined the driver flow, built the discovery and matching systems, and helped grow the partner network to 150+ verified mechanics handling 5,000+ monthly service requests.',
     homePanel: (
       <Showcase tall>
         <img
@@ -259,45 +301,45 @@ export const works = [
       {
         copy: (
           <>
-            <b>Book a mechanic in minutes.</b> Drivers describe the problem, pick a
-            time, and get matched — no calls, no haggling, no guessing who to trust.
+            <b>I started with discovery and request intent.</b> Drivers needed
+            to move from a map of nearby mechanics to a service request without
+            feeling like they were filling out a form. I shaped the mobile flow
+            around search, filters, shop cards, and a short path from problem
+            to match.
           </>
         ),
         panel: (
           <Showcase tall>
-            <Phone>
-              <Brand color="#2F6DF0">fixify</Brand>
-              <MockH>Request a fix</MockH>
-              <MockLabel>Vehicle</MockLabel>
-              <Input />
-              <MockLabel>What's wrong?</MockLabel>
-              <Input style={{ height: 54 }} />
-              <MockBtn>Find mechanics</MockBtn>
-            </Phone>
+            <div className="mock-deck">
+              <img
+                className="case-shot case-shot-fixify-mobile"
+                src="/brands/fixify/mobile-product-screenshot.png"
+                alt="Fixify mobile marketplace map and mechanic listings"
+              />
+            </div>
           </Showcase>
         ),
       },
       {
         copy: (
           <>
-            <b>A network you can trust.</b> Verified mechanics, transparent ratings,
-            and clear pricing — the matching layer that made the platform scale.
+            <b>Then I built the trust and matching layer.</b> The marketplace
+            only works if the supply side is credible, so I modeled verified
+            mechanics, ratings, shop profiles, distance, categories, and routing
+            logic on top of a GraphQL and Prisma stack. That foundation
+            supported 150+ partners and 5,000+ monthly requests.
           </>
         ),
         panel: (
           <Showcase>
-            <Win>
-              <Table>
-                {['4.9', '4.8', '4.7'].map((r, i) => (
-                  <TableRow key={i}>
-                    <i style={{ width: 24, height: 24, borderRadius: '50%', background: 'var(--showcase-deep)', display: 'block' }} />
-                    <Line l={i !== 1} m={i === 1} />
-                    <Pill>{r} ★</Pill>
-                    <Line s />
-                  </TableRow>
-                ))}
-              </Table>
-            </Win>
+            <div className="mock-deck">
+              <Mockup
+                device="browser"
+                img="/brands/fixify/web-product-screenshot.png"
+                label="Marketplace map view"
+                alt="Fixify web marketplace with mechanic listings and map"
+              />
+            </div>
           </Showcase>
         ),
       },
@@ -439,9 +481,11 @@ export const works = [
       {
         copy: (
           <>
-            <b>Architecture for early ventures.</b> A repeatable foundation — auth,
-            data, and API layers — so each new product ships fast without
-            accumulating debt.
+            <b>I codified the studio's foundation.</b> Auth, data, and API
+            layers as a repeatable starter — each new client product picked it
+            up and shipped in weeks, not months, without accumulating the kind
+            of debt that kills small teams. The architecture is what made the
+            studio sellable.
           </>
         ),
         panel: (
@@ -495,25 +539,23 @@ export const works = [
       {
         copy: (
           <>
-            <b>One portal to run it all.</b> Registration, roles, and activity in a
-            single surface — built on an efficient GraphQL data layer.
+            <b>I designed and built the portal end-to-end.</b> Registration,
+            roles, and activity in one surface, on a Prisma + Apollo GraphQL
+            data layer I tuned for response time. Database calls dropped 30%
+            and the portal felt 50% faster end-to-end — the team kept using
+            the same query patterns after I left.
           </>
         ),
         panel: (
-          <Showcase tall>
-            <Win>
-              <div className="mock-row" style={{ justifyContent: 'flex-start', gap: 10, marginBottom: 18 }}>
-                <Pill bg="#eef1f5" color="var(--ink)">Users</Pill>
-                <Pill bg="transparent" color="var(--ink-faint)">Roles</Pill>
-                <Pill bg="transparent" color="var(--ink-faint)">Activity</Pill>
-              </div>
-              <Table>
-                <TableRow head><Line s /><Line m /><Line s /><Line s /></TableRow>
-                <TableRow><Line s /><Line l /><Pill bg="#dff1e8" color="#157A5B">active</Pill><Line s /></TableRow>
-                <TableRow><Line s /><Line m /><Pill bg="#dff1e8" color="#157A5B">active</Pill><Line s /></TableRow>
-                <TableRow><Line s /><Line l /><Pill bg="#eef1f5" color="var(--ink-faint)">invited</Pill><Line s /></TableRow>
-              </Table>
-            </Win>
+          <Showcase>
+            <div className="mock-deck">
+              <Mockup
+                device="browser"
+                img="/brands/redhawk/product-preview.png"
+                label="Admin portal"
+                alt="Redhawk admin portal — asset table with status and pending actions"
+              />
+            </div>
           </Showcase>
         ),
       },
@@ -548,22 +590,22 @@ export const works = [
       {
         copy: (
           <>
-            <b>Fifteen pages, one system.</b> Reusable, accessible components kept
-            every page consistent — and search-optimized from the markup up.
+            <b>I built the component system the rest of the site was made of.</b>
+            Fifteen-plus pages on one reusable, accessible component set —
+            with SEO structural from the markup up, not bolted on after.
+            Engagement lifted 40% and conversion 25% over the previous build.
           </>
         ),
         panel: (
-          <Showcase tall>
-            <Win>
-              <div className="mock-line l" style={{ height: 18, width: '55%', margin: '0 auto 14px', background: 'var(--showcase-deep)' }} />
-              <div className="mock-line m" style={{ margin: '0 auto 24px' }} />
-              <div className="board cols-3" style={{ gap: 12 }}>
-                {[0, 1, 2].map((i) => (
-                  <div key={i} style={{ background: '#f4f6f9', borderRadius: 8, minHeight: 80 }} />
-                ))}
-              </div>
-              <MockBtn style={{ width: 140, margin: '22px auto 0' }}>Learn more</MockBtn>
-            </Win>
+          <Showcase>
+            <div className="mock-deck">
+              <Mockup
+                device="browser"
+                img="/brands/aerodefense/product-mockup.png"
+                label="AeroDefense site"
+                alt="AeroDefense AirWarden Essentials and Spectrum product pages"
+              />
+            </div>
           </Showcase>
         ),
       },
